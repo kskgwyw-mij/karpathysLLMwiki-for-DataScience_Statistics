@@ -48,6 +48,20 @@ Das ist ein restringiertes Optimierungsproblem ([[restringierte-optimierung]]).
 ## Beispiel ([[q-nb07-local-xai|NB7]])
 Zufallssuche über veränderbare Merkmale des Churn-Modells (4 000 Kandidaten), Auswahl des Kandidaten mit kleinster Distanz, der die Schwelle überschreitet. In [[zwei-erklaerungen-pruefen]] ist der Satz „Wenn Sie mehr Kontakte am Hauptstandort aufgebaut hätten, wären Ihre Chancen sicher besser gewesen" ein kontrafaktisches **Überversprechen** („sicher") und eventuell schlechter Recourse für Teilzeitkräfte an Regionalstandorten.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Kontrafaktuale an einem linearen Score
+> Score $s = -4 + 0{,}002\cdot\text{Einkommen} + 0{,}5\cdot\text{Jahre im Job} - 1{,}5\cdot\text{Zahlungsverzüge}$, Zusage bei $s \ge 0$. Antrag: 1 500 €, 2 Jahre, 1 Verzug ⇒ $s = -4 + 3 + 1 - 1{,}5 = -1{,}5$ → Ablehnung. Fehlende 1,5 Punkte, jeweils nur ein Merkmal geändert:
+>
+> | Änderung | nötig | Bewertung |
+> |---|---|---|
+> | Einkommen | $+1{,}5/0{,}002 = +750$ € | sparsam, handlungsfähig, aber teuer |
+> | Jahre im Job | $+1{,}5/0{,}5 = +3$ Jahre | handlungsfähig nur mit Zeit |
+> | Verzüge | $1 \to 0$ | Vergangenheit, **nicht** handlungsfähig |
+>
+> Ein Kontrafaktual genau auf der Schwelle ($s = 0$) ist nicht robust – besser mit Puffer kommunizieren, z. B. +800 €.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Recourse-Fairness
+> Dasselbe Kontrafaktual „+750 € Monatseinkommen" bedeutet für eine Teilzeitkraft mit 1 500 € eine Steigerung um 50 %, für jemanden mit 5 000 € nur 15 %. Technisch ist es für beide gleich gültig, die **Handlungskosten** sind aber sehr verschieden. Systematisch unterschiedliche Kosten zwischen Gruppen sind nach VL6, F. 11 ein Fairnessproblem, auch wenn das Modell selbst gleiche Fehlerraten hat.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Optimierungsproblem aufschreiben.
 - Fünf Eigenschaften guter Kontrafaktuale.

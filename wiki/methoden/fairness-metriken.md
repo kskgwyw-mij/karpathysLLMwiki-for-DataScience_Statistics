@@ -53,13 +53,25 @@ Notation: $\hat Y$ Modellentscheidung, $Y$ wahres Label, $A$ Gruppenattribut. Au
 **Kernaussagen** (→ VL6, F. 24): Fairness beginnt mit Problemformulierung, Labels und Deployment-Kontext. Gruppenmetriken zeigen Verteilungen von Fehlern und Chancen, lösen die normative Frage aber nicht. Basisraten, Kalibrierung und Fehlerratenparität können mathematisch kollidieren. Eine gute Analyse dokumentiert Metrikwahl, Annahmen, Unsicherheit und Restrisiko.
 
 ## Beispiel
-Gruppe A: TP 40, FN 10, FP 20, TN 130; Gruppe B: TP 15, FN 15, FP 5, TN 65:
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – alle Metriken aus zwei Konfusionsmatrizen
+> Gruppe A: TP 40, FN 10, FP 20, TN 130; Gruppe B: TP 15, FN 15, FP 5, TN 65:
+>
+> | | Basisrate | Auswahlrate | TPR | FPR | PPV |
+> |---|---|---|---|---|---|
+> | A | 0,25 | 0,30 | 0,80 | 0,133 | 0,667 |
+> | B | 0,30 | 0,20 | 0,50 | 0,071 | 0,750 |
+>
+> Keine Metrik ist erfüllt; B hat trotz **höherer** Basisrate die **niedrigere** Auswahlrate und TPR (Equal-Opportunity-Verletzung). Rechenweg: [[fairness-metriken-rechnen]].
 
-| | Basisrate | Auswahlrate | TPR | FPR | PPV |
-|---|---|---|---|---|---|
-| A | 0,25 | 0,30 | 0,80 | 0,133 | 0,667 |
-| B | 0,30 | 0,20 | 0,50 | 0,071 | 0,750 |
-Keine Metrik ist erfüllt; B hat trotz **höherer** Basisrate die **niedrigere** Auswahlrate und TPR (Equal-Opportunity-Verletzung). Rechenweg: [[fairness-metriken-rechnen]].
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – die Kollision in Zahlen
+> Beide Gruppen erfüllen Predictive Parity (PPV = 0,7) **und** Equal Opportunity (TPR = 0,8), die Basisraten sind aber 0,3 bzw. 0,5. Mit $\mathrm{FPR} = \frac{p}{1-p}\cdot\frac{1-\mathrm{PPV}}{\mathrm{PPV}}\cdot\mathrm{TPR}$:
+> - Gruppe 1: $\frac{0{,}3}{0{,}7}\cdot\frac{0{,}3}{0{,}7}\cdot0{,}8 \approx 0{,}147$
+> - Gruppe 2: $\frac{0{,}5}{0{,}5}\cdot\frac{0{,}3}{0{,}7}\cdot0{,}8 \approx 0{,}343$
+>
+> Die FPR unterscheiden sich zwangsläufig um mehr als das Doppelte – Equalized Odds ist **unmöglich**, solange PPV und TPR gleich bleiben (VL6, F. 22).
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Rückfallprognosen in der Justiz
+> In der öffentlichen Debatte um das US-Risikotool COMPAS (2016) zeigte eine Journalistenrecherche, dass Angeklagte einer Gruppe bei gleichem tatsächlichem Verhalten häufiger fälschlich als „hohes Risiko" eingestuft wurden (ungleiche FPR). Der Hersteller hielt dagegen, die Scores seien in beiden Gruppen gleich **kalibriert** bzw. hätten gleichen PPV. Beide Seiten hatten mit ihrer Metrik recht – bei unterschiedlichen Basisraten geht nicht beides (Rechnung oben). Die Frage, welcher Schaden zählt, ist normativ (VL6, F. 23).
 
 ## Typische Prüfungsfragen & Fallstricke
 - Definitionen als bedingte Wahrscheinlichkeiten aufschreiben.

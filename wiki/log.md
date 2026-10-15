@@ -78,3 +78,9 @@
 - Neuer Abschnitt „Beispiel" auf [[erklaerbarkeit-grundlagen]] und [[transparente-modelle]] (fehlte).
 - Abgleich: vorhandene Beispiele stammen alle aus NB5/NB6 (Kursmaterial), keine Umstellung nötig.
 - Alle Zahlen mit Python nachgerechnet.
+
+## [2026-10-15] query | Beispiele: XAI lokal und Fairness (Batch E)
+- Grüne Rechenbeispiele und Anwendungsfälle auf [[lime]], [[shap]], [[kontrafaktische-erklaerungen]], [[grad-cam]], [[fairness-grundlagen]], [[fairness-metriken]], [[fairness-mitigation]].
+- Neuer Abschnitt „Beispiel" auf [[grad-cam]] und [[fairness-mitigation]] (fehlte).
+- Abgleich: Gruppe-A/B-Tabelle in [[fairness-metriken]] war eigenes Material ohne Markierung → `[!beispiel]`; Spalte „Beispiel (eigene Ergänzung)" in [[fairness-grundlagen]] aus der Tabelle in einen grünen Block verschoben.
+- Alle Zahlen mit Python nachgerechnet.

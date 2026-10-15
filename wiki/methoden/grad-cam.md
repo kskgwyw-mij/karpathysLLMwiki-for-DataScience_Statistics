@@ -25,6 +25,15 @@ Klassenspezifische visuelle Erklärung für **faltende neuronale Netze (CNNs)**:
 ## Grenzen (→ VL6, F. 12)
 Grad-CAM erklärt den **Ort der Evidenz** für einen Klassenscore; es **beweist keine Kausalität oder Korrektheit**. Eine Heatmap auf dem „richtigen" Objekt heißt nicht, dass das Modell aus den richtigen Gründen entscheidet – sie kann z. B. auch auf ein Wasserzeichen zeigen (Clever-Hans-Effekt, siehe [[erklaerbarkeit-grundlagen]]).
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Karte aus zwei Feature-Maps
+> Zwei Feature-Maps der letzten Faltungsschicht ($2\times2$), gemittelte Gradienten $\alpha_1 = 0{,}5$, $\alpha_2 = -0{,}25$:
+> $$A^1 = \begin{pmatrix}1&0\\0&0\end{pmatrix},\ A^2 = \begin{pmatrix}0&0\\1&1\end{pmatrix} \;\Rightarrow\; \sum_k\alpha_kA^k = \begin{pmatrix}0{,}5&0\\-0{,}25&-0{,}25\end{pmatrix} \;\xrightarrow{\ \mathrm{ReLU}\ }\; \begin{pmatrix}0{,}5&0\\0&0\end{pmatrix}$$
+> Nur oben links liegt **positive** Evidenz für die Klasse; Bereiche, die gegen die Klasse sprechen, setzt die ReLU auf 0. Danach wird die Karte auf Bildgröße hochskaliert – daher ist sie grob.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Röntgenklassifikator prüfen
+> Ein CNN erkennt Lungenentzündung mit hoher Accuracy. Grad-CAM zeigt bei vielen Bildern die Hitze nicht auf der Lunge, sondern auf einer Beschriftung in der Bildecke, die verrät, aus welcher Klinik (und damit mit welcher Krankheitsrate) das Bild stammt. Die Heatmap beweist nichts, gibt aber den entscheidenden Hinweis für einen Test: Beschriftung abdecken und neu auswerten – fällt die Accuracy stark, lag ein Clever-Hans-Effekt vor.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Für welche Modelle ist Grad-CAM gedacht? → CNNs (modellspezifisch).
 - Welche Schicht? → letzte Faltungsschicht.

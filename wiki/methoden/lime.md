@@ -51,6 +51,18 @@ $$F(x_0) = \arg\min_{g\in G}\ \mathcal L(f, g, \pi_{x_0}) + \Omega(g), \qquad \m
 ## Beispiel ([[q-nb07-local-xai|NB7]])
 Für typischen Fall, Grenzfall und Fehlklassifikation werden je 1 200 Nachbarn erzeugt (numerisch: Normalrauschen mit halber Standardabweichung, auf 1–99-%-Quantile begrenzt; kategorial: mit 75 % Originalwert behalten), mit dem Gradient-Boosting-Modell bewertet und mit gewichteter Ridge-Regression approximiert. Berichtet werden Top-Koeffizienten und lokales R².
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Nachbarschaftsbreite
+> Blackbox $f(x) = x^3$, zu erklären bei $x_0 = 1$; die wahre lokale Steigung ist $f'(1) = 3$. LIME mit drei Stichproben $x_0 - h,\ x_0,\ x_0 + h$ und symmetrischen Kerngewichten passt eine Gerade $g$ an; ihre Steigung ist dann $\frac{f(1+h) - f(1-h)}{2h} = 3 + h^2$:
+>
+> | Breite $h$ | 1 | 0,5 | 0,1 |
+> |---|---|---|---|
+> | Steigung von $g$ | 4 | 3,25 | 3,01 |
+>
+> Eine zu breite Nachbarschaft mischt Krümmung in die „lokale" Erklärung (Lokalität geht verloren, VL6, F. 6). Eine sehr schmale ist genau, aber bei wenigen, verrauschten Stichproben instabil – daher Stabilität über Seeds prüfen.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Beschwerde-Klassifikator
+> Ein Textmodell markiert eine Kundenmail als „Eskalation". LIME erzeugt Varianten der Mail, in denen zufällig Wörter fehlen, lässt das Modell sie bewerten und passt ein lineares Modell auf „Wort vorhanden ja/nein" an. Ergebnis z. B.: „Anwalt" +0,35, „sofort" +0,12, „danke" −0,08. Vor der Weitergabe: lokales R² prüfen (passt $g$ überhaupt?) und mit anderem Seed wiederholen – ändert sich die Rangfolge, ist die Erklärung nicht belastbar.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Sechs Schritte des Algorithmus.
 - Zielfunktion erklären (jedes Symbol).

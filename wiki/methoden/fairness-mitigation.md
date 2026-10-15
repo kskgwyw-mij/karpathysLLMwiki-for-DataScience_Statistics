@@ -48,6 +48,31 @@ Fairness lässt sich nicht einmalig „einschalten". Man muss dokumentieren, wen
 
 Jede Strategie kann eine Fairness-Metrik verbessern und zugleich Kalibrierung, Accuracy oder Interpretierbarkeit verschlechtern. **Mitigation auf Hold-out-Daten validieren und nach dem Deployment überwachen** (→ VL6, F. 29). Dokumentieren: $\lambda$-Werte, Schwellenwerte, Kalibrierungsmethode, ob Gruppeninformation verwendet wurde (→ VL6, F. 31).
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Schwelle anpassen und Nebenwirkungen ablesen
+> Ausgangslage aus [[fairness-metriken#Beispiel]]: Gruppe B (30 Positive, 70 Negative) hat TPR 0,50, Gruppe A 0,80. Senkt man die Schwelle **nur für B**, sodass TP 24, FN 6, FP 12, TN 58:
+>
+> | | TPR | FPR | PPV | Auswahlrate |
+> |---|---|---|---|---|
+> | A (unverändert) | 0,80 | 0,133 | 0,667 | 0,30 |
+> | B vorher | 0,50 | 0,071 | 0,750 | 0,20 |
+> | B nachher | **0,80** | 0,171 | 0,667 | 0,36 |
+>
+> Equal Opportunity ist erreicht. Dafür steigt die FPR von B (mehr Fehleinladungen), die Auswahlraten unterscheiden sich jetzt in die andere Richtung, und eine **gruppenspezifische** Schwelle muss rechtlich geprüft und dokumentiert werden (VL6, F. 28).
+
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Reweighting
+> Gleiche Daten: A 200 Personen (50 positiv), B 100 (30 positiv), gesamt 300, Positivrate $80/300 \approx 0{,}267$. Gewicht je Gruppe-Label-Kombination $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$:
+>
+> | | $y = 1$ | $y = 0$ |
+> |---|---|---|
+> | A | $\frac{(2/3)\cdot0{,}267}{50/300} \approx 1{,}067$ | $\approx 0{,}978$ |
+> | B | $\frac{(1/3)\cdot0{,}267}{30/300} \approx 0{,}889$ | $\approx 1{,}048$ |
+>
+> Nach der Gewichtung ist die Positivrate in **beiden** Gruppen 0,267 – das Modell lernt keinen Zusammenhang mehr zwischen Gruppe und Label. Kombinationen, die seltener vorkommen, als es bei Unabhängigkeit zu erwarten wäre, bekommen Gewicht > 1.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Audit eines Bewerber-Screenings
+> Ein Screening-Modell hat für Frauen und Männer fast gleiche TPR. Die **Schnittmenge** „Frauen über 50" (n = 40 Geeignete) liegt bei TPR 0,55, Bootstrap-Intervall etwa [0,40; 0,70] – breit, aber deutlich unter dem Gesamtwert 0,80. Nach VL6, F. 27: nicht als präzisen Wert berichten, aber als Warnsignal ernst nehmen, Fälle qualitativ prüfen, gezielt mehr Daten sammeln und nach jeder Mitigation erneut messen.
+
 ## Trade-off-Kurven statt Einzelzahlen (→ VL6, F. 32)
 - Leistungs- und Fairness-Metriken über Schwellenwerte, $\lambda$-Werte oder Mitigation-Einstellungen plotten.
 - **Validierungsdaten** zur Auswahl einer Richtlinie, **Testdaten** für das finale Reporting ([[train-val-test-split]]).

@@ -50,6 +50,17 @@ $f(S)$ ist die Vorhersage, wenn nur die Merkmale in $S$ „bekannt" sind. Wie fe
 ## Beispiel ([[q-nb07-local-xai|NB7]])
 `shap.TreeExplainer` auf dem Gradient-Boosting-Churn-Modell; SHAP-Werte auf **Log-Odds-/Rohskala**. Fehlt das Paket, nutzt das Notebook als Lehr-Approximation „ein Merkmal durch Hintergrund-Mittelwert ersetzen" – das ist **nicht** SHAP, weil es nur die Koalition „alle anderen bekannt" betrachtet.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – zwei Merkmale mit Interaktion
+> $p = 2$ ⇒ $w(0) = w(1) = \tfrac12$. Vorhersagen: $f(\varnothing) = 0{,}2$ (Baseline), $f(\{1\}) = 0{,}5$, $f(\{2\}) = 0{,}3$, $f(\{1,2\}) = 0{,}8$.
+> - $\phi_1 = \tfrac12(0{,}5 - 0{,}2) + \tfrac12(0{,}8 - 0{,}3) = 0{,}15 + 0{,}25 = 0{,}4$
+> - $\phi_2 = \tfrac12(0{,}3 - 0{,}2) + \tfrac12(0{,}8 - 0{,}5) = 0{,}05 + 0{,}15 = 0{,}2$
+> - Effizienz: $0{,}4 + 0{,}2 = 0{,}6 = f(\{1,2\}) - f(\varnothing)$ ✓
+>
+> Der Interaktionsanteil $0{,}8 - 0{,}5 - 0{,}3 + 0{,}2 = 0{,}2$ wird je zur Hälfte auf beide Merkmale verteilt. Für drei Merkmale: [[shapley-von-hand]].
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Waterfall für einen Churn-Kunden
+> Baseline (mittlere Vorhersage) auf Log-Odds-Skala $-2{,}0$, also $p \approx 0{,}12$. SHAP-Beiträge: Vertrag monatlich $+1{,}1$, Laufzeit 3 Monate $+0{,}8$, 5 Support-Tickets $+0{,}4$, hohe Nutzung $-0{,}5$ ⇒ $-2{,}0 + 1{,}8 = -0{,}2$, also $p \approx 0{,}45$. Auf der Log-Odds-Skala addieren sich die Beiträge exakt; in Wahrscheinlichkeiten übersetzt sind sie **nicht** additiv. Deshalb die Skala beschriften (VL6, F. 8) und dem Kundenservice nicht „+1,1 = +110 %" kommunizieren.
+
 ## Typische Prüfungsfragen & Fallstricke
 - **Shapley-Werte für ein kleines Spiel von Hand berechnen** ([[shapley-von-hand]]).
 - Gewichtsformel $w(k)$ erklären.

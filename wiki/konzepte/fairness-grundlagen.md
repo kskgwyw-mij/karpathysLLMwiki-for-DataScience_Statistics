@@ -24,13 +24,20 @@ Fairness-Analyse fragt, ob **Fehler, Vorteile und Belastungen** eines Modells ak
 **Leitfragen** (→ VL6, F. 15): Welche Arten von Schaden können ML-Systeme erzeugen? Welche Gruppen-Fairness-Metrik passt zu welchem Entscheidungsproblem? Warum können Fairness-Metriken selbst bei einem kalibrierten Modell kollidieren?
 
 ## Arten algorithmischen Schadens (→ VL6, F. 17)
-| Schadensart | Beschreibung | Beispiel (eigene Ergänzung) |
-|---|---|---|
-| **Allokation** | Ressourcen, Chancen oder Dienstleistungen ungleich verteilt | Kredit, Stelle, Förderprogramm |
-| **Quality of Service** | System funktioniert für eine Gruppe schlechter | Spracherkennung für Dialekte |
-| **Repräsentation** | Gruppen stereotypisiert, ausgelöscht oder falsch dargestellt | Bildsuche, Textgenerierung |
-| **Prozedural** | Betroffene können Entscheidungen nicht verstehen, anfechten oder korrigieren | Blackbox-Ablehnung ohne Begründung |
-| **Feedback** | Entscheidungen verändern zukünftige Daten und verstärken Ungleichheit | Wer nie einen Kredit bekommt, erzeugt keine Rückzahlungsdaten |
+| Schadensart | Beschreibung |
+|---|---|
+| **Allokation** | Ressourcen, Chancen oder Dienstleistungen ungleich verteilt |
+| **Quality of Service** | System funktioniert für eine Gruppe schlechter |
+| **Repräsentation** | Gruppen stereotypisiert, ausgelöscht oder falsch dargestellt |
+| **Prozedural** | Betroffene können Entscheidungen nicht verstehen, anfechten oder korrigieren |
+| **Feedback** | Entscheidungen verändern zukünftige Daten und verstärken Ungleichheit |
+
+> [!beispiel] Anwendungsfälle (nicht aus der VL) – je Schadensart
+> - **Allokation:** Kreditvergabe, Stellenauswahl, Zugang zu Förderprogrammen.
+> - **Quality of Service:** Spracherkennung versteht Dialekte oder Akzente schlechter.
+> - **Repräsentation:** Bildsuche nach „Führungskraft" zeigt fast nur eine Gruppe; Textgenerierung reproduziert Stereotype.
+> - **Prozedural:** Blackbox-Ablehnung ohne Begründung und ohne Weg zum Widerspruch.
+> - **Feedback:** Wer nie einen Kredit bekommt, erzeugt keine Rückzahlungsdaten. Oder: Mehr Polizeistreifen in einem Viertel → mehr registrierte Delikte dort → das Modell schickt noch mehr Streifen hin.
 
 ## Geschützte Attribute und Proxys (→ VL6, F. 18)
 - Geschützte Attribute hängen vom **rechtlichen und institutionellen Kontext** ab, z. B. Geschlecht, Alter, Behinderung, Ethnizität, Religion, Migrationshintergrund.
@@ -38,6 +45,13 @@ Fairness-Analyse fragt, ob **Fehler, Vorteile und Belastungen** eines Modells ak
 - Häufige Proxys: Postleitzahl, Sprache, Schule, Berufshistorie, Gerätetyp, Verhaltensspuren.
 - **„Fairness durch Nichtbeachtung"** scheitert meist, wenn korrelierte Variablen die Gruppenzugehörigkeit rekonstruieren.
 - Audits müssen klären, welche Attribute für die Fairness-Evaluation gemessen werden **dürfen oder müssen** – ohne das Attribut kann man Gruppenmetriken gar nicht berechnen.
+
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – „Fairness durch Nichtbeachtung" scheitert
+> Ein Kreditmodell kennt die Gruppe nicht, nur die Region. In Region Nord leben 800 Antragsteller aus Gruppe G und 200 aus H, in Süd 200 aus G und 800 aus H. Das Modell genehmigt in Nord 60 %, in Süd 30 %.
+> - Zusagequote G: $(0{,}6\cdot800 + 0{,}3\cdot200)/1000 = 0{,}54$
+> - Zusagequote H: $(0{,}6\cdot200 + 0{,}3\cdot800)/1000 = 0{,}36$
+>
+> 18 Prozentpunkte Unterschied in der Auswahlrate ([[fairness-metriken|Demographic Parity]]), obwohl das geschützte Attribut gar nicht im Modell ist – die Region wirkt als **Proxy**. Messen lässt sich das nur, wenn die Gruppenzugehörigkeit für das Audit erhoben wird.
 
 ## Beispiele aus den Unterlagen
 - [[q-nb05-tree-exam-grade|NB5]]: Der Baum splittet früh nach `cohort` (BB/VZ); `work_hours_week`, `commute_minutes` und die Selbstauskunft `exam_anxiety_self_report` sind mögliche Proxy- bzw. sensible Merkmale.
