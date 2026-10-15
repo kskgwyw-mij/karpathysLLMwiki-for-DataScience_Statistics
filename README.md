@@ -65,3 +65,44 @@ Vorlesungsfolien, Übungsblätter und Altklausuren unterliegen dem Urheberrecht 
 ## Lizenz
 
 MIT für die eigenen Inhalte, siehe [LICENSE](LICENSE).
+
+## Das Konzept: LLM-Wiki
+
+Die Idee stammt von [Andrej Karpathy](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). Der übliche Weg, ein LLM mit eigenen Unterlagen zu nutzen, ist RAG: Bei jeder Frage sucht das Modell passende Stellen in den Rohdokumenten und setzt daraus eine Antwort zusammen. Das Wissen wird jedes Mal neu aufbereitet und verschwindet danach im Chatverlauf.
+
+Ein LLM-Wiki dreht das um. Der Agent liest jede Quelle **einmal** gründlich und kompiliert sie in ein dauerhaftes, querverlinktes Markdown-Wiki. Fragen, Quiz-Ergebnisse und neue Quellen ergänzen dieses Wiki, statt verloren zu gehen. Das Wissen sammelt sich an.
+
+```mermaid
+flowchart LR
+    R[("raw/ · Rohquellen<br/>Folien · Übungen<br/>Altklausuren<br/>nur lokal")]
+    S["AGENTS.md<br/>Schema: Regeln<br/>und Abläufe"]
+    A(("LLM-Agent<br/>Claude Code<br/>Codex"))
+    W["wiki/ · Wissen<br/>Konzepte · Methoden<br/>Aufgaben · Formeln<br/>index · log"]
+    J(("Jan<br/>in Obsidian"))
+
+    R -->|"1 · ingest"| A
+    S -.->|"steuert"| A
+    A -->|"2 · kompiliert<br/>und pflegt"| W
+    W -->|"3 · lernen"| J
+    J -->|"4 · Frage, quiz, lint"| A
+```
+
+Der Kreislauf: Quellen werden einmal eingelesen (1) und ins Wiki kompiliert (2). Jan lernt im Wiki (3) und stellt Fragen oder lässt sich abfragen (4). Der Agent liest dafür zuerst `index.md`, antwortet aus dem Wiki und legt gute Antworten und Quiz-Ergebnisse wieder dort ab. So wird das Wiki mit jeder Runde vollständiger.
+
+**Drei Schichten**
+
+| Schicht | Inhalt | Wer schreibt |
+|---|---|---|
+| `raw/` | Rohquellen: Folien, Übungen, Altklausuren. Unveränderlich, nur lokal. | Jan legt ab, der Agent liest nur |
+| `wiki/` | Kompiliertes Wissen: Seiten mit Belegen, Formelsammlung, Index, Log | nur der Agent |
+| `AGENTS.md` | Schema: Seitenformat, Konventionen, Abläufe | Jan und Agent gemeinsam |
+
+**RAG und LLM-Wiki im Vergleich**
+
+| | RAG | LLM-Wiki |
+|---|---|---|
+| Wann wird Wissen aufbereitet? | bei jeder Frage neu | einmal beim Ingest, danach gepflegt |
+| Wo landet eine gute Antwort? | im Chatverlauf | als Seite im Wiki |
+| Widersprüche zwischen Quellen | fallen kaum auf | werden beim Ingest und Lint markiert |
+| Nachprüfbarkeit | schwer | jede Aussage mit Quelle und Folie belegt |
+| Für Menschen lesbar | kaum | ja, in Obsidian mit Links und Graph |

@@ -34,3 +34,7 @@
 ## [2026-10-15] setup | README: Lernablauf
 - README: neuer Abschnitt „Lernen“ (Lernsitzung in Obsidian → `quiz <thema>` im Terminal, tägliche Karteikarten), Verweis auf Lernplan in [[overview]].
 - README „Einrichtung“: Obsidian Git nicht nötig, der Agent committet und pusht selbst.
+
+## [2026-10-15] setup | README: Konzept LLM-Wiki
+- README: neuer Abschnitt „Das Konzept: LLM-Wiki“ am Ende – Idee nach Karpathy, Mermaid-Diagramm des Kreislaufs (ingest → kompilieren → lernen → Frage/quiz/lint), Tabellen „Drei Schichten“ und „RAG und LLM-Wiki im Vergleich“.
+- Diagramm vorab mit mermaid-cli gerendert und geprüft.
