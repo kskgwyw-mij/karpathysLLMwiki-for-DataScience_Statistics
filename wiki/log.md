@@ -25,3 +25,8 @@
 - `.gitignore`: `.obsidian/plugins/` komplett ausgeschlossen (Plugin-Code nicht ins Repo); `community-plugins.json` wird versioniert.
 - 20 Rohdateien aus der Ingest-Kopie (`~/repos/…/raw/`) nach `raw/` auf dem Stick kopiert; Namen wie in [[index]].
 - Weiterhin offen: Prüfungsrelevanz Kapitel 5–6, Altklausuren (Jan fragt nach), Termin 03.07. vs. 13.11.
+
+## [2026-10-15] setup | Klausurtermin bestätigt
+- Jan: 13.11.2026, 11:00 ist der aktuelle Termin; der 03.07. aus VL1 F. 12 ist überholt.
+- [[overview]] (Termin, Dauer, offene Fragen) und [[q-vl01-glm-basisfunktionen-splines]] angepasst.
+- Offen bleibt nur die Dauer am 13.11.

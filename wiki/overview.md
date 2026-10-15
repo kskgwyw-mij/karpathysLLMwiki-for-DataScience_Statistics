@@ -8,10 +8,10 @@ aktualisiert: 2026-10-15
 
 | | |
 |---|---|
-| **Termin** | Fr, 13.11.2026, 11:00 Uhr (laut Jan) |
+| **Termin** | Fr, 13.11.2026, 11:00 Uhr – aktueller Termin (Jan, 15.10.); der 03.07. aus [[q-vl01-glm-basisfunktionen-splines\|VL1]], F. 12, ist überholt |
 | **Modul** | Statistical Learning 2 / Statistisches Lernen 2, M.Eng. Intelligent Analytics & Data Science (berufsbegleitend), FH Kufstein Tirol; Dozent Johannes Schwab, PhD |
 | **Format** | **Papier-und-Stift-Prüfung ohne Hilfsmittel** (→ [[q-vl01-glm-basisfunktionen-splines\|VL1]], F. 10) |
-| **Dauer** | laut Terminplan der VL 2 Stunden (12:00–14:00 am 03.07.) – für den 13.11. unbestätigt |
+| **Dauer** | für den alten Termin 03.07. laut Terminplan der VL 2 Stunden (12:00–14:00) – für den 13.11. unbestätigt |
 | **Gewichtung** | Prüfung **75 %** der Gesamtnote; **> 60 %** in der Prüfung nötig zum Bestehen; die übrigen 25 % (Mitarbeit, Aufgaben) können **nur verbessern** |
 | **Wichtigste Quelle** | [[q-vl00-essentiell\|Folienauswahl „essentiell"]] – „eine gute Note ist möglich, wenn diese Folien gut verstanden sind"; einzelne Teilaufgaben können zusätzliches VL-Wissen brauchen |
 
@@ -46,5 +46,5 @@ Fortschritt und Countdown: [[dashboard]] · Alle Formeln: [[formelsammlung]] · 
 
 ## Offene Fragen an Jan
 - **Prüfungsrelevanz von Kapitel 5–6:** Probabilistische Sicht, XAI und Fairness fehlen in der Auswahl „essentiell". Kommen sie in der Klausur vor? Je nach Antwort stufe ich sie auf `hoch` hoch oder auf `niedrig` herunter.
-- **Termin:** Die VL nennt den 03.07. als Prüfungstermin. Ist der 13.11. ein Zweittermin mit gleichem Umfang und gleicher Dauer?
+- **Dauer am 13.11.:** Die VL nannte für den alten Termin 03.07. zwei Stunden. Gilt das auch am 13.11.?
 - **Altklausuren/Probeklausur:** Gibt es welche? Dann kommen sie nach `raw/altklausuren/`, und die Quizfragen orientieren sich an ihrem Stil.

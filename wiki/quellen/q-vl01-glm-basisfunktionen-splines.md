@@ -38,8 +38,8 @@ Organisatorischer Einstieg (Dozent, Prüfungsmodus, Literatur, Terminplan, Kapit
 
 ## Widersprüche / Abweichungen zu anderen Quellen
 - Gauß-RBF auf Folie 27 mit Nenner $(2\sigma)^2$; üblich ist $2\sigma^2$. Siehe Notation-Callout in [[basisfunktionen-regression]].
-- Folie 12 nennt als Klausurtermin Fr, 03.07., 12:00–14:00. Jan hat den **13.11.2026, 11:00** genannt (vermutlich anderer Termin/Kohorte) → offene Frage in [[overview]].
+- Folie 12 nennt als Klausurtermin Fr, 03.07., 12:00–14:00. Aktueller Termin ist laut Jan (15.10.) der **13.11.2026, 11:00**; der 03.07. ist überholt. Ob die Dauer von 2 Stunden gleich bleibt, ist offen → [[overview]].
 - Indexierung: Folie 21 verwendet $K$ Beobachtungen und $n$ Merkmale, Folie 42 dagegen $n$ Beobachtungen und $p$ Basisfunktionen.
 
 ## Offene Fragen
-- Ist der Klausurtermin 13.11. ein Zweittermin mit gleichem Stoffumfang?
+- Dauer der Klausur am 13.11. (2 Stunden wie am 03.07.?)
