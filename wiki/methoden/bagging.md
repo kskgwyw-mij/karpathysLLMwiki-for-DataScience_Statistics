@@ -31,6 +31,21 @@ mit $\hat f^{*b}$ trainiert auf der $b$-ten Bootstrap-Stichprobe.
 ## Beispiel
 Random Forest als guter Default bei mittlerer Datenmenge (→ VL0, F. 23). Dropout lässt sich ebenfalls als Ensemble mit geteilten Parametern deuten ([[dropout]]). Out-of-Bag-Beobachtungen jedes Modells liefern eine eingebaute Fehlerschätzung ([[bootstrap]]).
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Varianz und Mehrheitsvotum
+> Mit $\mathrm{Var}\big(\frac1B\sum\hat f^{*b}\big) = \rho\sigma^2 + \frac{1-\rho}{B}\sigma^2$ und $\sigma^2 = 4$:
+>
+> | $\rho$ | $B = 10$ | $B = 100$ | $B \to \infty$ |
+> |---|---|---|---|
+> | 0,5 (Bagging) | 2,2 | 2,02 | 2 |
+> | 0,1 (dekorreliert, Random Forest) | 0,76 | 0,436 | 0,4 |
+>
+> Mehr Bäume helfen nur bis zur Grenze $\rho\sigma^2$; weiter kommt man nur über kleinere Korrelation.
+>
+> **Mehrheitsvotum:** Drei unabhängige Klassifikatoren mit je 70 % Accuracy liegen mehrheitlich richtig mit $0{,}7^3 + 3\cdot0{,}7^2\cdot0{,}3 = 0{,}343 + 0{,}441 = 0{,}784$. Unabhängigkeit ist idealisiert – korrelierte Bäume gewinnen weniger.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Hauspreise mit Random Forest
+> Ein einzelner tiefer Entscheidungsbaum auf 5 000 Verkäufen ändert seine Splits stark, wenn man einige Häuser austauscht (hohe Varianz). Ein Random Forest mit 500 Bäumen auf Bootstrap-Stichproben und zufälliger Merkmalsauswahl je Split liefert stabile Vorhersagen. Der **OOB-Fehler** (jedes Haus wird nur von den ca. 37 % Bäumen vorhergesagt, die es nicht gesehen haben) dient als eingebaute Validierung – ohne separaten Hold-out.
+
 ## Typische Prüfungsfragen & Fallstricke
 - „Wie funktioniert Bagging und welchen Fehlerterm reduziert es?" → Bootstrap + Aggregation; Varianz.
 - Fallstrick: Bagging mit Boosting verwechseln – Boosting trainiert **sequentiell** auf den Fehlern der Vorgänger (siehe Kurzpräsentation in [[q-modellauswahl-abgaben]]) und reduziert vor allem den Bias.

@@ -58,15 +58,20 @@ für t = 0, 1, 2, …:
 > Bei konstantem Gradienten $g$ wächst $v$ auf $g/(1-\beta)$; mit $\beta = 0{,}9$ ist die effektive Schrittweite also bis zu **10-mal** so groß wie ohne Momentum.
 
 ## Beispiel
-$f(\theta) = \theta^2$, $\theta_0 = 2$, $\eta = 0{,}1$, $\beta = 0{,}9$:
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Momentum und Nesterov an $f(\theta) = \theta^2$
+> $\theta_0 = 2$, $\eta = 0{,}1$, $\beta = 0{,}9$, $v_0 = 0$:
+>
+> | $t$ | Momentum $g_t$ | $v_{t+1}$ | $\theta_{t+1}$ | Nesterov $g_t$ (am Look-ahead) | $v_{t+1}$ | $\theta_{t+1}$ |
+> |---|---|---|---|---|---|---|
+> | 0 | 4 | 4 | 1,6 | 4 | 4 | 1,6 |
+> | 1 | 3,2 | 6,8 | 0,92 | 2,48 | 6,08 | 0,992 |
+> | 2 | 1,84 | 7,96 | 0,124 | 0,890 | 6,362 | 0,356 |
+> | 3 | 0,248 | 7,412 | **−0,617** | −0,433 | 5,292 | **−0,173** |
+>
+> Momentum schießt über das Minimum hinaus. Nesterov sieht am Look-ahead-Punkt $y_t = \theta_t - \eta\beta v_t$ (z. B. $y_1 = 1{,}6 - 0{,}36 = 1{,}24$) den kleineren Gradienten früher und bremst – das Überschießen ist deutlich kleiner. Auf diesem 1D-Problem ist Momentum nicht schneller als GD; sein Vorteil liegt in schlecht konditionierten, mehrdimensionalen Tälern. Rechenweg: [[gradientenabstieg-von-hand]].
 
-| $t$ | $g_t$ | $v_{t+1}$ | $\theta_{t+1}$ |
-|---|---|---|---|
-| 0 | 4 | 4 | 1,6 |
-| 1 | 3,2 | 6,8 | 0,92 |
-| 2 | 1,84 | 7,96 | 0,124 |
-| 3 | 0,248 | 7,412 | −0,617 |
-Der Schwung trägt über das Minimum hinaus (Überschießen) – auf einem einfachen 1D-Problem ist Momentum nicht schneller, sein Vorteil liegt in schlecht konditionierten, mehrdimensionalen Tälern. Rechenweg: [[gradientenabstieg-von-hand]].
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Training von Bildklassifikatoren
+> Faltungsnetze für Bilder werden klassisch mit SGD + Momentum $\beta = 0{,}9$ und Lernraten-Decay trainiert. Die Verlustlandschaft hat steile Wände in manchen Richtungen und flache Böden in anderen: Ohne Momentum springt das Update zwischen den Wänden hin und her, mit Momentum heben sich die wechselnden Komponenten im Mittel auf, und die konsistente Richtung entlang des Talbodens wird bis zu $1/(1-\beta) = 10$-fach verstärkt.
 
 ## Typische Prüfungsfragen & Fallstricke
 - Momentum-Update aufschreiben und die Rolle von $\beta$ erklären.

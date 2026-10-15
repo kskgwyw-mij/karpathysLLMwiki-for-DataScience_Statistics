@@ -71,6 +71,23 @@ für t = 1, 2, …:
 - **speichereffizient** (weniger Zustände als Adam)
 - grobe Update-Richtungen, funktionieren aber teils gut in großen Netzen; Performance empirisch und abhängig von Architektur, Daten und Tuning
 
+## Beispiel
+AdaGrad-Schritte bei unterschiedlich großen Gradienten und der erste Adam-Schritt: [[adam-adagrad-erster-schritt]].
+
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Adam glättet einen Vorzeichenwechsel
+> Defaults $\alpha = 0{,}001$, $\beta_1 = 0{,}9$, $\beta_2 = 0{,}999$; Gradienten $g_1 = 1$, $g_2 = -1$ (verrauschte Richtung):
+>
+> | $t$ | $m_t$ | $v_t$ | $\hat m_t$ | $\hat v_t$ | $\Delta\theta_t$ |
+> |---|---|---|---|---|---|
+> | 1 | 0,1 | 0,001 | 1 | 1 | $-0{,}001$ |
+> | 2 | $0{,}09 - 0{,}1 = -0{,}01$ | 0,001999 | $-0{,}01/0{,}19 \approx -0{,}053$ | 1 | $+0{,}00005$ |
+>
+> Plain SGD würde im zweiten Schritt voll zurückspringen. Bei Adam hebt das erste Moment die beiden Gradienten fast auf – der zweite Schritt ist 20-mal kleiner. Das ist der Momentum-Anteil von Adam.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Textmodelle
+> - **Bag-of-Words-Klassifikator** für Support-Tickets mit 50 000 Wortmerkmalen: Seltene, aber aussagekräftige Wörter („Kündigung") tauchen nur in wenigen Batches auf. AdaGrad gibt ihnen eine vergleichsweise große Lernrate, häufige Wörter („bitte") werden schnell gebremst.
+> - **Fine-Tuning eines Transformers:** AdamW mit kleiner Lernrate (Größenordnung $10^{-5}$), Weight Decay separat vom adaptiven Schritt und Warm-up – der robuste Standard für neuronale Netze (VL4, F. 51).
+
 ## Vergleich (→ VL0, F. 90)
 | Methode | Hauptzustand | Stärke | Typische Vorsicht |
 |---|---|---|---|

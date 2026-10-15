@@ -36,6 +36,18 @@ In einer Landschaft mit vielen Tälern landet man je nach Startpunkt in einem an
 > [!ergaenzung] Ergänzung (nicht aus der VL)
 > Xavier: $\mathrm{Var}(w) = 2/(n_\text{in} + n_\text{out})$; He: $\mathrm{Var}(w) = 2/n_\text{in}$. In [[q-nb02-mnist-regularization|NB2]] nutzt `ExplicitLinear` `kaiming_uniform_` (He). Ein Netz komplett mit Nullen zu initialisieren ist schlecht: Alle Neuronen einer Schicht bekommen dieselben Gradienten (Symmetrie wird nie gebrochen).
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Skalen der Startgewichte
+> Voraussetzung: standardisierte Inputs ($\mathrm{Var}(x) = 1$). Für $z = \sum_{i=1}^{n_\text{in}} w_ix_i$ gilt näherungsweise $\mathrm{Var}(z) = n_\text{in}\,\mathrm{Var}(w)$.
+> - **Naiv** $w \sim \mathcal N(0, 1)$, Schicht 784 → 256: $\mathrm{Var}(z) = 784$, Standardabweichung ≈ 28 – tanh/Sigmoid sind sofort gesättigt, Gradienten ≈ 0.
+> - **He** (ReLU): $\mathrm{Var}(w) = 2/784 \approx 0{,}00255$, Std ≈ 0,051; als Gleichverteilung mit Grenze $\sqrt{6/784} \approx 0{,}087$.
+> - **Xavier** (tanh), Schicht 256 → 128: $\mathrm{Var}(w) = 2/(256 + 128) \approx 0{,}0052$, Std ≈ 0,072.
+>
+> Mit diesen Skalen bleibt die Varianz der Aktivierungen über die Schichten ungefähr konstant.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Röntgenbilder mit Transfer Learning
+> Ein Krankenhaus hat 2 000 gelabelte Röntgenbilder. Von Null initialisiert überanpasst ein großes CNN sofort. Stattdessen: auf ImageNet vortrainierte Gewichte laden, die frühen Schichten (Kanten, Texturen) einfrieren, die letzte Schicht für die neuen Klassen **neu initialisieren** und nur die oberen Schichten finetunen (VL4, F. 66–67). Für den Vergleich zweier Varianten mehrere Seeds verwenden – Unterschiede von 0,3 Prozentpunkten liegen oft im Seed-Rauschen.
+
 ## Checkliste (→ VL4, F. 67)
 - Random Seeds setzen und berichten, wenn Reproduzierbarkeit zählt
 - mehrere Seeds bei kleinen Datensätzen oder instabilen Modellen

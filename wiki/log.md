@@ -66,3 +66,9 @@
 - Neuer Abschnitt „Beispiel" auf [[output-regularisierung]] und [[train-val-test-split]] (fehlte).
 - Abgleich: λ-Tabelle in [[ridge-regression]] war eigene Rechnung ohne Markierung → `[!beispiel]`. NB2-/NB4-Beispiele sind Kursmaterial.
 - Alle Zahlen mit Python nachgerechnet.
+
+## [2026-10-15] query | Beispiele: Resampling und Optimierung (Batch C)
+- Grüne Rechenbeispiele und Anwendungsfälle auf [[bootstrap]], [[bagging]], [[optimierung-grundlagen]], [[gradientenabstieg]], [[sgd]], [[momentum-und-nesterov]], [[adaptive-optimierer]], [[newton-und-quasi-newton]], [[restringierte-optimierung]], [[initialisierung]].
+- Neuer Abschnitt „Beispiel" auf sechs Seiten, wo er fehlte (bootstrap, optimierung-grundlagen, sgd, adaptive-optimierer, restringierte-optimierung, initialisierung).
+- Abgleich: θ²-Tabellen in [[gradientenabstieg]] und [[momentum-und-nesterov]] sowie das Newton-Beispiel waren eigene Rechnungen ohne Markierung → `[!beispiel]`. Momentum-Tabelle um Nesterov-Spalten erweitert.
+- Alle Zahlen mit Python nachgerechnet.

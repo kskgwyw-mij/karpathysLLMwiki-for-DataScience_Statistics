@@ -71,7 +71,21 @@ Das BFGS-Update ist so konstruiert, dass es unter Standard-Krümmungsbedingungen
 | braucht Lernraten-Tuning und oft viele Iterationen | attraktiv für kleinere glatte Probleme oder „final polishing" |
 
 ## Beispiel
-$f(\theta) = (\theta_1 - 1)^2 + 10(\theta_2 + 2)^2$, Start $(0,0)$: $\nabla f = (-2;\ 40)$, $H = \mathrm{diag}(2, 20)$, $\theta_1 = (0,0) - H^{-1}\nabla f = (1;\,-2)$ – das exakte Minimum nach **einem** Schritt. GD mit $\eta = 0{,}05$ braucht für $\theta_1$ dagegen viele Schritte (Faktor 0,9 pro Schritt). Rechenweg: [[gradientenabstieg-von-hand]].
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – quadratische Funktion in einem Schritt
+> $f(\theta) = (\theta_1 - 1)^2 + 10(\theta_2 + 2)^2$, Start $(0,0)$: $\nabla f = (-2;\ 40)$, $H = \mathrm{diag}(2, 20)$, $\theta_1 = (0,0) - H^{-1}\nabla f = (1;\,-2)$ – das exakte Minimum nach **einem** Schritt. GD mit $\eta = 0{,}05$ braucht für $\theta_1$ dagegen viele Schritte (Faktor 0,9 pro Schritt). Rechenweg: [[gradientenabstieg-von-hand]].
+
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – quadratische Konvergenz
+> $f(\theta) = e^\theta - 2\theta$, Minimum bei $\ln 2 \approx 0{,}693147$. Mit $f'(\theta) = e^\theta - 2$, $f''(\theta) = e^\theta$ lautet der Newton-Schritt $\theta_{t+1} = \theta_t - (e^{\theta_t} - 2)/e^{\theta_t}$:
+>
+> | $t$ | 0 | 1 | 2 | 3 | 4 |
+> |---|---|---|---|---|---|
+> | $\theta_t$ | 0 | 1 | 0,735759 | 0,694042 | 0,693148 |
+> | Fehler | 0,69 | 0,31 | 0,043 | 0,0009 | $4\cdot10^{-7}$ |
+>
+> Nahe am Optimum **verdoppelt** sich die Zahl der korrekten Stellen pro Schritt ungefähr. Bei einer nicht quadratischen Funktion braucht Newton also mehrere Schritte, aber sehr wenige.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – logistische Regression in Statistik-Software
+> Für logistische Regression mit einigen Dutzend Merkmalen ist die Hesse-Matrix klein. R (`glm`) fittet sie mit IRLS, einer Newton-Variante, und ist meist nach 4–8 Iterationen fertig. scikit-learn nutzt standardmäßig L-BFGS (Quasi-Newton). Für ein neuronales Netz mit Millionen Parametern wäre $H$ nicht einmal speicherbar – dort bleibt man bei Verfahren erster Ordnung (VL0, F. 94).
 
 ## Typische Prüfungsfragen & Fallstricke
 - Newton-Update aufschreiben (mit $\theta_t$!).

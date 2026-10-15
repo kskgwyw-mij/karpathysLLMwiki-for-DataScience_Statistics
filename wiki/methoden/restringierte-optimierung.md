@@ -65,6 +65,18 @@ Nichtnegativität (Koeffizienten, Matrixfaktoren ≥ 0); Simplex (Wahrscheinlich
 | SQP | Folge quadratischer Approximationen | nichtlinear restringiert mit genauen Ableitungen |
 | ADMM | Aufteilung in einfachere Teilprobleme mit Konsens-Updates | groß, verteilt, strukturiert |
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – projizierter Gradient und KKT
+> $f(\theta) = (\theta_1 - 3)^2 + (\theta_2 + 1)^2$ auf der Box $C = [0, 2]\times[0, 2]$, Start $(1, 1)$, $\eta = 0{,}25$.
+> - Schritt 1: $\nabla f = (-4;\ 4)$, $y = (2;\ 0)$ liegt in $C$ ⇒ $\theta_1 = (2, 0)$.
+> - Schritt 2: $\nabla f = (-2;\ 2)$, $y = (2{,}5;\ -0{,}5)$ ⇒ $\Pi_C(y) = (2;\ 0)$ (clip) – Fixpunkt.
+>
+> Das unrestringierte Minimum $(3, -1)$ ist unzulässig; das Optimum $(2, 0)$ liegt **auf dem Rand** (in der Ecke). **KKT-Check:** aktiv sind $g_1 = \theta_1 - 2 \le 0$ und $g_2 = -\theta_2 \le 0$. Stationarität $\nabla f + \lambda_1(1, 0) + \lambda_2(0, -1) = 0$ mit $\nabla f = (-2, 2)$ ergibt $\lambda_1 = 2 \ge 0$, $\lambda_2 = 2 \ge 0$ ✓; die inaktiven Schranken $\theta_1 \ge 0$, $\theta_2 \le 2$ haben $\lambda = 0$ (komplementärer Schlupf).
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Portfolio und Monotonie
+> - **Portfolio:** Gewichte $w_i \ge 0$, $\sum w_i = 1$ (Simplex aus VL4, F. 77), minimiere Risiko $w^T\Sigma w$ bei Mindestrendite. Nach jedem Gradientenschritt auf den Simplex projizieren.
+> - **Kreditscoring mit Monotonie:** Ein höheres Einkommen darf das vorhergesagte Ausfallrisiko nie erhöhen – aus Fairness- und Erklärbarkeitsgründen. Gradient-Boosting-Bibliotheken bieten dafür Monotonie-Nebenbedingungen pro Merkmal.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Projizierten Gradienten erklären und eine Projektion angeben (Box, Kugel).
 - „Was ist der proximale Operator für L1?" → Soft-Thresholding.

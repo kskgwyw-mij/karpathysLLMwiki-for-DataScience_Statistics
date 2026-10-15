@@ -66,6 +66,23 @@ OOB-Evaluation ist bequem, für die **Modellauswahl wird aber oft Cross-Validati
 ## Annahmen & Voraussetzungen
 - Beobachtungen i. i. d.; bei Zeitreihen oder gruppierten Daten Block- bzw. Gruppen-Bootstrap (Datenstruktur respektieren).
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Bootstrap von Hand
+> Daten $D = (2, 4, 9)$, Statistik = Mittelwert ($\bar x = 5$). Fünf Bootstrap-Stichproben (je 3 Züge mit Zurücklegen):
+>
+> | $b$ | $D^b$ | $s^b$ | OOB |
+> |---|---|---|---|
+> | 1 | (2, 2, 4) | 2,67 | {9} |
+> | 2 | (4, 9, 9) | 7,33 | {2} |
+> | 3 | (2, 4, 9) | 5,00 | – |
+> | 4 | (9, 9, 2) | 6,67 | {4} |
+> | 5 | (4, 4, 2) | 3,33 | {9} |
+>
+> Standardfehler $\approx \mathrm{std}(s^1, \dots, s^5) \approx 2{,}03$. Bei $n = 3$ gibt es nur $\binom{2n-1}{n} = 10$ verschiedene Stichproben (ohne Reihenfolge); in der Praxis mit $n$ in den Hunderten nimmt man $B$ = 1 000 bis 10 000 Wiederholungen.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Konfidenzintervall für die AUC
+> Ein Diagnosemodell erreicht auf 400 Testpatienten eine AUC von 0,82. Man zieht 2 000-mal 400 Patienten mit Zurücklegen aus dem Testset, berechnet jeweils die AUC und nimmt das 2,5-%- und 97,5-%-Quantil, z. B. [0,78; 0,86] (Perzentil-Intervall). Ein Konkurrenzmodell mit 0,83 ist damit **nicht** klar besser. Haben Patienten mehrere Besuche im Datensatz, zieht man **Patienten** statt Besuche (Gruppen-Bootstrap), sonst wird das Intervall zu schmal.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Pseudocode des nichtparametrischen Bootstraps aufschreiben.
 - Drei Arten von Bootstrap-Konfidenzintervallen nennen.

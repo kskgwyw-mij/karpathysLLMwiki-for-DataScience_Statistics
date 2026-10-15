@@ -49,6 +49,18 @@ Eigenschaften (→ VL0, F. 86): Rauschen kann helfen, flachen lokalen Minima und
 ## Annahmen & Voraussetzungen
 - Zielfunktion ist eine Summe/ein Mittel über Beobachtungen; Minibatches annähernd repräsentativ (deshalb Shuffling).
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – ein Minibatch-Schritt
+> Modell $\hat y = \theta x$, Loss $\ell = (\theta x - y)^2$ mit $\nabla\ell = 2x(\theta x - y)$, Daten $(1,2), (2,3), (3,7), (4,8)$, $\theta_0 = 1$, $\eta = 0{,}05$.
+> - Einzelgradienten bei $\theta = 1$: $-2;\ -4;\ -24;\ -32$
+> - Minibatch $B = \{(1,2), (3,7)\}$: $g = (-2 - 24)/2 = -13$ ⇒ $\theta_1 = 1 + 0{,}05\cdot13 = 1{,}65$
+> - Full-Batch-GD: $g = (-2 - 4 - 24 - 32)/4 = -15{,}5$ ⇒ $\theta_1 = 1{,}775$
+>
+> Der Minibatch-Gradient weicht ab (Rauschen), ist aber **erwartungstreu**: Das Mittel über alle 6 möglichen Zweier-Batches ist genau $-15{,}5$. Mit $m = 2$ gibt es $\lceil 4/2\rceil = 2$ Updates pro Epoche.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Bildklassifikation auf großem Datensatz
+> 1,28 Mio. Trainingsbilder passen nicht auf einmal in den GPU-Speicher; ein Full-Batch-Gradient pro Schritt wäre extrem teuer. Mit Batchgröße 256 macht SGD $\lceil 1\,281\,167/256\rceil = 5\,005$ Updates pro Epoche – viele kleine, verrauschte, aber billige Schritte. Jede Epoche wird neu gemischt, die Lernrate per Cosine-Decay gesenkt, damit das Zittern um das Optimum zum Ende hin abnimmt.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Unterschied GD, SGD, Online-SGD.
 - „Warum mischt man jede Epoche?" → kein systematischer Update-Bias.

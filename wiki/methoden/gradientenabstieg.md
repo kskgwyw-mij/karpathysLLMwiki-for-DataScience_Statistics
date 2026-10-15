@@ -48,14 +48,25 @@ return θₜ
 - $f$ differenzierbar; bei konvexem $f$ und passender Schrittweite Konvergenz zum globalen Minimum ([[optimierung-grundlagen]]).
 
 ## Beispiel
-$f(\theta) = \theta^2$, $\theta_0 = 2$:
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Schrittweite an $f(\theta) = \theta^2$
+> $\theta_0 = 2$, Update $\theta_{t+1} = (1 - 2\eta)\,\theta_t$:
+>
+> | $\eta$ | $\theta_1, \theta_2, \theta_3, \theta_4$ | Verhalten |
+> |---|---|---|
+> | 0,1 | 1,6; 1,28; 1,024; 0,819 | langsam, monoton |
+> | 0,5 | 0; 0; 0; 0 | ein Schritt (hier optimal) |
+> | 0,9 | −1,6; 1,28; −1,024; 0,819 | oszilliert, konvergiert |
+> | 1,1 | −2,4; 2,88; −3,456; 4,147 | **divergiert** |
+>
+> Rechenweg: [[gradientenabstieg-von-hand]].
 
-| $\eta$ | $\theta_1, \theta_2, \theta_3, \theta_4$ | Verhalten |
-|---|---|---|
-| 0,1 | 1,6; 1,28; 1,024; 0,819 | langsam, monoton |
-| 0,5 | 0; 0; 0; 0 | ein Schritt (hier optimal) |
-| 0,9 | −1,6; 1,28; −1,024; 0,819 | oszilliert, konvergiert |
-| 1,1 | −2,4; 2,88; −3,456; 4,147 | **divergiert** |
+> [!beispiel] Anwendungsfall (nicht aus der VL) – unskalierte Merkmale
+> Lineare Regression mit Wohnfläche (Werte um 100) und Zimmerzahl (Werte um 3) ohne Standardisierung: Die Zielfunktion ist ein langgezogenes Tal, vereinfacht $f(\theta) = \theta_1^2 + 10\,\theta_2^2$ mit Hesse-Eigenwerten 2 und 20.
+> - Stabil nur für $\eta < 2/20 = 0{,}1$. Mit $\eta = 0{,}09$: $\theta_2$ wird pro Schritt mit $1 - 20\cdot0{,}09 = -0{,}8$ multipliziert (Zickzack), $\theta_1$ nur mit $1 - 2\cdot0{,}09 = 0{,}82$.
+> - Bis $\theta_1$ auf 1 % geschrumpft ist, braucht es $\ln 0{,}01/\ln 0{,}82 \approx 23{,}2$, also **24 Schritte**.
+> - Nach dem Standardisieren sind die Krümmungen ähnlich; im Idealfall gleicher Eigenwerte 2 erreicht $\eta = 0{,}5$ das Minimum in einem Schritt.
+>
+> Schlechte Konditionierung ist genau der Fall, für den [[momentum-und-nesterov]], [[adaptive-optimierer]] und [[newton-und-quasi-newton]] gedacht sind.
 
 ## Typische Prüfungsfragen & Fallstricke
 - Update-Regel aufschreiben und ein paar Schritte von Hand rechnen.

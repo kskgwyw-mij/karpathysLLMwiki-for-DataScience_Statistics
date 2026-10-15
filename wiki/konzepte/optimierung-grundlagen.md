@@ -60,6 +60,15 @@ Geometrisch: Jede Verbindungsstrecke zweier Punkte des Graphen liegt **über** d
 ## Annahmen & Voraussetzungen
 - Für die Gradientenverfahren: $f$ (zumindest stückweise) differenzierbar.
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Konvexität prüfen
+> **Nicht konvex:** $f(\theta) = \theta^4 - 2\theta^2$. $f'(\theta) = 4\theta^3 - 4\theta = 0 \Rightarrow \theta \in \{-1, 0, 1\}$; $f''(\theta) = 12\theta^2 - 4$: bei $\pm1$ ist $f'' = 8 > 0$ (Minima, $f = -1$), bei 0 ist $f'' = -4$ (Maximum). Sehnentest mit $\alpha = -1$, $\beta = 1$, $\lambda = 0{,}5$: $f(0) = 0 > 0{,}5\cdot(-1) + 0{,}5\cdot(-1) = -1$ – der Graph liegt **über** der Sehne, Konvexität verletzt. Zwei gleichwertige Minima durch Symmetrie ($f(\theta) = f(-\theta)$) – Fall „mehrere Minima".
+>
+> **Streng konvex:** $f(\theta) = \theta_1^2 + \theta_1\theta_2 + \theta_2^2$, Hesse-Matrix $\begin{pmatrix}2&1\\1&2\end{pmatrix}$ mit Eigenwerten 1 und 3 > 0 ⇒ eindeutiges Minimum bei $(0,0)$.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Regression vs. neuronales Netz
+> Eine logistische Regression liefert mit jedem Solver und jedem Startwert dieselben Koeffizienten – konvexes Ziel, jedes lokale Minimum ist global. Ein MLP mit 64 Hidden-Neuronen liefert bei verschiedenen Seeds verschiedene Gewichte mit ähnlicher Güte: Allein das Vertauschen der Hidden-Neuronen ergibt $64! \approx 1{,}3\cdot10^{89}$ äquivalente Minima, dazu echte lokale Minima und flache Bereiche. Deshalb berichtet man bei Netzen Ergebnisse über mehrere Seeds ([[initialisierung]]).
+
 ## Typische Prüfungsfragen & Fallstricke
 - Konvexität definieren (Formel + Geometrie) und zwei Beispiele/Gegenbeispiele nennen.
 - „Warum genügt bei der linearen Regression $\nabla L = 0$?" → konvex, stationärer Punkt ist global.
