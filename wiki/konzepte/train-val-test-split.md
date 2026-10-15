@@ -34,7 +34,7 @@ Informationen aus dem Ziel oder aus Test-/Validierungsdaten gelangen ins Trainin
 - Im Baum-Notebook werden `exam_points` und `passed` ausgeschlossen, weil sie direkt aus der Zielvariable `exam_grade` abgeleitet sind (→ [[q-nb05-tree-exam-grade|NB5]], Zelle 6).
 - Beim Bootstrap/Resampling muss die **gesamte** Pipeline (Preprocessing, Feature-Selektion, Tuning) innerhalb jeder Wiederholung laufen (→ VL0, F. 64–65).
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Typische Leakage-Quellen: Standardisierung auf dem gesamten Datensatz statt nur auf dem Training, Feature-Selektion vor der CV, zeitliche Daten zufällig statt chronologisch gesplittet.
 
 ## Annahmen & Voraussetzungen

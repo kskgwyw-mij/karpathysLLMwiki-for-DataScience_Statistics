@@ -54,7 +54,7 @@ für t = 0, 1, 2, …:
 > [!note] Notation
 > VL0, F. 81 schreibt das Momentum-Update ohne Index an $\eta$; F. 82–83 mit $\eta_t$ bzw. $\eta$. Inhaltlich identisch.
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Bei konstantem Gradienten $g$ wächst $v$ auf $g/(1-\beta)$; mit $\beta = 0{,}9$ ist die effektive Schrittweite also bis zu **10-mal** so groß wie ohne Momentum.
 
 ## Beispiel

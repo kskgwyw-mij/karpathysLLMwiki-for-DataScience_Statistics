@@ -9,7 +9,7 @@ aktualisiert: 2026-10-15
 
 # Aufgabe · Fairness-Metriken aus Konfusionsmatrizen
 
-> [!info] Selbst erstellte Übungsaufgabe
+> [!beispiel] Selbst erstellte Übungsaufgabe
 > Definitionen aus [[q-vl06-xai-lokal-fairness|VL6]], F. 19–23; Zahlen ergänzt und nachgerechnet.
 
 ## Aufgabenstellung
@@ -41,7 +41,7 @@ b)
 
 c) Hauptschaden = verpasste Chancen für Berechtigte ⇒ **Equal Opportunity** (VL6, F. 23). Maßnahme z. B. Post-processing über Schwellenwerte (Threshold Sweep), sodass die TPR angeglichen werden – mit Dokumentation der Nebenwirkungen (mehr FP, andere PPV) und rechtlicher Prüfung gruppenspezifischer Schwellen ([[fairness-mitigation]]).
 
-> [!info] Kontrolle (Ergänzung)
+> [!ergaenzung] Kontrolle (Ergänzung)
 > Identität $\mathrm{FPR} = \frac{p}{1-p}\cdot\frac{1-\mathrm{PPV}}{\mathrm{PPV}}\cdot\mathrm{TPR}$: Gruppe A: $\frac{0{,}25}{0{,}75}\cdot\frac{1/3}{2/3}\cdot 0{,}8 = 0{,}133$ ✓.
 
 > [!warning] Typischer Fehler

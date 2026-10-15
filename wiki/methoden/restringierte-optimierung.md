@@ -32,7 +32,7 @@ KKT-Intuition: Am Optimum balancieren sich Ziel und **aktive** Nebenbedingungen.
 $$y_t = \theta_t - \eta_t\nabla f(\theta_t), \qquad \theta_{t+1} = \Pi_C(y_t)$$
 $\Pi_C$ liefert den **nächstgelegenen zulässigen Punkt** (unter einer gewählten Norm). Einfach und robust, wenn die Projektion billig ist: Boxen, Kugeln, Simplexe, Nichtnegativität. Für $C = \mathbb R^d$ tut die Projektion nichts → gewöhnlicher GD.
 
-> [!info] Ergänzung (nicht aus der VL) – häufige Projektionen
+> [!ergaenzung] Ergänzung (nicht aus der VL) – häufige Projektionen
 > Box $[l,u]$: komponentenweise `clip`. Nichtnegativität: $\max(\theta, 0)$. L2-Kugel mit Radius $R$: $\theta\cdot\min(1, R/\|\theta\|)$. Genau das tun Clipping, Non-Negativity und Max-Norm in [[q-nb02-mnist-regularization|NB2]] nach jedem Optimizer-Schritt.
 
 ### Proximaler Operator und proximaler Gradient (→ VL4, F. 74–76)
@@ -48,7 +48,7 @@ $$\theta_{t+1} = \mathrm{prox}_{\eta h}\big(\theta_t - \eta\nabla f(\theta_t)\bi
 
 Key idea: Ein proximaler Schritt ist ein regularisierter Korrekturschritt – den schwierigen Teil $h$ optimieren und dabei nahe am Gradientenvorschlag bleiben.
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Soft-Thresholding: $[\mathrm{prox}_{\eta\lambda\|\cdot\|_1}(v)]_j = \mathrm{sign}(v_j)\max(\lvert v_j\rvert - \eta\lambda, 0)$. L2-Prox: $v/(1 + 2\eta\lambda)$. Proximaler Gradient mit L1 heißt ISTA, die beschleunigte Variante FISTA.
 
 ### Beispiele für Nebenbedingungen (→ VL4, F. 77)

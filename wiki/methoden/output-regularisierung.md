@@ -29,7 +29,7 @@ Besonders hilfreich, wenn sich Eigenschaften der Output-Signalklasse gut beschre
 - **Gelernte Priors:** vortrainierte neuronale Netze als Regularisierungsfunktional
 - im Entscheidungsschema: **TV/Laplace** für strukturierte Outputs (→ VL0, F. 54)
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > **Total Variation** in 1D: $\mathrm{TV}(u) = \sum_k\lvert u_{k+1} - u_k\rvert$ (L1 der Differenzen → stückweise konstante Ausgaben mit scharfen Sprüngen). **Laplace/Quadratisch:** $\sum_k(u_{k+1} - u_k)^2$ (L2 der Differenzen → glatte Ausgaben, Kanten verschmieren).
 
 ## Hyperparameter

@@ -9,7 +9,7 @@ aktualisiert: 2026-10-15
 
 # Aufgabe · Gradientenabstieg, Momentum und Newton von Hand
 
-> [!info] Selbst erstellte Übungsaufgabe
+> [!beispiel] Selbst erstellte Übungsaufgabe
 > Die Update-Regeln stammen aus [[q-vl00-essentiell|VL0]], F. 78–91; die Zahlenbeispiele sind ergänzt und mit Code nachgerechnet (`notebooks/optimierer-vergleich.ipynb`).
 
 ## Teil A · Lernrate

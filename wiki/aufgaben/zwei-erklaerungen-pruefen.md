@@ -11,7 +11,7 @@ aktualisiert: 2026-10-15
 
 Szenario und Arbeitsauftrag: [[q-aktivitaet-zwei-erklaerungen]]. Fiktive Senior-Analystin, 80 % Teilzeit nach Elternzeit, Regionalstandort, sehr gute Bewertungen, Score 68 bei Cut-off 72 → Warteliste.
 
-> [!info] Lösungsvorschlag (eigene Ausarbeitung)
+> [!ergaenzung] Lösungsvorschlag (eigene Ausarbeitung)
 > Die Klassifikationskategorien und Kriterien stammen aus der VL ([[q-vl05-xai-transparente-globale-modelle|VL5]], F. 6, 8). Die konkrete Einordnung jedes Satzes ist eine eigene Lösung und keine Musterlösung des Dozenten.
 
 ## 1 · Aussagen klassifizieren

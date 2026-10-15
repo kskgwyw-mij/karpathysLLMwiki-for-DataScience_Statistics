@@ -19,7 +19,7 @@ Klassenspezifische visuelle Erklärung für **faltende neuronale Netze (CNNs)**:
 „Wohin hat das Bildmodell für diese Klasse geschaut?" Feature-Maps der letzten Faltungsschicht sind räumlich noch zugeordnet; die Gradienten sagen, welche Maps den Klassenscore treiben.
 
 ## Formal
-> [!info] Ergänzung (nicht aus der VL) – Formeln
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Formeln
 > Gewichte $\alpha_k^c = \frac{1}{Z}\sum_{i,j}\frac{\partial y^c}{\partial A^k_{ij}}$ (global gemittelte Gradienten des Scores $y^c$ nach Feature-Map $A^k$); Karte $L^c = \mathrm{ReLU}\big(\sum_k\alpha_k^cA^k\big)$, danach auf Bildgröße hochskalieren.
 
 ## Grenzen (→ VL6, F. 12)

@@ -9,7 +9,7 @@ aktualisiert: 2026-10-15
 
 # Aufgabe · Erste Schritte von AdaGrad und Adam
 
-> [!info] Selbst erstellte Übungsaufgabe
+> [!beispiel] Selbst erstellte Übungsaufgabe
 > Formeln aus [[q-vl04-map-resampling-optimierung|VL4]], F. 46–51; Zahlen ergänzt und nachgerechnet.
 
 ## Teil A · AdaGrad skaliert pro Koordinate

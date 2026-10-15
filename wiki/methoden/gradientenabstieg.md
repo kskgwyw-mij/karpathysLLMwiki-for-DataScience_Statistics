@@ -41,7 +41,7 @@ return θₜ
 | Decay-Schedules: step, exponential, cosine | Armijo-/Wolfe-Bedingungen balancieren Abstieg und Krümmung |
 | Warm-up stabilisiert frühe Iterationen | oft in deterministischer Optimierung; in großen Modellen mit verrauschten Minibatches seltener |
 
-> [!info] Ergänzung (nicht aus der VL) – Schrittweite am Beispiel
+> [!beispiel] Ergänzung (nicht aus der VL) – Schrittweite am Beispiel
 > Für $f(\theta) = \theta^2$ ist $\nabla f = 2\theta$, also $\theta_{t+1} = (1 - 2\eta)\theta_t$. Konvergenz genau dann, wenn $\lvert 1 - 2\eta\rvert < 1$, also $0 < \eta < 1$. Allgemein für eine quadratische Funktion mit größtem Hesse-Eigenwert $L$: $0 < \eta < 2/L$. Schlechte Konditionierung (sehr unterschiedliche Eigenwerte) erzwingt ein kleines $\eta$, mit dem flache Richtungen nur langsam vorankommen → Zickzack, siehe [[momentum-und-nesterov]]. Rechenbeispiel: [[gradientenabstieg-von-hand]].
 
 ## Annahmen & Voraussetzungen

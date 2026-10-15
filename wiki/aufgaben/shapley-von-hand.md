@@ -9,7 +9,7 @@ aktualisiert: 2026-10-15
 
 # Aufgabe · Shapley-Werte von Hand
 
-> [!info] Selbst erstellte Übungsaufgabe
+> [!beispiel] Selbst erstellte Übungsaufgabe
 > Formel aus [[q-vl06-xai-lokal-fairness|VL6]], F. 7; Zahlen ergänzt und mit Code nachgerechnet (`notebooks/xai-fairness-handrechnungen.ipynb`).
 
 ## Aufgabenstellung

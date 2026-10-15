@@ -52,10 +52,10 @@ $$\hat m_t = \frac{m_t}{1-\beta_1^t}, \qquad \hat v_t = \frac{v_t}{1-\beta_2^t},
 - starker Default für neuronale Netze und verrauschte Minibatches; für regularisiertes Deep Learning ist **AdamW** meist besser als L2 innerhalb von Adam; Lernraten-Schedules bleiben wichtig, die Validierungs-Performance entscheidet.
 - **Key message:** Adam kombiniert den richtungsstabilisierenden Effekt von Momentum mit koordinatenweiser Normierung durch jüngere Gradienten.
 
-> [!info] Ergänzung (nicht aus der VL) – erster Adam-Schritt
+> [!beispiel] Ergänzung (nicht aus der VL) – erster Adam-Schritt
 > Für $t = 1$: $\hat m_1 = g_1$, $\hat v_1 = g_1^2$, also $\Delta\theta \approx -\alpha\cdot g_1/\lvert g_1\rvert = -\alpha\,\mathrm{sign}(g_1)$. Der erste Schritt hat in jeder Koordinate ungefähr Betrag $\alpha$ – **unabhängig von der Gradientengröße**. Ohne Bias-Korrektur wäre er wegen $m_1 = 0{,}1\,g_1$ und $v_1 = 0{,}001\,g_1^2$ um den Faktor $0{,}1/\sqrt{0{,}001}\approx 3{,}2$ größer. Rechenweg: [[adam-adagrad-erster-schritt]].
 
-> [!info] Ergänzung (nicht aus der VL) – AdamW vs. L2 in Adam
+> [!ergaenzung] Ergänzung (nicht aus der VL) – AdamW vs. L2 in Adam
 > L2 im Loss landet im Gradienten und wird dann von $\sqrt{\hat v}$ geteilt – Parameter mit großen Gradienten werden kaum geschrumpft. AdamW zieht den Weight-Decay-Term $\eta\lambda\theta$ **separat** ab, entkoppelt von der adaptiven Skalierung. In [[q-nb02-mnist-regularization|NB2]] wird L2 über `torch.optim.Adam(weight_decay=…)` umgesetzt, also die gekoppelte Variante.
 
 ### LION (→ VL4, F. 62–63)

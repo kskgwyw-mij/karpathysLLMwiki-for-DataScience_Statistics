@@ -22,7 +22,7 @@ Die Grafik der VL (VL0, F. 68): ursprüngliche Trainingsdaten → Bootstrap-Stic
 $$\hat f_\text{bag}(x) = \frac1B\sum_{b=1}^B \hat f^{*b}(x) \quad\text{(Regression)}, \qquad \hat G_\text{bag}(x) = \text{Mehrheit}\{\hat G^{*b}(x)\} \quad\text{(Klassifikation)}$$
 mit $\hat f^{*b}$ trainiert auf der $b$-ten Bootstrap-Stichprobe.
 
-> [!info] Ergänzung (nicht aus der VL) – warum die Varianz sinkt
+> [!ergaenzung] Ergänzung (nicht aus der VL) – warum die Varianz sinkt
 > Für $B$ identisch verteilte Vorhersagen mit Varianz $\sigma^2$ und paarweiser Korrelation $\rho$ gilt $\mathrm{Var}\big(\frac1B\sum\hat f^{*b}\big) = \rho\sigma^2 + \frac{1-\rho}{B}\sigma^2$ (ESL 15.2). Mehr Modelle senken den zweiten Term; der erste bleibt. **Random Forests** senken zusätzlich $\rho$, indem jeder Split nur eine zufällige Teilmenge der Merkmale betrachten darf. Der Bias bleibt beim Bagging etwa gleich.
 
 ## Annahmen & Voraussetzungen

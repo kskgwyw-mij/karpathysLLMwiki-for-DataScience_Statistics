@@ -9,7 +9,7 @@ aktualisiert: 2026-10-15
 
 # Aufgabe · Output-Interpretation: Kundenabwanderung (Accuracy-Falle)
 
-> [!info] Selbst formulierte Fragen zu echten Notebook-Outputs
+> [!beispiel] Selbst formulierte Fragen zu echten Notebook-Outputs
 > Zahlen aus [[q-nb06-global-xai|NB6]]; Fragen im Stil einer Output-Interpretationsaufgabe ergänzt.
 
 ## Gegeben

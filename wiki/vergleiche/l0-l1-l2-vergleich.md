@@ -31,7 +31,7 @@ Quellen: [[q-vl00-essentiell|VL0]] F. 45–47; [[q-vl03-regularisierung-cv|VL3]]
 ## Warum erzeugt L1 Nullen, L2 aber nicht?
 **Geometrisch** (VL3, F. 13, 22): Man vergrößert die Höhenlinien (Ellipsen) des Datenfehlers um das unregularisierte Optimum, bis sie die zulässige Menge berühren. Die L1-Raute hat **Ecken auf den Achsen** – die Berührung findet häufig an einer Ecke statt, dort ist eine Koordinate 0. Die L2-Kugel ist rund; ein Berührpunkt genau auf einer Achse ist Zufall.
 
-> [!info] Ergänzung (nicht aus der VL) – analytisch in 1D
+> [!ergaenzung] Ergänzung (nicht aus der VL) – analytisch in 1D
 > Für $\min_\theta \tfrac12(\theta - v)^2 + \lambda\,\mathcal R(\theta)$:
 > - L1: $\hat\theta = \mathrm{sign}(v)\max(\lvert v\rvert - \lambda, 0)$ → für $\lvert v\rvert \le \lambda$ **exakt 0**.
 > - L2 ($\mathcal R = \theta^2$): $\hat\theta = v/(1 + 2\lambda)$ → nie exakt 0 (außer $v = 0$).

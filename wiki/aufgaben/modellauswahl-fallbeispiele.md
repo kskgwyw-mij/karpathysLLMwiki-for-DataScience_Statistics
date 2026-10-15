@@ -31,7 +31,7 @@ Beide Fälle stammen aus den eigenen Workshop-Abgaben ([[q-modellauswahl-abgaben
 | **4 Shortlist** | Gradient Boosted Trees (fehlende Werte, nichtlineare Muster), logistische Regression mit L1 (sparse, erklärbar, siehe [[lasso-regression]]), ggf. Textmodell für Inhaltsmerkmale per Transfer Learning. |
 | **Danach** | Zeitlich getrennte Validierung (neuere Shops als Testdaten), regelmäßiges Re-Training; lokale Erklärungen für einzelne Warnungen ([[lime]], [[shap]]). |
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Die konkreten Metrikvorschläge (Recall bei fester FPR, Kalibrierung, zeitlich getrennte Validierung) sind eigene Ergänzungen, die zur VL-Logik passen (Phase 1: „klare Metrik", Phase 2: „Class Imbalance").
 
 ## Prüfungsschema für offene Fragen

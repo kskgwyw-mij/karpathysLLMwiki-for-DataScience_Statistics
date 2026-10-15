@@ -33,7 +33,7 @@ In einer Landschaft mit vielen Tälern landet man je nach Startpunkt in einem an
 | Transfer Learning | vortrainierte Gewichte | Start von Features, die auf verwandten Daten gelernt wurden |
 | Clustering | k-means++ | Startzentren streuen → stabilere Ergebnisse |
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Xavier: $\mathrm{Var}(w) = 2/(n_\text{in} + n_\text{out})$; He: $\mathrm{Var}(w) = 2/n_\text{in}$. In [[q-nb02-mnist-regularization|NB2]] nutzt `ExplicitLinear` `kaiming_uniform_` (He). Ein Netz komplett mit Nullen zu initialisieren ist schlecht: Alle Neuronen einer Schicht bekommen dieselben Gradienten (Symmetrie wird nie gebrochen).
 
 ## Checkliste (→ VL4, F. 67)

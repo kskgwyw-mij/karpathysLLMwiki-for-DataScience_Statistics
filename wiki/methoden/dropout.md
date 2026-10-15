@@ -23,7 +23,7 @@ Kein Neuron kann sich darauf verlassen, dass ein bestimmtes anderes Neuron da is
 - Inferenz: alle Elemente aktiv. In PyTorch über den Modus: `model.train()` → `model.eval()` (die Folie schreibt `model.test`).
 - Spezialfall: Dropout **auch in der Inferenz**, um eine **Konfidenz** der Vorhersage zu schätzen (→ VL0, F. 51).
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Damit die erwartete Aktivierung gleich bleibt, skalieren Implementierungen im Training die verbleibenden Werte mit $1/(1-p)$ („inverted dropout"). Wiederholte stochastische Vorhersagen mit aktivem Dropout heißen MC-Dropout.
 
 ## Praxisempfehlungen (→ [[q-vl03-regularisierung-cv|VL3]], F. 30)

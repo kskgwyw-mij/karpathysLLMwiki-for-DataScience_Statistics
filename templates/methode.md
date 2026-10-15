@@ -23,7 +23,13 @@ Modell, Zielfunktion bzw. Schätzer, Tuning-Parameter.
 ## Annahmen & Voraussetzungen
 
 ## Beispiel
-Rechenbeispiel oder Interpretation eines R/Python-Outputs. Notebook: 
+Beispiel aus Folie/Notebook (mit Beleg), falls vorhanden.
+
+> [!beispiel] Rechenbeispiel (nicht aus der VL)
+> 
+
+> [!beispiel] Anwendungsfall (nicht aus der VL)
+> 
 
 ## Vor- und Nachteile
 

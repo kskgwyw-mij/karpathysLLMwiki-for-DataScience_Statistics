@@ -21,6 +21,13 @@ aktualisiert: {{date:YYYY-MM-DD}}
 ## Annahmen & Voraussetzungen
 
 ## Beispiel
+Beispiel aus Folie/Notebook (mit Beleg), falls vorhanden.
+
+> [!beispiel] Rechenbeispiel (nicht aus der VL)
+> 
+
+> [!beispiel] Anwendungsfall (nicht aus der VL)
+> 
 
 ## Typische Prüfungsfragen & Fallstricke
 

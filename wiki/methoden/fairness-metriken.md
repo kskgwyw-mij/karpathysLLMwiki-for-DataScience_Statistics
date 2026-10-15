@@ -38,7 +38,7 @@ Notation: $\hat Y$ Modellentscheidung, $Y$ wahres Label, $A$ Gruppenattribut. Au
 - Daher braucht Fairness eine **normative Entscheidung**: Welcher Schaden ist in diesem Kontext am wichtigsten?
 - Ein verantwortlicher Bericht dokumentiert gewählte Metrik, verworfene Alternativen und erwartete Nebenwirkungen.
 
-> [!info] Ergänzung (nicht aus der VL) – warum die Kollision zwingend ist
+> [!ergaenzung] Ergänzung (nicht aus der VL) – warum die Kollision zwingend ist
 > Für jede Gruppe gilt $\mathrm{FPR} = \frac{p}{1-p}\cdot\frac{1-\mathrm{PPV}}{\mathrm{PPV}}\cdot\mathrm{TPR}$ mit Basisrate $p$ (Chouldechova 2017). Sind PPV **und** TPR in beiden Gruppen gleich, aber $p$ verschieden, müssen die FPR verschieden sein – Predictive Parity und Equalized Odds schließen sich dann aus (außer bei perfekter Klassifikation).
 
 ### Metrikwahl nach Schaden (→ VL6, F. 23)

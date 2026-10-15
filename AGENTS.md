@@ -82,7 +82,11 @@ Keys bleiben ASCII (Dataview). `relevanz` leitest du aus Folien-Hinweisen („kl
 - **Dateinamen:** kebab-case, ASCII (ae/oe/ue/ss), sprechend: `wiki/methoden/lasso-regression.md`. Quellenseiten: `wiki/quellen/q-<rohdatei-ohne-endung>.md`.
 - **Links:** Obsidian-Wikilinks `[[seite]]`, `[[seite#Abschnitt]]`, `[[seite|Anzeigetext]]`. Jede neue Seite bekommt mindestens einen eingehenden und einen ausgehenden Link.
 - **Formeln:** `$…$` inline, `$$…$$` als Block (MathJax). Notation der Vorlesung übernehmen. Weichen Quellen voneinander ab (z. B. Lehrbuch vs. Folien), auf der Seite in einem Callout `> [!note] Notation` gegenüberstellen.
-- **Belege:** Jede inhaltliche Aussage ist auf eine Quelle zurückführbar: `(→ [[q-vl03-ridge-lasso]], Folie 12)`. Nichts erfinden. Ergänzungen, die nicht aus den Quellen stammen, als `> [!info] Ergänzung (nicht aus der VL)` kennzeichnen.
+- **Belege:** Jede inhaltliche Aussage ist auf eine Quelle zurückführbar: `(→ [[q-vl03-ridge-lasso]], Folie 12)`. Nichts erfinden.
+- **Eigene Ergänzungen** – alles, was nicht aus Kursmaterial (Folien, Kurs-Notebooks, Übungsblätter, Altklausuren) stammt – stehen **immer** in einem grünen Callout (CSS-Snippet `.obsidian/snippets/eigene-ergaenzung.css`), damit Jan auf einen Blick sieht, was nicht von der Folie kommt:
+  - `> [!beispiel] Rechenbeispiel (nicht aus der VL)` bzw. `Anwendungsfall (nicht aus der VL)` – selbst erstellte Rechenbeispiele, Anwendungsfälle, Übungsaufgaben. Zahlen vorher nachrechnen.
+  - `> [!ergaenzung] Ergänzung (nicht aus der VL) – <Thema>` – eigene Erklärungen, Herleitungen, Lehrbuchwissen (ESL mit Kapitelangabe), Kontrollrechnungen.
+  - Kursmaterial bleibt ungefärbt und trägt seinen Beleg. Jede Konzept- und Methodenseite hat im Abschnitt `## Beispiel` mindestens ein Rechenbeispiel und einen Anwendungsfall.
 - **Widersprüche** zwischen Quellen oder zu bestehenden Seiten: `> [!warning] Widerspruch` mit beiden Positionen und Belegen; nicht stillschweigend auflösen.
 - **Sprache:** Deutsch. Fachbegriffe so, wie die Vorlesung sie verwendet; bei Erstnennung den englischen bzw. deutschen Gegenbegriff in Klammern und als Alias.
 - **Terminologie:** Für die unauffällige Klasse (Klassifikation, Anomalieerkennung, Netzwerkverkehr) ausschließlich „gutartig" oder „unauffällig" schreiben – nie das englische Wort für „gutartig" und nie dessen eingedeutschte Form.

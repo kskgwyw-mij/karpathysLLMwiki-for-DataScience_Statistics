@@ -43,7 +43,7 @@ Nützlich, wenn **Gruppen korrelierter Variablen** stabilisiert werden sollen (�
 ### Optimierung: proximaler Gradient mit Soft-Thresholding
 $\|\theta\|_1$ ist in 0 nicht differenzierbar → **proximale Gradientenverfahren**; für L1 ist der proximale Operator das **Soft-Thresholding** (→ [[q-vl04-map-resampling-optimierung|VL4]], F. 74, 76).
 
-> [!info] Ergänzung (nicht aus der VL) – Formel Soft-Thresholding
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Formel Soft-Thresholding
 > $$\mathrm{prox}_{\eta\lambda\|\cdot\|_1}(v)_j = \operatorname{sign}(v_j)\,\max\big(\lvert v_j\rvert - \eta\lambda,\ 0\big)$$
 > Beispiel mit $\eta\lambda = 1$: $v = (3;\ 0{,}5;\ -2) \mapsto (2;\ 0;\ -1)$. Kleine Einträge werden **exakt** 0, große um $\eta\lambda$ Richtung 0 verschoben.
 

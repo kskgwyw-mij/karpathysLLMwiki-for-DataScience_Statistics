@@ -27,7 +27,7 @@ $$p(x) = \frac{1}{1 + e^{-(\beta_0 + \beta^Tx)}}, \qquad \frac{p}{1-p} = e^{\bet
 
 (→ VL5, F. 12)
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Gefittet wird über die negative Log-Likelihood (Cross-Entropy) $-\sum_i\big[y_i\log p_i + (1-y_i)\log(1-p_i)\big]$, die **konvex** ist – keine geschlossene Lösung, aber Gradienten-/Newton-Verfahren finden das globale Optimum ([[optimierung-grundlagen]]). Die VL nennt die logistische Regression als Beispiel für eine konvexe Zielfunktion (→ [[q-vl00-essentiell|VL0]], F. 75).
 
 ## Annahmen & Voraussetzungen

@@ -52,7 +52,7 @@ Die Rekursion bildet also gewichtete Mittel zweier B-Splines niedrigeren Grades.
 | Nichtnegativität | $B_j(x) \ge 0$ |
 | Stetigkeit | gewünschte Glattheit automatisch; kubische B-Splines: Funktion, 1. und 2. Ableitung stetig |
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > - Mit $k$ Knoten gibt es $k - d - 1$ B-Splines vom Grad $d$.
 > - Die **Zerlegung der Eins** gilt nur dort, wo $d+1$ B-Splines überlappen. Bei nur 4 Knoten (Übung) gibt es einen einzigen quadratischen B-Spline, und $B_{1,2}(1{,}5) = 0{,}75$. In der Praxis werden die Randknoten deshalb mehrfach wiederholt; dabei gilt in der Rekursion die Konvention $0/0 = 0$.
 > - Bei einfachen Knoten ist ein Spline vom Grad $d$ an den Knoten $(d-1)$-mal stetig differenzierbar.

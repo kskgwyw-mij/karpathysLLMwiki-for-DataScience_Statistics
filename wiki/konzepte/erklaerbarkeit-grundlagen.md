@@ -67,7 +67,7 @@ Fassen Verhalten über einen Datensatz zusammen, erklären nicht jede Einzelents
 ## Lokale Erklärungen (→ [[q-vl06-xai-lokal-fairness|VL6]], F. 2)
 Fokus auf eine Vorhersage oder wenige Fälle, oft nahe der Entscheidungsgrenze oder bei Fehlern. Unterstützen Fallprüfung, Kommunikation, Debugging, Recourse. Hängen ab von Preprocessing, Baseline, Nachbarschaftsdefinition und Annahmen zur Merkmalsabhängigkeit; sollen mit globalem Verhalten und Subgruppen-Fairness abgeglichen werden; bei hohen Auswirkungen Stabilitätsprüfungen berichten und sagen, was die Erklärung **nicht** beweist.
 
-> [!info] Ergänzung (nicht aus der VL) – Bild auf VL5, Folie 19
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Bild auf VL5, Folie 19
 > Die Folie zeigt nur ein historisches Foto eines Pferdes vor Publikum. Sehr wahrscheinlich ist der **Kluge Hans** gemeint: Das Pferd „rechnete" scheinbar, reagierte aber auf unbewusste Signale des Publikums. In ML steht der **Clever-Hans-Effekt** für Modelle, die richtige Vorhersagen aus Scheinmerkmalen treffen (z. B. Wasserzeichen im Bild) – genau das sollen globale Erklärungen aufdecken.
 
 ## Typische Prüfungsfragen & Fallstricke

@@ -33,7 +33,7 @@ $$\frac{\partial L}{\partial a}(a) = -2X^Ty + 2X^TXa \overset{!}{=} 0 \quad\Long
 > [!tip] Merke
 > Normalgleichung: $X^TX\,a = X^Ty$. Im Notebook wird sie mit `np.linalg.solve(XTX, XTy)` gelöst, nicht über die explizite Inverse (→ [[q-nb01-linear-regression|NB1]]).
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Herleitung der Ableitung: $L(a) = y^Ty - 2a^TX^Ty + a^TX^TXa$. Mit $\nabla_a(a^Tb) = b$ und $\nabla_a(a^TMa) = 2Ma$ für symmetrisches $M$ folgt die Formel oben. $X^TX$ ist invertierbar, wenn die Spalten von $X$ linear unabhängig sind (insbesondere braucht man $K \ge n+1$). Da $L$ konvex ist, ist der stationäre Punkt das globale Minimum ([[optimierung-grundlagen]]).
 
 **Für $\{1, x\}$ (einfache Regression)** sind die Einträge Summen:

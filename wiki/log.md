@@ -48,3 +48,10 @@
 - Wikiweit 27 Stellen in 22 Dateien behoben (Leerzeile eingefügt, kein Inhalt geändert); Tabellen nach Überschriften waren korrekt.
 - Normstriche in Tabellen-Mathe: `\|…\|` wird in Tabellenzellen zu `|…|` – auf `\lVert…\rVert` umgestellt in [[probabilistische-sicht-map]], [[regularisierung]], [[restringierte-optimierung]].
 - Konvention für künftige Seiten: Leerzeile vor jeder Tabelle; in Tabellen keine `\|` in Formeln.
+
+## [2026-10-15] setup | Eigene Ergänzungen grün markiert
+- Jan: Inhalte, die nicht aus der VL stammen, sollen farblich erkennbar sein; dazu Beispielrechnungen und Anwendungsfälle auf allen Konzept- und Methodenseiten.
+- Neue Callouts `[!beispiel]` (Rechenbeispiel, Anwendungsfall, Übungsaufgabe) und `[!ergaenzung]` (Erklärung, Herleitung, Lehrbuch), beide grün über `.obsidian/snippets/eigene-ergaenzung.css`.
+- Bestand umgestellt: 38 `[!info]`-Ergänzungen → 9 `[!beispiel]`, 29 `[!ergaenzung]`; `[!info] Relevanz` bleibt (stützt sich auf die VL).
+- AGENTS.md (Konvention „Eigene Ergänzungen") und Vorlagen konzept/methode angepasst.
+- Offen: Batches A–E mit neuen Beispielen und Abgleich unmarkierter Beispiele gegen die Folien.

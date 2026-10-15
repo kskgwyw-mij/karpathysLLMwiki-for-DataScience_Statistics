@@ -9,7 +9,7 @@ aktualisiert: 2026-10-15
 
 # Aufgabe · Odds Ratio und Wahrscheinlichkeitseffekte
 
-> [!info] Selbst erstellte Übungsaufgabe
+> [!beispiel] Selbst erstellte Übungsaufgabe
 > Zur Aussage aus [[q-vl05-xai-transparente-globale-modelle|VL5]], F. 12: „Dasselbe $\beta_j$ erzeugt je nach Ausgangswahrscheinlichkeit unterschiedliche Wahrscheinlichkeitsänderungen."
 
 ## Aufgabenstellung

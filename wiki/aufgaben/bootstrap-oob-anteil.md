@@ -9,7 +9,7 @@ aktualisiert: 2026-10-15
 
 # Aufgabe · Wie viele Beobachtungen sind Out-of-Bag?
 
-> [!info] Selbst erstellte Übungsaufgabe
+> [!beispiel] Selbst erstellte Übungsaufgabe
 > Nicht aus der Vorlesung; die Rechnung stützt den OOB-Begriff aus [[q-vl00-essentiell|VL0]], F. 67, und folgt ESL 7.11.
 
 ## Aufgabenstellung

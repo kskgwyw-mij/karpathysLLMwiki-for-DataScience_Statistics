@@ -35,7 +35,7 @@ $$F(x_0) = \arg\min_{g\in G}\ \mathcal L(f, g, \pi_{x_0}) + \Omega(g), \qquad \m
 - $\Omega$: Regularisierungsfunktional (Komplexität von $g$)
 - Die neuen Punkte $x_1, \dots, x_P$ bekommen die **Outputs des komplexen Modells** als Labels.
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Üblicher Kern: $\pi_{x_0}(x) = \exp\big(-d(x, x_0)^2/\sigma^2\big)$ mit Kernbreite $\sigma$ – so auch in [[q-nb07-local-xai|NB7]] (Kernbreite 3, gewichtete Ridge-Regression als $g$, also $\Omega$ = L2).
 
 ### Stellschrauben und Diagnostik (→ VL6, F. 6)

@@ -43,7 +43,7 @@ Eigenschaften (→ VL0, F. 86): Rauschen kann helfen, flachen lokalen Minima und
 | Shuffling | vermeidet systematischen Update-Bias | jede Epoche mischen (i. i. d.-Training) |
 | Early Stopping | wirkt als Regularisierung | Validierungs-Loss überwachen, nicht nur Trainings-Loss |
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Bei konstanter Lernrate „zittert" SGD um das Optimum, weil das Gradientenrauschen nicht verschwindet – deshalb Decay. Eine **Epoche** = einmal alle Daten gesehen = $\lceil N/m\rceil$ Updates (in NB2: 5 000 Bilder, Batch 128 → 40 Updates pro Epoche).
 
 ## Annahmen & Voraussetzungen

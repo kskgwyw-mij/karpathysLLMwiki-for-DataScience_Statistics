@@ -23,7 +23,7 @@ $N = \{1, \dots, p\}$ Menge der Merkmale; Gewicht für eine Teilmenge der Größ
 $$w(k) = \frac{k!\,(p - k - 1)!}{p!}, \qquad \phi_i = \sum_{S\subseteq N\setminus\{i\}} w(\lvert S\rvert)\,\big(f(S\cup\{i\}) - f(S)\big)$$
 $f(S)$ ist die Vorhersage, wenn nur die Merkmale in $S$ „bekannt" sind. Wie fehlende Merkmale simuliert werden und welche **Baseline** gilt, beeinflusst die Interpretation stark.
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > - Für $p = 3$: $w(0) = \tfrac13$, $w(1) = \tfrac16$, $w(2) = \tfrac13$. Die Gewichte entsprechen dem Anteil aller $p!$ Reihenfolgen, in denen genau $S$ vor $i$ kommt.
 > - **Effizienz:** $\sum_i\phi_i = f(N) - f(\varnothing)$ – genau die additive Zerlegung oben.
 > - Linearer Fall mit unabhängigen Merkmalen und interventionaler Baseline: $\phi_j = \beta_j\,(x_j - \mathbb E[x_j])$.

@@ -35,7 +35,7 @@ Ein einzelner Train/Test-Split ist Glückssache – je nachdem, welche Punkte im
 **K-Fold-Schätzer:**
 $$\mathrm{CV}_K = \frac1K\sum_{k=1}^K \mathrm{Err}_k, \qquad \mathrm{Err}_k = \text{Fehler auf Fold } k \text{ eines Modells, das ohne Fold } k \text{ trainiert wurde}$$
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > - LOOCV hat wenig Bias (Training auf $N-1$ Punkten), aber hohe Varianz und hohe Kosten; $K = 5$ oder $10$ ist ein üblicher Kompromiss (ESL 7.10).
 > - Für Zeitreihen nicht zufällig mischen, sondern zeitlich geordnet splitten.
 > - Bei Hyperparameter-Tuning **und** ehrlicher Bewertung: verschachtelte (nested) CV oder separates Test-Set.

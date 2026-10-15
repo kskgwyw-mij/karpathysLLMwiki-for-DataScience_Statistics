@@ -32,7 +32,7 @@ am Ende best_state laden
 > [!tip] Merke
 > Für ein **simples lineares Modell** ist Early Stopping des Gradientenabstiegs **äquivalent zur L2-Regularisierung** (→ VL0, F. 50).
 
-> [!info] Ergänzung (nicht aus der VL) – Intuition der Äquivalenz
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Intuition der Äquivalenz
 > Startet GD bei $\theta_0 = 0$, wachsen die Komponenten in Richtungen großer Krümmung (große Eigenwerte von $X^TX$) schnell, in flachen Richtungen langsam. Nach $t$ Schritten sind die flachen Richtungen noch nahe 0 – genau die Richtungen, die Ridge am stärksten schrumpft. Grob entspricht $1/(\eta t)$ einem $\lambda$.
 
 ## Annahmen & Voraussetzungen

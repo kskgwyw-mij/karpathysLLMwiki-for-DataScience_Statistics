@@ -54,7 +54,7 @@ Geometrisch: Jede Verbindungsstrecke zweier Punkte des Graphen liegt **über** d
 | Starke Konvexität → eindeutiger Minimierer, oft schnellere Konvergenz | Flache Richtungen → nicht eindeutige Minimierer |
 | Nichtkonvexe Methoden funktionieren empirisch oft sehr gut | Deep-Learning-Ziele sind meist **nicht** konvex |
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Für zweimal differenzierbares $f$: konvex ⇔ Hesse-Matrix überall positiv semidefinit. Beispiel $f(\theta) = \|y - X\theta\|^2$: $\nabla^2 f = 2X^TX \succeq 0$ → konvex; mit Ridge-Term $2(X^TX + \lambda I)\succ 0$ → streng konvex, eindeutiges Minimum.
 
 ## Annahmen & Voraussetzungen

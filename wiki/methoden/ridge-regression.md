@@ -32,7 +32,7 @@ Verallgemeinerung: jede andere Norm, auch mit Transformation $\lambda\|T(\theta)
 
 **Umsetzung** (→ VL3, F. 14): Minimierung mit Strafterm (am verbreitetsten), Projected Gradient Descent (für die harte Variante), proximale Methoden → [[restringierte-optimierung]].
 
-> [!info] Ergänzung (nicht aus der VL) – geschlossene Lösung für das lineare Modell
+> [!ergaenzung] Ergänzung (nicht aus der VL) – geschlossene Lösung für das lineare Modell
 > Für $f_\theta(x) = x^T\theta$ und die Strafe ohne $\frac1N$, also $\|y - X\theta\|^2 + \lambda\|\theta\|^2$:
 > $$\nabla = -2X^Ty + 2X^TX\theta + 2\lambda\theta = 0 \;\Rightarrow\; \hat\theta_\text{Ridge} = (X^TX + \lambda I)^{-1}X^Ty$$
 > Mit $\frac1N$ vor der Datensumme wird daraus $(X^TX + N\lambda I)^{-1}X^Ty$. $X^TX + \lambda I$ ist für $\lambda > 0$ **immer invertierbar** – Ridge löst also auch das Problem kollinearer Merkmale. In [[q-nb04-prior-map|NB4]] steht dieselbe Form als $(X^TX + \lambda\sigma^2 I)\theta = X^Ty$ (MAP mit Gauß-Prior).
@@ -40,7 +40,7 @@ Verallgemeinerung: jede andere Norm, auch mit Transformation $\lambda\|T(\theta)
 ## Annahmen & Voraussetzungen
 - Merkmale **standardisieren**, sonst bestraft L2 Koeffizienten je nach Einheit unterschiedlich stark (→ VL0, F. 54: „Standardisieren").
 
-> [!info] Ergänzung (nicht aus der VL)
+> [!ergaenzung] Ergänzung (nicht aus der VL)
 > Den Achsenabschnitt bestraft man üblicherweise nicht (ESL 3.4.1), sonst hängt das Ergebnis von der Lage der Daten ab.
 
 ## Beispiel

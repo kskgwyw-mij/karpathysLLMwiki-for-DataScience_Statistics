@@ -1,0 +1,12 @@
+/* Eigene Ergänzungen des Wiki-Agenten (nicht aus Folien, Kurs-Notebooks oder Übungen).
+   Beide Typen grün, damit sie sich klar vom VL-Inhalt abheben (siehe AGENTS.md, Konventionen). */
+
+.callout[data-callout="beispiel"] {
+  --callout-color: 40, 167, 69;
+  --callout-icon: lucide-calculator;
+}
+
+.callout[data-callout="ergaenzung"] {
+  --callout-color: 40, 167, 69;
+  --callout-icon: lucide-lightbulb;
+}

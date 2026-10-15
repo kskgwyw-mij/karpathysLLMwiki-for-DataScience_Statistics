@@ -52,7 +52,7 @@ return mean({mᵇ}), CI({mᵇ})
 ```
 OOB-Evaluation ist bequem, für die **Modellauswahl wird aber oft Cross-Validation bevorzugt**.
 
-> [!info] Ergänzung (nicht aus der VL) – Anteil Out-of-Bag
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Anteil Out-of-Bag
 > Eine bestimmte Beobachtung wird bei einem Zug mit Wahrscheinlichkeit $1 - 1/n$ **nicht** gezogen, bei $n$ Zügen also mit $(1 - 1/n)^n \to e^{-1} \approx 0{,}368$. Eine Bootstrap-Stichprobe enthält damit im Mittel nur ca. **63,2 %** der verschiedenen Beobachtungen; ca. **36,8 %** sind OOB (ESL 7.11). Rechenweg: [[bootstrap-oob-anteil]].
 
 ## Einsatz im statistischen Lernen (→ VL0, F. 66)
