@@ -41,6 +41,17 @@ Kein Neuron kann sich darauf verlassen, dass ein bestimmtes anderes Neuron da is
 ## Beispiel
 [[q-nb02-mnist-regularization|NB2]], Dropout 0,5 im kleinen MLP (64 Hidden): Test-Accuracy 0,921 gegenüber 0,924 der Baseline – bei kleinem Netz und nur 8 Epochen bringt starkes Dropout nichts, passend zum Fallstrick oben.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – inverted Dropout mit $p = 0{,}5$
+> Aktivierungen $h = (2, 4, 1, 3)$, zufällige Maske $m = (1, 0, 1, 0)$:
+> - Training: $h \odot m / (1 - p) = (2, 0, 1, 0)/0{,}5 = (4, 0, 2, 0)$
+> - Erwartungswert je Element: $(1-p)\cdot h_i/(1-p) = h_i$ – im Mittel unverändert.
+> - Inferenz (`model.eval()`): alle aktiv, $h = (2, 4, 1, 3)$ ohne Skalierung.
+>
+> Bei 64 Hidden-Neuronen gibt es $2^{64} \approx 1{,}8\cdot 10^{19}$ mögliche Masken – das „Ensemble mit geteilten Parametern" aus der VL.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Konfidenz per MC-Dropout
+> Ein Hautbild-Klassifikator läuft mit **aktivem** Dropout fünfmal über dasselbe Bild (Spezialfall aus VL0, F. 51) und liefert für „bösartig" $0{,}55;\ 0{,}80;\ 0{,}40;\ 0{,}75;\ 0{,}60$. Mittel 0,62, Standardabweichung ≈ 0,14 – das Modell ist unsicher, der Fall geht an eine Dermatologin. Ein anderes Bild mit $0{,}97 \pm 0{,}01$ kann automatisch vorsortiert werden.
+
 ## Typische Prüfungsfragen & Fallstricke
 - „Warum wirkt Dropout regularisierend?" → Ensemble mit geteilten Parametern, keine Co-Adaption.
 - „Was ändert sich zwischen Training und Inferenz?" → Training zufälliges Weglassen, Inferenz alles aktiv (außer für Unsicherheitsschätzung).

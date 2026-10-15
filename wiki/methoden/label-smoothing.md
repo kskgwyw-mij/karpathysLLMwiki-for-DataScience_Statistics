@@ -36,6 +36,19 @@ Für ein binäres Label wird aus $y = 1$ der Wert $1-\varepsilon$ und aus $y = 0
 ## Beispiel
 [[q-nb02-mnist-regularization|NB2]] mit $\varepsilon = 0{,}1$: **höchste** Val-Loss (0,770 gegenüber 0,305 Baseline), aber **beste** Test-Accuracy (0,934). Der Loss-Wert ist nicht vergleichbar, weil die Zielverteilung eine andere ist – selbst ein perfektes Modell erreicht mit weichen Zielen keine Cross-Entropy nahe 0.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – warum Überkonfidenz bestraft wird
+> Binäre Cross-Entropy $-[t\log q + (1-t)\log(1-q)]$, wahres Label $y = 1$, Modell gibt $q$ aus:
+>
+> | Ziel $t$ | $q = 0{,}9$ | $q = 0{,}99$ | $q = 0{,}999$ |
+> |---|---|---|---|
+> | hart, $t = 1$ | 0,105 | 0,010 | 0,001 |
+> | geglättet, $t = 1 - \varepsilon = 0{,}9$ | **0,325** | 0,470 | 0,692 |
+>
+> Mit hartem Ziel wird der Loss immer kleiner, je sicherer das Modell ist – es lernt, $q \to 1$ zu treiben. Mit geglättetem Ziel liegt das Minimum bei $q = 0{,}9$; noch sicherere Ausgaben **kosten** Loss. Der Minimalwert 0,325 > 0 erklärt auch die hohe Val-Loss in NB2.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Labels aus Crowdsourcing
+> Bilder werden von vielen Annotatoren gelabelt, ca. 10 % der Labels sind falsch. Mit $\varepsilon = 0{,}1$ auf den **Trainings**labels lernt das Netz die Fehllabels nicht mit voller Sicherheit auswendig, und seine Wahrscheinlichkeiten sind weniger überkonfident. Val- und Testlabels bleiben hart. Für einen Betrugsdetektor mit 0,5 % Betrugsfällen wäre Label Smoothing dagegen ungeeignet (VL3, F. 32: nicht bei stark unbalancierten Klassen).
+
 > [!warning] Hinweis zu den Folien
 > Auf VL0 F. 52 und VL3 F. 31 steht im unteren Teil der Text der Dropout-Folie („Das Weglassen der Bestandteile …"). Er gehört zu [[dropout]].
 

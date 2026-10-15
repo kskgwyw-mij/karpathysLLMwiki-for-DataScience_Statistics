@@ -42,6 +42,21 @@ Output-Regularisierer durch die Anzahl der Ausgabekomponenten (z. B. Pixel) teil
 ## Annahmen & Voraussetzungen
 - Das Vorwissen über die Ausgabe muss sich als Funktional $\mathcal R$ formulieren lassen.
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – TV und Laplace an drei Signalen
+> Mit $\mathrm{TV}(u) = \sum\lvert u_{k+1} - u_k\rvert$ und $\mathrm{Lap}(u) = \sum(u_{k+1} - u_k)^2$:
+>
+> | Ausgabe $u$ | Form | TV | Laplace |
+> |---|---|---|---|
+> | (0; 0; 0; 1; 1; 1) | scharfe Kante | 1 | 1 |
+> | (0; 0,2; 0,4; 0,6; 0,8; 1) | Rampe | 1 | 0,2 |
+> | (0; 0,3; 0; 1; 0,7; 1) | verrauschte Kante | 2,2 | 1,36 |
+>
+> Beide bestrafen Rauschen. Aber: TV bewertet Kante und Rampe **gleich** (1 = 1) – Kanten bleiben erhalten. Laplace bevorzugt die Rampe deutlich (0,2 < 1) – Kanten werden verschmiert. Daher TV für Bilder mit Objektgrenzen, Laplace für glatte Signale.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Segmentierung in der Medizin
+> Ein Netz segmentiert Tumoren in MRT-Bildern; Ausgabe ist eine Wahrscheinlichkeitskarte pro Pixel. Ohne Output-Regularisierung „flattern" die Ränder und es entstehen einzelne Fehlpixel. Ein TV-Term auf der Ausgabekarte, geteilt durch die Pixelzahl (skaleninvariant, VL0, F. 55), glättet Flächen und hält Grenzen scharf. Diagnose wie in VL0, F. 57: Bei zu viel TV verschwinden kleine Läsionen – hier ein gefährlicher Fehler, deshalb $\lambda$ gezielt an kleinen Strukturen validieren.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Unterschied Parameter- vs. Output-Regularisierung erklären.
 - Zwei Beispiele für Output-Priors nennen.

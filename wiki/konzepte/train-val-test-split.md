@@ -40,6 +40,21 @@ Informationen aus dem Ziel oder aus Test-/Validierungsdaten gelangen ins Trainin
 ## Annahmen & Voraussetzungen
 - Train, Val und Test stammen aus derselben Verteilung wie die späteren Einsatzdaten.
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Auswahlprozess mit Zahlen
+> $N = 10\,000$, 2 % Positive, Split 70/15/15 **stratifiziert** ⇒ Train 7 000 (140 Positive), Val 1 500 (30), Test 1 500 (30). Ohne Stratifizierung könnten im Val-Set zufällig z. B. nur 20 Positive landen.
+>
+> Grobsweep über $\lambda \in \{10^{-6}, \dots, 10^{-2}\}$, je 3 Seeds (15 Läufe), mittlerer Val-Loss:
+>
+> | $\lambda$ | $10^{-6}$ | $10^{-5}$ | $10^{-4}$ | $10^{-3}$ | $10^{-2}$ |
+> |---|---|---|---|---|---|
+> | Val-Loss | 0,412 | 0,405 | **0,391** | 0,398 | 0,455 |
+>
+> Verfeinern um das Optimum, z. B. $\{3\cdot10^{-5},\ 10^{-4},\ 3\cdot10^{-4}\}$; dann mit dem besten $\lambda$ auf Train + Val (8 500) neu trainieren und den Testfehler **einmal** berichten.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Leakage im Kreditmodell
+> Ein Ausfallmodell erreicht im Test eine AUC von 0,99. Ursache: Das Merkmal „Anzahl Mahnungen in den ersten 6 Monaten" entsteht **nach** der Kreditvergabe – zum Entscheidungszeitpunkt gibt es diese Information nicht. Im Einsatz bricht die Leistung ein. Prüffrage für jedes Merkmal: „Wäre es zum Zeitpunkt der Vorhersage bekannt?" Dazu kommt der subtile Fall: Mittelwert und Standardabweichung für die Standardisierung nur aus dem Training berechnen.
+
 ## Typische Prüfungsfragen & Fallstricke
 - „Beschreiben Sie den Auswahlprozess für $\lambda$." → fünf Schritte oben.
 - „Warum logarithmisches Gitter?" → $\lambda$ wirkt über Größenordnungen; linear würde man fast nur große Werte testen.

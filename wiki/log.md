@@ -60,3 +60,9 @@
 - Je ein grünes Rechenbeispiel und ein Anwendungsfall auf [[statistisches-lernproblem]], [[lineare-regression]], [[logistische-regression]], [[basisfunktionen-regression]], [[splines-und-b-splines]], [[bias-varianz-tradeoff]], [[modellauswahl-vorgehen]].
 - Abgleich mit Folien: Odds-Ratio-Tabelle in [[logistische-regression]] war eigenes Material ohne Markierung → jetzt `[!beispiel]`. Übrige Beispiele stammen aus VL1-Übungen bzw. NB1.
 - Alle Zahlen mit Python nachgerechnet.
+
+## [2026-10-15] query | Beispiele: Regularisierung und Validierung (Batch B)
+- Grüne Rechenbeispiele und Anwendungsfälle auf [[regularisierung]], [[ridge-regression]], [[lasso-regression]], [[output-regularisierung]], [[dropout]], [[label-smoothing]], [[early-stopping]], [[train-val-test-split]], [[kreuzvalidierung]], [[probabilistische-sicht-map]].
+- Neuer Abschnitt „Beispiel" auf [[output-regularisierung]] und [[train-val-test-split]] (fehlte).
+- Abgleich: λ-Tabelle in [[ridge-regression]] war eigene Rechnung ohne Markierung → `[!beispiel]`. NB2-/NB4-Beispiele sind Kursmaterial.
+- Alle Zahlen mit Python nachgerechnet.

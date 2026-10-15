@@ -70,6 +70,21 @@ Kein allgemeines Schema, nur Vorschläge.
 ## Beispiel
 [[q-nb02-mnist-regularization|NB2]] vergleicht acht Varianten auf MNIST. Alle Test-Accuracies liegen zwischen 0,898 (Nichtnegativität, zu starke Einschränkung) und 0,934 (Label Smoothing). L1 erzeugt siebenmal so viele Nullgewichte wie die Baseline.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – wie $\lambda$ die Wahl verschiebt
+> Zwei Kandidaten mit Datenterm $\frac1N\sum\mathcal D$ und L2-Strafe $\lambda\|\theta\|^2$:
+>
+> | | $\theta$ | Datenterm | $\lVert\theta\rVert^2$ | Ziel bei $\lambda = 0{,}01$ | Ziel bei $\lambda = 0{,}1$ |
+> |---|---|---|---|---|---|
+> | A (komplex) | (3; −0,5) | 1,0 | 9,25 | **1,0925** | 1,925 |
+> | B (einfach) | (1; 0) | 1,6 | 1 | 1,61 | **1,70** |
+>
+> Bei kleinem $\lambda$ gewinnt der bessere Datenfit (A), bei großem das einfachere Modell (B). Welches $\lambda$ richtig ist, entscheidet nicht der Trainingsfehler, sondern die Validierung ([[train-val-test-split]]).
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Entscheidungsschema angewandt
+> - **Genexpressionsstudie** mit 80 Patientinnen und 5 000 Genen (wenig Daten, viele Features): standardisieren, L1 bzw. Elastic Net, $\lambda$ per CV.
+> - **Entrauschen von CT-Bildern** (strukturierte Outputs): TV als [[output-regularisierung]], damit Organgrenzen scharf bleiben.
+> - **Training explodiert** (Loss wird `nan`): Gradient-Clipping und kleinere Lernrate statt stärkerer L2-Strafe.
+
 ## Typische Prüfungsfragen & Fallstricke
 - „Definieren Sie Regularisierung und nennen Sie fünf Methoden." → Definition + Taxonomie.
 - **Hart vs. weich** unterscheiden: Nebenbedingung $\theta\in C$ vs. Strafterm $\lambda\mathcal R(\theta)$.

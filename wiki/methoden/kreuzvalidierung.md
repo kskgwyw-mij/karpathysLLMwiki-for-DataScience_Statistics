@@ -47,6 +47,21 @@ $$\mathrm{CV}_K = \frac1K\sum_{k=1}^K \mathrm{Err}_k, \qquad \mathrm{Err}_k = \t
 ## Beispiel
 Faustregel der VL bei wenig Daten: „viel Cross-Validation (z. B. 5–10-fold)" (→ VL0, F. 22). Für die Regularisierung: $\lambda$ per CV bestimmen (→ VL0, F. 54; [[q-vl05-xai-transparente-globale-modelle|VL5]], F. 13). Bei 100 Punkten und 5-Fold: fünfmal auf 80 trainieren, auf 20 testen, fünf Fehler mitteln.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – LOOCV von Hand
+> Daten $y = (2, 4, 6, 8)$, Modell = Mittelwert der Trainingspunkte, quadratischer Fehler:
+>
+> | weggelassen | Mittel der übrigen | Fehler |
+> |---|---|---|
+> | 2 | 6 | $(2-6)^2 = 16$ |
+> | 4 | 5,33 | 1,78 |
+> | 6 | 4,67 | 1,78 |
+> | 8 | 4 | 16 |
+>
+> $\mathrm{CV}_4 = (16 + 1{,}78 + 1{,}78 + 16)/4 \approx 8{,}89$. Der Trainingsfehler des Mittelwerts 5 auf allen Daten ist nur $(9+1+1+9)/4 = 5$ – die CV-Schätzung ist ehrlicher, weil jeder Punkt von einem Modell vorhergesagt wird, das ihn nicht gesehen hat.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – $\lambda$ für ein Churn-Modell
+> 5 000 Kunden, 12 % Churn. $\lambda$ einer regularisierten logistischen Regression wird per **stratifizierter** 5-Fold-CV gewählt, damit jeder Fold ca. 12 % Churner enthält. Standardisierung und Feature-Selektion laufen **innerhalb** jedes Folds. Bei einer Absatzprognose über die Zeit dagegen nicht zufällig falten, sondern zeitlich: auf Januar–Juni trainieren, Juli testen, dann Fenster verschieben.
+
 ## Typische Prüfungsfragen & Fallstricke
 - K-Fold beschreiben und den Unterschied zu Stratified und LOOCV erklären.
 - „Wie oft wird bei LOOCV trainiert?" → $N$-mal.

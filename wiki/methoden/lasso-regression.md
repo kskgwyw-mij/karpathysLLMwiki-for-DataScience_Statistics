@@ -54,6 +54,21 @@ $\|\theta\|_1$ ist in 0 nicht differenzierbar → **proximale Gradientenverfahre
 ## Beispiel
 [[q-nb02-mnist-regularization|NB2]] (MNIST, $\lambda_1 = 10^{-6}$): Anteil der fc1-Gewichte mit $\lvert w\rvert < 10^{-3}$ steigt von 2,3 % (Baseline) auf **15,6 %**; L2 bleibt bei 2,2 %. Die L1-Norm sinkt von 1341 auf 914.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Lasso-Pfad im orthonormalen Fall
+> Ist $X^TX = I$, zerfällt $\min_\theta \tfrac12\|y - X\theta\|^2 + \lambda\|\theta\|_1$ in Einzelprobleme: $\hat\theta_j = \mathrm{sign}(\hat\theta_j^\text{KQ})\max\big(\lvert\hat\theta_j^\text{KQ}\rvert - \lambda,\ 0\big)$. Mit dem Kleinste-Quadrate-Schätzer $\hat\theta^\text{KQ} = (4;\ 0{,}5;\ -2)$:
+>
+> | $\lambda$ | Lasso $\hat\theta$ | aktive Merkmale |
+> |---|---|---|
+> | 0 | (4; 0,5; −2) | 3 |
+> | 0,5 | (3,5; 0; −1,5) | 2 |
+> | 2 | (2; 0; 0) | 1 |
+> | 4 | (0; 0; 0) | 0 |
+>
+> Mit wachsendem $\lambda$ fallen die Merkmale **nacheinander** heraus, das schwächste zuerst. Zum Vergleich Ridge im selben Fall ($\tfrac12\|\cdot\|^2 + \tfrac\lambda2\|\theta\|^2$): $\hat\theta = \hat\theta^\text{KQ}/(1+\lambda)$, für $\lambda = 1$ also $(2;\ 0{,}25;\ -1)$ – alles schrumpft, nichts wird 0. Achtung: Ohne den Faktor $\tfrac12$ vor der Fehlerquadratsumme liegt die Schwelle bei $\lambda/2$.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Kreditscoring mit vielen Merkmalen
+> Eine Bank hat 150 Kandidatenmerkmale. Lasso mit per CV gewähltem $\lambda$ behält z. B. 15 – eine kurze, erklärbare Scorecard, die man Aufsicht und Kundschaft begründen kann. Bruttoeinkommen und Nettoeinkommen sind fast identisch: Lasso nimmt willkürlich eines (und je nach Stichprobe ein anderes). Sollen beide stabil drin bleiben, ist **Elastic Net** die Wahl (VL5, F. 13).
+
 ## Vor- und Nachteile
 | + | − |
 |---|---|

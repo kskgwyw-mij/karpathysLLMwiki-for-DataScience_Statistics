@@ -62,6 +62,18 @@ Wahre Parameter $(0{,}4;\,1{,}0)$, sechs Punkte mit einem Ausreißer bei hohem $
 
 Der Prior-Mittelwert $(0,0)$ ist **nicht** die Wahrheit – er hilft trotzdem, weil er der Überanpassung entgegenwirkt. Bei sehr großem $\lambda$ wird zu stark Richtung $(0,0)$ geschrumpft (Underfitting).
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – MAP für einen Mittelwert
+> Modell $y_i = \theta + \varepsilon_i$ mit $\varepsilon_i \sim \mathcal N(0, \sigma^2 = 1)$, Prior $\theta \sim \mathcal N(0, \tau^2)$, Daten $y = (2, 3, 4)$, also $\sum y_i = 9$, $N = 3$.
+> $$-\log p(\theta\mid D) = \frac{\sum(y_i - \theta)^2}{2\sigma^2} + \frac{\theta^2}{2\tau^2} + \text{const} \;\Rightarrow\; \hat\theta_\text{MAP} = \frac{\sum y_i}{N + \sigma^2/\tau^2}$$
+> - MLE (kein Prior): $9/3 = 3$
+> - MAP mit $\tau^2 = 1$ ($\lambda = \sigma^2/\tau^2 = 1$): $9/4 = 2{,}25$
+> - MAP mit $\tau^2 = 0{,}1$ (starker Prior): $9/13 \approx 0{,}69$
+>
+> Je enger der Prior, desto stärker wird Richtung 0 geschrumpft – das ist Ridge mit $\lambda$ = Rauschvarianz / Prior-Varianz. Mit mehr Daten ($N \to \infty$) verliert der Prior an Gewicht.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Prior als Fachwissen
+> In einer Genstudie glaubt man, dass die meisten der 5 000 Gene **keinen** Effekt haben und nur wenige einen großen. Ein Laplace-Prior bildet genau diese Erwartung ab (viel Masse bei 0, schwere Ränder) – MAP liefert dann Lasso mit vielen exakten Nullen. Glaubt man eher an viele kleine Effekte, passt der Gauß-Prior (Ridge). Die Wahl des Regularisierers ist damit eine Aussage über Vorwissen, nicht nur ein technischer Trick.
+
 ## Typische Prüfungsfragen & Fallstricke
 - „Zeigen Sie, dass ein Gauß-Prior zur L2-Regularisierung führt." → $-\log$ von Likelihood × Prior.
 - „Warum minimiert man den negativen Log-Posterior statt den Posterior zu maximieren?" → Logarithmus ist monoton, Produkte werden Summen, Software minimiert.

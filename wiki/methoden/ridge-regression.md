@@ -44,15 +44,28 @@ Verallgemeinerung: jede andere Norm, auch mit Transformation $\lambda\|T(\theta)
 > Den Achsenabschnitt bestraft man üblicherweise nicht (ESL 3.4.1), sonst hängt das Ergebnis von der Lage der Daten ab.
 
 ## Beispiel
-Daten aus [[lineare-regression-normalgleichungen]], Strafe auf beide Koeffizienten:
-
-| $\lambda$ | $a_0$ | $a_1$ | $\lVert a\rVert_2$ |
-|---|---|---|---|
-| 0 | 0,250 | −0,250 | 0,354 |
-| 1 | 0,201 | −0,254 | 0,324 |
-| 10 | 0,090 | −0,241 | 0,257 |
-
 MAP in [[q-nb04-prior-map|NB4]]: Ridge verschiebt den durch einen Ausreißer verzerrten Schätzer von $(0{,}616;\,1{,}335)$ auf $(0{,}504;\,1{,}111)$, nahe an die wahren $(0{,}4;\,1{,}0)$; Test-MSE sinkt von 0,169 auf 0,024.
+
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Schrumpfung mit wachsendem $\lambda$
+> NB1-Daten aus [[lineare-regression-normalgleichungen]], Strafe auf beide Koeffizienten, $\hat a = (X^TX + \lambda I)^{-1}X^Ty$:
+>
+> | $\lambda$ | $a_0$ | $a_1$ | $\lVert a\rVert_2$ |
+> |---|---|---|---|
+> | 0 | 0,250 | −0,250 | 0,354 |
+> | 1 | 0,201 | −0,254 | 0,324 |
+> | 10 | 0,090 | −0,241 | 0,257 |
+>
+> Die Norm sinkt monoton; einzelne Koeffizienten können dabei kurz wachsen ($a_1$ bei $\lambda = 1$).
+
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Ridge bei perfekter Kollinearität
+> Zwei identische Merkmale $x^1 = x^2 = (1, 2, 3)$, $y = (2, 4, 6)$, ohne Achsenabschnitt:
+> $$X^TX = \begin{pmatrix}14&14\\14&14\end{pmatrix}\ \text{(singulär)},\qquad X^Ty = \begin{pmatrix}28\\28\end{pmatrix}$$
+> Kleinste Quadrate hat unendlich viele Lösungen ($\theta_1 + \theta_2 = 2$, z. B. $(2, 0)$ oder $(52, -50)$). Mit $\lambda = 1$:
+> $$\begin{pmatrix}15&14\\14&15\end{pmatrix}\theta = \begin{pmatrix}28\\28\end{pmatrix} \;\Rightarrow\; \theta_1 = \theta_2 = \tfrac{28}{29} \approx 0{,}966$$
+> Ridge verteilt das Gewicht **gleichmäßig** auf beide Merkmale; die Summe $\approx 1{,}93$ liegt knapp unter dem wahren Gesamteffekt 2 (Schrumpfung).
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Immobilienpreise mit korrelierten Merkmalen
+> Wohnfläche (m²) und Zimmerzahl sind stark korreliert. Ohne Regularisierung springen die Koeffizienten zwischen Stichproben (z. B. +6 000 €/m² und −40 000 €/Zimmer, in der nächsten Stichprobe umgekehrt) – Vorhersagen bleiben ähnlich, Interpretation ist unmöglich. Ridge mit **standardisierten** Merkmalen und $\lambda$ aus [[kreuzvalidierung]] liefert stabile, ähnlich große Koeffizienten. Will man stattdessen nur eines der beiden Merkmale behalten → [[lasso-regression]].
 
 ## Vor- und Nachteile
 | + | − |
