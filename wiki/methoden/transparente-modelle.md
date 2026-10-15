@@ -49,6 +49,21 @@ Modell $y = \beta_0 + \beta_1x_1 + \dots + \beta_px_p$:
 - **Technische Risiken:** Informationsverlust durch Binning, Threshold-Gaming, **versteckte Proxys** (ein Merkmal „springt" für ein geschütztes Attribut ein, obwohl dieses nicht im Modell ist).
 - Validierung: Kalibrierung, Subgruppenleistung, Plausibilität jedes Bins/jeder Regel.
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Scorecard auswerten
+> Basis 20 Punkte; Schwelle für Zusage: 50 Punkte.
+>
+> | Merkmal | Bins und Punkte |
+> |---|---|
+> | Alter | < 25: 0 · 25–40: 10 · > 40: 20 |
+> | Nettoeinkommen | < 2 000 €: 0 · 2 000–4 000 €: 15 · > 4 000 €: 30 |
+> | Zahlungsverzug in 12 Monaten | ja: −25 · nein: 0 |
+>
+> Antrag: 30 Jahre, 3 000 €, kein Verzug ⇒ $20 + 10 + 15 + 0 = 45 < 50$ → Ablehnung. Die Begründung ist direkt ablesbar: Mit einem Einkommen über 4 000 € wären es 60 Punkte. Genau das zeigt auch die Risiken aus VL5, F. 15: Wer 4 050 € statt 3 950 € angibt, springt um 15 Punkte (**Threshold-Gaming**, Informationsverlust durch Binning). Würde man statt Alter die Postleitzahl binnen, könnte sie als **versteckter Proxy** für Herkunft wirken.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – transparente Baseline gewinnt
+> Eine Bank vergleicht Gradient Boosting (AUC 0,79) mit einer L1-regularisierten logistischen Regression mit 8 Merkmalen (AUC 0,77). Nach VL5, F. 10 rechtfertigen 0,02 AUC bei einer Kreditentscheidung kaum den Verlust an Prüfbarkeit. Vor der Entscheidung: Bootstrap-Intervalle der Koeffizienten (stabil?), Korrelationen prüfen (kippt ein Vorzeichen?), Kalibrierung und Subgruppenleistung validieren.
+
 ## Zusammenfassung (→ VL5, F. 16)
 - Auch transparente Modelle brauchen sorgfältige Interpretation: Skala, Korrelation, Unsicherheit, Annahmen.
 - Lineare und logistische Regression sind starke Baselines, wenn ihre Annahmen präzise kommuniziert werden.

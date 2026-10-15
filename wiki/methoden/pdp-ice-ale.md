@@ -64,6 +64,16 @@ ALE für `tenure_months` (Gradient Boosting, Churn):
 | ALE-Effekt auf p(churn) | +0,103 | +0,055 | −0,007 | −0,004 | −0,010 | −0,053 |
 Lesart: Kurze Vertragslaufzeit geht im Modell mit ca. 10 Prozentpunkten **höherer** vorhergesagter Abwanderung als im Durchschnitt einher. **Nicht** daraus folgern, dass eine Verlängerung der Laufzeit Abwanderung verhindert.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – PDP versteckt eine Interaktion
+> Modell $f(x_1, x_2) = x_1\cdot x_2$, vier Beobachtungen mit $x_2 = (-1, -1, 1, 1)$.
+> - **ICE** für $x_1$: Beobachtungen 1–2 ergeben die Linie $-z$, Beobachtungen 3–4 die Linie $+z$ – zwei gegenläufige Effekte.
+> - **PDP:** $\mathrm{PDP}_1(z) = \frac14\big(-z - z + z + z\big) = 0$ – eine flache Linie.
+>
+> Nach dem PDP wäre $x_1$ bedeutungslos, obwohl es jede einzelne Vorhersage stark bewegt. Auseinanderlaufende ICE-Linien zeigen die Interaktion mit $x_2$ (VL5, F. 24).
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Kfz-Versicherung mit korrelierten Merkmalen
+> Ein Schadenmodell nutzt Alter und Jahre mit Führerschein (stark korreliert). Der PDP für „40 Jahre Fahrerfahrung" setzt dafür auch 20-Jährige auf 40 Jahre Erfahrung – unmögliche Zeilen, das Modell extrapoliert, und die Kurve kann beliebig aussehen. ALE vergleicht dagegen nur Personen, die tatsächlich im Intervall (z. B. 38–42 Jahre Erfahrung) liegen, und ändert die Erfahrung nur innerhalb dieses Intervalls. Für die Präsentation gehört ein Rug-Plot dazu, der zeigt, wo Daten liegen.
+
 ## Typische Prüfungsfragen & Fallstricke
 - PDP-Formel aufschreiben und erklären.
 - „Warum ist PDP bei korrelierten Merkmalen problematisch, und was hilft?" → unrealistische Kombinationen; ALE.

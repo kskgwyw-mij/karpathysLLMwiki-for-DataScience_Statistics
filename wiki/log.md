@@ -72,3 +72,9 @@
 - Neuer Abschnitt „Beispiel" auf sechs Seiten, wo er fehlte (bootstrap, optimierung-grundlagen, sgd, adaptive-optimierer, restringierte-optimierung, initialisierung).
 - Abgleich: θ²-Tabellen in [[gradientenabstieg]] und [[momentum-und-nesterov]] sowie das Newton-Beispiel waren eigene Rechnungen ohne Markierung → `[!beispiel]`. Momentum-Tabelle um Nesterov-Spalten erweitert.
 - Alle Zahlen mit Python nachgerechnet.
+
+## [2026-10-15] query | Beispiele: XAI global (Batch D)
+- Grüne Rechenbeispiele und Anwendungsfälle auf [[erklaerbarkeit-grundlagen]], [[transparente-modelle]], [[entscheidungsbaeume]], [[permutation-feature-importance]], [[pdp-ice-ale]].
+- Neuer Abschnitt „Beispiel" auf [[erklaerbarkeit-grundlagen]] und [[transparente-modelle]] (fehlte).
+- Abgleich: vorhandene Beispiele stammen alle aus NB5/NB6 (Kursmaterial), keine Umstellung nötig.
+- Alle Zahlen mit Python nachgerechnet.

@@ -50,6 +50,19 @@ mock_exam_score > 64.5
 ```
 Beobachtungen: Tiefe 2 sagt Note 3 nie vorher; Accuracy und Balanced Accuracy empfehlen verschiedene Tiefen; der Split nach **Kohorte** (berufsbegleitend vs. Vollzeit) ist fachlich fragwürdig und ein mögliches Proxy-/Fairnessrisiko.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – besten Split mit Gini wählen
+> Gini-Unreinheit $G = 1 - \sum_k p_k^2$. Knoten mit 10 Kunden: 6 bleiben, 4 kündigen ⇒ $G = 1 - (0{,}6^2 + 0{,}4^2) = 0{,}48$.
+>
+> | Split | links (bleibt/kündigt) | rechts | $G_\text{links}$ | $G_\text{rechts}$ | gewichtet | Reduktion |
+> |---|---|---|---|---|---|---|
+> | Vertrag monatlich? | 1 / 4 | 5 / 0 | 0,32 | 0 | $0{,}5\cdot0{,}32 = 0{,}16$ | **0,32** |
+> | Alter > 40? | 4 / 2 | 2 / 2 | 0,444 | 0,5 | $0{,}6\cdot0{,}444 + 0{,}4\cdot0{,}5 \approx 0{,}467$ | 0,013 |
+>
+> Der Baum wählt „Vertrag monatlich". Die Summe dieser Reduktionen über alle Splits eines Merkmals ist seine Baum-Feature-Importance – sie misst Beitrag zur Reinheit, keinen kausalen Effekt.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Triage-Hilfe in der Notaufnahme
+> Ein Baum der Tiefe 3 ordnet Patienten Prioritäten zu, z. B. „Sauerstoffsättigung < 92 % → hoch; sonst Alter > 75 **und** Fieber → mittel; sonst niedrig". Pflegekräfte können jede Einstufung nachvollziehen und Fehler melden. Vor dem Einsatz: auf Bootstrap-Stichproben neu trainieren – wechselt der erste Split zwischen Sättigung und Atemfrequenz, ist die „Geschichte" instabil (VL5, F. 14) und sollte nicht als feste Regel kommuniziert werden.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Pfad einer Person durch einen gegebenen Baum verfolgen.
 - „Warum sind Bäume instabil?" → hohe Varianz, frühe Splits hängen stark von den Daten ab; Abhilfe: [[bagging]]/Random Forest (aber weniger interpretierbar).

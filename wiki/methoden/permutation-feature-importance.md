@@ -49,6 +49,18 @@ Gradient Boosting, Churn, 20 Wiederholungen, Metrik ROC AUC:
 | `region` | 0,000 | 0,012 |
 Die Plätze 1–4 überlappen innerhalb einer Standardabweichung – eine strikte Rangfolge wäre überinterpretiert. `promo_user` hat sogar leicht negative Importance (Rauschen).
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – warum man wiederholt permutiert
+> Modell: $\hat y = 1$, falls $x_1 > 5$. Validierungsdaten $x_1 = (2, 4, 6, 8)$, $x_2 = (1, 0, 1, 0)$, $y = (0, 0, 1, 1)$ ⇒ Baseline-Accuracy 1,0.
+> - Permutation $x_1 \to (8, 6, 4, 2)$: Vorhersagen $(1, 1, 0, 0)$, Accuracy 0 ⇒ Importance $1{,}0$.
+> - Permutation $x_1 \to (4, 2, 8, 6)$: Vorhersagen $(0, 0, 1, 1)$, Accuracy 1 ⇒ Importance $0$ (!)
+> - Über alle 24 Permutationen: 4-mal Importance 0, 16-mal 0,5, 4-mal 1,0 ⇒ Mittel **0,5**.
+> - $x_2$ wird vom Modell nicht benutzt ⇒ Importance immer 0.
+>
+> Eine einzelne Permutation kann das wichtigste Merkmal als unwichtig erscheinen lassen – daher wiederholen und Mittel **mit Streuung** berichten (VL5, F. 21).
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Wohnfläche und Zimmerzahl
+> Ein Preismodell nutzt Wohnfläche und Zimmerzahl, die stark korrelieren. Permutiert man nur die Wohnfläche, trägt die Zimmerzahl das Signal weiter – beide Merkmale wirken einzeln fast unwichtig. Zudem entstehen unrealistische Zeilen wie „35 m², 6 Zimmer". Lösung nach VL5, F. 22: die beiden als **Gruppe** permutieren (zeigt die gemeinsame Wichtigkeit) oder bedingt permutieren – und im Bericht angeben, welche Variante verwendet wurde.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Algorithmus in vier Schritten beschreiben.
 - „Zwei stark korrelierte Merkmale haben beide geringe Importance – was ist los?" → das jeweils andere trägt das Signal; gruppiert permutieren.

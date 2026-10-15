@@ -61,6 +61,21 @@ Ein klares Erklärungsziel verhindert, dass Modellverhalten, reale Kausalität u
 - Visuelle Erklärungen brauchen **Verteilungsprüfungen**: nicht unterstützte Bereiche und Ausreißer können Diagramme irreführend machen.
 - Eine plausible Erklärung kann Proxy-Diskriminierung, Label-Bias oder ungleiche Fehlerraten verbergen.
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – lokal ≠ global
+> Modell $f(x_1, x_2) = 3\,x_1x_2$ mit binärem $x_2$, je zur Hälfte 0 und 1.
+> - Lokal, Person mit $x_2 = 0$: Erhöht man $x_1$ um 1, ändert sich die Vorhersage um **0**.
+> - Lokal, Person mit $x_2 = 1$: Änderung **+3**.
+> - Global gemittelt: $0{,}5\cdot0 + 0{,}5\cdot3 = $ **+1,5** – auf keine einzige Person zutreffend.
+>
+> Weder darf man eine lokale Erklärung auf das ganze Modell übertragen, noch beschreibt der globale Mittelwert den Einzelfall (VL5, F. 6). Erst beides zusammen zeigt die Interaktion.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – eine Kreditablehnung, drei Zielgruppen
+> Nach der Leitfrage „für wen?" (VL5, F. 3) braucht dieselbe Entscheidung verschiedene Erklärungen:
+> - **Analystin** (Debugging): globale [[permutation-feature-importance]] und [[pdp-ice-ale]] – stützt sich das Modell auf plausible Merkmale?
+> - **Betroffene Person:** [[kontrafaktische-erklaerungen]] – „Mit 300 € mehr Monatseinkommen wäre der Kredit genehmigt worden."
+> - **Prüferin:** Dokumentation von Metrikwahl, Datenherkunft und Fairness-Metriken je Gruppe ([[fairness-metriken]]).
+
 ## Globale Erklärungen: Können und Grenzen (→ VL5, F. 20)
 Fassen Verhalten über einen Datensatz zusammen, erklären nicht jede Einzelentscheidung. Ausgaben: Feature-Importance-Rankings, Effektkurven, Verteilungen lokaler Effekte. Nützlich für Debugging, Modellvergleich, Stakeholder-Reporting, Hypothesengenerierung. **Nicht kausal**, außer gestützt durch Studiendesign, Annahmen oder externe Evidenz. Immer Datenausschnitt, Metrik, Preprocessing und Modellversion berichten.
 
