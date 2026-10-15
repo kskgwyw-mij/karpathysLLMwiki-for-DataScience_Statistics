@@ -1,0 +1,12 @@
+flowchart LR
+    R[("raw/ · Rohquellen<br/>Folien · Übungen<br/>Altklausuren<br/>nur lokal")]
+    S["AGENTS.md<br/>Schema: Regeln<br/>und Abläufe"]
+    A(("LLM-Agent<br/>Claude Code<br/>Codex"))
+    W["wiki/ · Wissen<br/>Konzepte · Methoden<br/>Aufgaben · Formeln<br/>index · log"]
+    J(("Jan<br/>in Obsidian"))
+
+    R -->|"1 · ingest"| A
+    S -.->|"steuert"| A
+    A -->|"2 · kompiliert<br/>und pflegt"| W
+    W -->|"3 · lernen"| J
+    J -->|"4 · Frage, quiz, lint"| A

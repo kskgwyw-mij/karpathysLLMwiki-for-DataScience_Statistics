@@ -38,3 +38,7 @@
 ## [2026-10-15] setup | README: Konzept LLM-Wiki
 - README: neuer Abschnitt „Das Konzept: LLM-Wiki“ am Ende – Idee nach Karpathy, Mermaid-Diagramm des Kreislaufs (ingest → kompilieren → lernen → Frage/quiz/lint), Tabellen „Drei Schichten“ und „RAG und LLM-Wiki im Vergleich“.
 - Diagramm vorab mit mermaid-cli gerendert und geprüft.
+
+## [2026-10-15] setup | README: Diagramm als Bild
+- Mermaid-Block in der README durch PNG ersetzt (Jan: GitHub zeigt das Flowchart nicht an); helle und dunkle Variante per `<picture>`.
+- Bilder und Mermaid-Quelle in `.github/assets/llm-wiki-kreislauf*` (in Obsidian ausgeblendet).

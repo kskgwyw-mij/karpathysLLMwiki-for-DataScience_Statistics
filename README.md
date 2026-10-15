@@ -72,20 +72,12 @@ Die Idee stammt von [Andrej Karpathy](https://gist.github.com/karpathy/442a6bf55
 
 Ein LLM-Wiki dreht das um. Der Agent liest jede Quelle **einmal** gründlich und kompiliert sie in ein dauerhaftes, querverlinktes Markdown-Wiki. Fragen, Quiz-Ergebnisse und neue Quellen ergänzen dieses Wiki, statt verloren zu gehen. Das Wissen sammelt sich an.
 
-```mermaid
-flowchart LR
-    R[("raw/ · Rohquellen<br/>Folien · Übungen<br/>Altklausuren<br/>nur lokal")]
-    S["AGENTS.md<br/>Schema: Regeln<br/>und Abläufe"]
-    A(("LLM-Agent<br/>Claude Code<br/>Codex"))
-    W["wiki/ · Wissen<br/>Konzepte · Methoden<br/>Aufgaben · Formeln<br/>index · log"]
-    J(("Jan<br/>in Obsidian"))
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/llm-wiki-kreislauf-dark.png">
+  <img alt="Kreislauf des LLM-Wikis: 1 ingest aus raw/ zum LLM-Agenten, 2 der Agent kompiliert und pflegt wiki/, 3 Jan lernt in Obsidian, 4 Fragen, quiz und lint gehen zurück an den Agenten; AGENTS.md steuert den Agenten" src=".github/assets/llm-wiki-kreislauf.png">
+</picture>
 
-    R -->|"1 · ingest"| A
-    S -.->|"steuert"| A
-    A -->|"2 · kompiliert<br/>und pflegt"| W
-    W -->|"3 · lernen"| J
-    J -->|"4 · Frage, quiz, lint"| A
-```
+<sub>Quelle des Diagramms: [`.github/assets/llm-wiki-kreislauf.mmd`](.github/assets/llm-wiki-kreislauf.mmd) (Mermaid)</sub>
 
 Der Kreislauf: Quellen werden einmal eingelesen (1) und ins Wiki kompiliert (2). Jan lernt im Wiki (3) und stellt Fragen oder lässt sich abfragen (4). Der Agent liest dafür zuerst `index.md`, antwortet aus dem Wiki und legt gute Antworten und Quiz-Ergebnisse wieder dort ab. So wird das Wiki mit jeder Runde vollständiger.
 
