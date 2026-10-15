@@ -38,6 +38,7 @@ b) Accuracy hängt am Schwellenwert 0,5 und an der Klassenverteilung. Nachgerech
 |---|---|---|---|---|
 | Logistische Regression (balanced) | 39 % | 22 / 6 / 66 | 0,79 | 0,25 |
 | Gradient Boosting | 3 % | 2 / 26 / 5 | 0,07 | 0,29 |
+
 Gradient Boosting sagt fast nur „kein Churn" vorher → Accuracy nahe dem Mehrheitsanteil, aber nur 2 von 28 Churnern erkannt. Die logistische Regression gewichtet die seltene Klasse hoch, sagt viel mehr Churn vorher → viele False Positives → niedrigere Accuracy, aber hoher Recall. Die **AUC** ist schwellenunabhängig und misst die Rangfolge: Die logistische Regression trennt Churner und Nicht-Churner besser.
 
 c) Für eine Kampagne zählt, gefährdete Kunden zu finden → Rangfolge und Recall der Churn-Klasse, also **AUC bzw. Recall/Precision bei gewähltem Schwellenwert**, nicht Accuracy. Auf diesen Zahlen spricht mehr für die **logistische Regression** (höhere AUC, zudem transparent). Danach Schwellenwert über Kampagnenkosten wählen.

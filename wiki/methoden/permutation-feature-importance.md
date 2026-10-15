@@ -47,6 +47,7 @@ Gradient Boosting, Churn, 20 Wiederholungen, Metrik ROC AUC:
 | `contract_type` | 0,035 | 0,028 |
 | `support_tickets` | 0,021 | 0,011 |
 | `region` | 0,000 | 0,012 |
+
 Die Plätze 1–4 überlappen innerhalb einer Standardabweichung – eine strikte Rangfolge wäre überinterpretiert. `promo_user` hat sogar leicht negative Importance (Rauschen).
 
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – warum man wiederholt permutiert

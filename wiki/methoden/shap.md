@@ -35,6 +35,7 @@ $f(S)$ ist die Vorhersage, wenn nur die Merkmale in $S$ „bekannt" sind. Wie fe
 | **Interventional SHAP** | fehlende Merkmale aus einer Hintergrundverteilung samplen | bricht Merkmalsabhängigkeit |
 | **Conditional SHAP** | versucht Abhängigkeiten zu respektieren | kann korrelierten Merkmalen anders Kredit zuweisen |
 | **TreeSHAP** | nutzt die Baumstruktur | exakte Shapley-Werte für Baum-Ensembles effizient (unter bestimmten Annahmen) |
+
 - SHAP-Werte können auf **Wahrscheinlichkeits-, Logit- oder Rohscore-Skala** liegen – **immer die Skala beschriften**.
 - Bei korrelierten Merkmalen die exakte Aufteilung des Beitrags zwischen Proxys nicht überinterpretieren.
 

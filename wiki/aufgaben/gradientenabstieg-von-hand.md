@@ -23,6 +23,7 @@ aktualisiert: 2026-10-15
 | 0,5 | 0 | 0 | 0 | 0 | 0 |
 | 0,9 | −0,8 | −1,6 | 1,28 | −1,024 | 0,819 |
 | 1,1 | −1,2 | −2,4 | 2,88 | −3,456 | 4,147 |
+
 Konvergenz genau für $\lvert 1 - 2\eta\rvert < 1 \Leftrightarrow 0 < \eta < 1$. Bei $\eta = 0{,}9$ oszilliert das Verfahren, bei $\eta > 1$ divergiert es.
 
 ## Teil B · Momentum
@@ -36,6 +37,7 @@ Konvergenz genau für $\lvert 1 - 2\eta\rvert < 1 \Leftrightarrow 0 < \eta < 1$.
 | 1 | 1,6 | 3,2 | 6,8 | 0,92 |
 | 2 | 0,92 | 1,84 | 7,96 | 0,124 |
 | 3 | 0,124 | 0,248 | 7,412 | −0,617 |
+
 Der angesammelte Schwung trägt über das Minimum hinaus. In 1D bringt Momentum hier nichts – sein Nutzen zeigt sich in **schlecht konditionierten** Problemen (Teil C).
 
 ## Teil C · Konditionierung und Newton

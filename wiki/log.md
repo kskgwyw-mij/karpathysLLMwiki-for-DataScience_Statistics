@@ -84,3 +84,9 @@
 - Neuer Abschnitt „Beispiel" auf [[grad-cam]] und [[fairness-mitigation]] (fehlte).
 - Abgleich: Gruppe-A/B-Tabelle in [[fairness-metriken]] war eigenes Material ohne Markierung → `[!beispiel]`; Spalte „Beispiel (eigene Ergänzung)" in [[fairness-grundlagen]] aus der Tabelle in einen grünen Block verschoben.
 - Alle Zahlen mit Python nachgerechnet.
+
+## [2026-10-15] lint | Tabellenenden und Bestandsprüfung Aufgaben
+- 8 Stellen, an denen Text direkt unter einer Tabelle stand (Obsidian zeigt ihn dann als Tabellenzeile), mit Leerzeile getrennt; Scan jetzt auch in Callouts sauber.
+- [[lineare-regression-normalgleichungen]]: Ridge-Variante und Schwerpunkt-Kontrolle waren eigene Ergänzungen ohne Markierung → grün; Rundungsfehler korrigiert (λ = 100: ‖a‖ = 0,122 statt 0,123).
+- Übrige Aufgabenseiten sind gelöste Kursübungen (VL1, VL2, Workshop) bzw. tragen schon eine grüne Kennzeichnung.
+- Kontrolle: alle 39 Konzept- und Methodenseiten haben mindestens ein grünes Rechenbeispiel und einen Anwendungsfall.

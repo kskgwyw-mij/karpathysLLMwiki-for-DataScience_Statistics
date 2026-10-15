@@ -32,6 +32,7 @@ Berechnen Sie $\phi_1, \phi_2, \phi_3$ und prüfen Sie die Effizienzeigenschaft.
 | $\{2\}$ | 1/6 | 18 − 12 = 6 |
 | $\{3\}$ | 1/6 | 15 − 10 = 5 |
 | $\{2,3\}$ | 1/3 | 20 − 13 = 7 |
+
 $\phi_1 = \frac43 + 1 + \frac56 + \frac73 = 5{,}5$
 
 **Merkmal 2** – Teilmengen $S\subseteq\{1,3\}$: Beiträge $12-10 = 2$ (1/3), $18-14 = 4$ (1/6), $13-10 = 3$ (1/6), $20-15 = 5$ (1/3)

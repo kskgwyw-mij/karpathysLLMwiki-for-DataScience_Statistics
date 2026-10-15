@@ -32,22 +32,25 @@ $$\begin{pmatrix}a_0\\a_1\end{pmatrix} = \frac{1}{244}\begin{pmatrix}73 & 11\\ 1
 $$\hat a_0 = 0{,}25, \qquad \hat a_1 = -0{,}25, \qquad \hat y = 0{,}25 - 0{,}25\,x$$
 Deckt sich mit dem Notebook-Output `array([ 0.25, -0.25])`.
 
-**Kontrolle:** Die Regressionsgerade geht durch den Schwerpunkt $(\bar x, \bar y) = (-2{,}2;\ 0{,}8)$: $0{,}25 - 0{,}25\cdot(-2{,}2) = 0{,}8$ ✓.
+> [!ergaenzung] Kontrolle (nicht aus der VL)
+> Die Regressionsgerade mit Achsenabschnitt geht immer durch den Schwerpunkt $(\bar x, \bar y) = (-2{,}2;\ 0{,}8)$: $0{,}25 - 0{,}25\cdot(-2{,}2) = 0{,}8$ ✓.
 
 > [!warning] Typischer Fehler
 > - Vorzeichen in der 2×2-Inversen: Diagonale tauschen, Nebendiagonale negieren.
 > - $\sum x^2$ mit $(\sum x)^2$ verwechseln.
 
 ## Variante mit Ridge
-Mit Strafe $\lambda\|a\|^2$ (ohne $1/N$) wird $X^TX$ zu $X^TX + \lambda I$:
-
-| $\lambda$ | $a_0$ | $a_1$ | $\lVert a\rVert_2$ |
-|---|---|---|---|
-| 0 | 0,250 | −0,250 | 0,354 |
-| 1 | 0,201 | −0,254 | 0,324 |
-| 10 | 0,090 | −0,241 | 0,257 |
-| 100 | 0,026 | −0,120 | 0,123 |
-Auffällig: Bei $\lambda = 1$ wird $\lvert a_1\rvert$ sogar **größer** – Ridge verkleinert die Norm des Vektors, nicht jeden einzelnen Koeffizienten (siehe [[ridge-regression]]).
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – dieselben Daten mit Ridge
+> Mit Strafe $\lambda\|a\|^2$ (ohne $1/N$) wird $X^TX$ zu $X^TX + \lambda I$:
+>
+> | $\lambda$ | $a_0$ | $a_1$ | $\lVert a\rVert_2$ |
+> |---|---|---|---|
+> | 0 | 0,250 | −0,250 | 0,354 |
+> | 1 | 0,201 | −0,254 | 0,324 |
+> | 10 | 0,090 | −0,241 | 0,257 |
+> | 100 | 0,026 | −0,120 | 0,122 |
+>
+> Auffällig: Bei $\lambda = 1$ wird $\lvert a_1\rvert$ sogar **größer** – Ridge verkleinert die Norm des Vektors, nicht jeden einzelnen Koeffizienten (siehe [[ridge-regression]]).
 
 ## Benötigte Konzepte
 - [[lineare-regression]]

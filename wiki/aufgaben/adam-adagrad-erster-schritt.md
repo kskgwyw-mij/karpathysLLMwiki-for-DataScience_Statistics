@@ -36,6 +36,7 @@ $$\Delta\theta_1 = -\alpha\,\frac{g_1}{\sqrt{g_1^2 + \varepsilon}} \approx -\alp
 | 0,001 | −0,000995 |
 | 5 | −0,001 |
 | −100 | +0,001 |
+
 Der erste Schritt hat Betrag ≈ $\alpha$, **egal wie groß der Gradient ist**.
 
 Ohne Bias-Korrektur: $m_1/\sqrt{v_1} = 0{,}1\,g_1/(\sqrt{0{,}001}\,\lvert g_1\rvert)\approx 3{,}16\,\mathrm{sign}(g_1)$ → der erste Schritt wäre gut dreimal so groß wie beabsichtigt. Die Korrektur gleicht die Nullinitialisierung von $m$ und $v$ aus.

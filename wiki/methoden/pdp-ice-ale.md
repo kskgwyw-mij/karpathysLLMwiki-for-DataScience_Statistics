@@ -62,6 +62,7 @@ ALE für `tenure_months` (Gradient Boosting, Churn):
 | Laufzeit (Intervallmitte) | 4 | 10,5 | 18 | 32 | 51,5 | 67,3 |
 |---|---|---|---|---|---|---|
 | ALE-Effekt auf p(churn) | +0,103 | +0,055 | −0,007 | −0,004 | −0,010 | −0,053 |
+
 Lesart: Kurze Vertragslaufzeit geht im Modell mit ca. 10 Prozentpunkten **höherer** vorhergesagter Abwanderung als im Durchschnitt einher. **Nicht** daraus folgern, dass eine Verlängerung der Laufzeit Abwanderung verhindert.
 
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – PDP versteckt eine Interaktion
