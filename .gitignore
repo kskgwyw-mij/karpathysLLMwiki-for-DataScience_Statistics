@@ -223,7 +223,7 @@ __marimo__/
 # Obsidian
 .obsidian/workspace*.json
 .obsidian/cache
-.obsidian/plugins/*/data.json
+.obsidian/plugins/
 .trash/
 
 # Rohquellen (Vorlesungsfolien, Übungen, Altklausuren) NICHT ins öffentliche Repo:

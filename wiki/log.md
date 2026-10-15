@@ -19,3 +19,9 @@
 ## [2026-10-15] setup | Schema: Push nach jedem Commit
 - AGENTS.md, Abschnitt Git: nach jedem Commit `git push origin main` ohne Rückfrage; bei abgelehntem Push kein Force-Push, sondern Jan informieren (auf Jans Wunsch).
 - git nutzt die gh-Anmeldung (`gh auth setup-git`).
+
+## [2026-10-15] setup | Obsidian eingerichtet, Rohdateien auf den Stick
+- Vault in Obsidian geöffnet; Community-Plugins Dataview (JavaScript Queries an) und Spaced Repetition aktiv.
+- `.gitignore`: `.obsidian/plugins/` komplett ausgeschlossen (Plugin-Code nicht ins Repo); `community-plugins.json` wird versioniert.
+- 20 Rohdateien aus der Ingest-Kopie (`~/repos/…/raw/`) nach `raw/` auf dem Stick kopiert; Namen wie in [[index]].
+- Weiterhin offen: Prüfungsrelevanz Kapitel 5–6, Altklausuren (Jan fragt nach), Termin 03.07. vs. 13.11.
