@@ -49,6 +49,25 @@ Daten aus [[q-nb01-linear-regression|NB1]]: $x = (-7,-4,-2,0,2)$, $y = (1,2,2,0,
 $$X^TX = \begin{pmatrix}5 & -11\\-11 & 73\end{pmatrix}, \quad X^Ty = \begin{pmatrix}4\\-21\end{pmatrix}, \quad \hat a = \begin{pmatrix}0{,}25\\-0{,}25\end{pmatrix}$$
 Vollständiger Rechenweg: [[lineare-regression-normalgleichungen]]. Notebook: `notebooks/kapitel-1-regression-splines.ipynb`.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Residuen prüfen
+> Mit $\hat a = (0{,}25;\,-0{,}25)$ aus den NB1-Daten ist $\hat y = 0{,}25 - 0{,}25\,x$:
+>
+> | $x$ | −7 | −4 | −2 | 0 | 2 |
+> |---|---|---|---|---|---|
+> | $y$ | 1 | 2 | 2 | 0 | −1 |
+> | $\hat y$ | 2 | 1,25 | 0,75 | 0,25 | −0,25 |
+> | $r = y - \hat y$ | −1 | 0,75 | 1,25 | −0,25 | −0,75 |
+>
+> - $\sum r_j = 0$ und $\sum x_j r_j = 7 - 3 - 2{,}5 + 0 - 1{,}5 = 0$ – das ist genau die Normalgleichung $X^T(y - X\hat a) = 0$: Die Residuen stehen senkrecht auf jeder Spalte von $X$. **Schnelltest in der Klausur:** Ist eine der beiden Summen ≠ 0, ist $\hat a$ falsch.
+> - Fehlerquadratsumme $L(\hat a) = 1 + 0{,}5625 + 1{,}5625 + 0{,}0625 + 0{,}5625 = 3{,}75$.
+> - Vorhersage für $x = 4$: $\hat y = 0{,}25 - 1 = -0{,}75$.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Heizenergie und Außentemperatur
+> Ein Gebäude-Monitoring schätzt aus Tagesdaten $\hat y = 60 - 2{,}5\,T$ (Heizenergie in kWh, Außentemperatur $T$ in °C).
+> - $a_1 = -2{,}5$: Jedes Grad wärmer spart im Mittel 2,5 kWh pro Tag. $a_0 = 60$: erwarteter Verbrauch bei 0 °C.
+> - Vorhersage bei 10 °C: $60 - 25 = 35$ kWh.
+> - Bei 30 °C ergäbe sich −15 kWh – unsinnig. Das Modell gilt nur im Bereich der Trainingsdaten (Heizperiode); **Extrapolation** ist eine typische Fehlerquelle. Ein nichtlinearer Verlauf (ab ca. 18 °C kein Heizen mehr) ließe sich mit [[basisfunktionen-regression]] abbilden.
+
 ## Typische Prüfungsfragen & Fallstricke
 - **Normalgleichung herleiten** (Ableitung, Nullsetzen, Auflösen) – klassische Papieraufgabe.
 - **2×2-System von Hand lösen**: Inverse $\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1} = \frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$.

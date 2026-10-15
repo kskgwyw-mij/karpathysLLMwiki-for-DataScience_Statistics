@@ -50,6 +50,22 @@ Polynom-Regression auf verrauschten Daten ([[basisfunktionen-uebung-folie-30]]):
 - **Unter-Regularisierung** (zu kleines $\lambda$): hohe Varianz, große Lücke zwischen Train und Val.
 - **Über-Regularisierung** (zu großes $\lambda$): hoher Bias, Train und Val beide schlecht.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Zerlegung mit Zahlen
+> Wahrer Wert $f(x_0) = 10$, Rauschen $\sigma^2 = 1$. Auf drei Trainingsdatensätzen liefern zwei Modelle bei $x_0$:
+>
+> | Modell | $\hat f(x_0)$ auf Datensatz 1, 2, 3 | $\mathbb E[\hat f]$ | Bias² | Varianz | MSE |
+> |---|---|---|---|---|---|
+> | einfach | 8; 9; 10 | 9 | $(10-9)^2 = 1$ | $\frac{1 + 0 + 1}{3} \approx 0{,}67$ | $1 + 0{,}67 + 1 \approx 2{,}67$ |
+> | flexibel | 6; 10; 14 | 10 | 0 | $\frac{16 + 0 + 16}{3} \approx 10{,}67$ | $0 + 10{,}67 + 1 \approx 11{,}67$ |
+>
+> Das flexible Modell ist im Mittel **unverzerrt**, verliert aber wegen der Schwankung deutlich. Ein bisschen Bias gegen viel weniger Varianz zu tauschen ist genau die Idee von [[regularisierung]].
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Nachfrageprognose im Onlinehandel
+> Ein Händler prognostiziert die Tagesnachfrage pro Artikel.
+> - **Modell A** „Wert der Vorjahreswoche": robust, aber verpasst Trends und Aktionen → Trainings- und Testfehler beide hoch → **Bias**. Gegenmittel: mehr Features (Preis, Aktion, Feiertag), flexibleres Modell.
+> - **Modell B** großes Netz auf drei Monaten Daten: Trainingsfehler fast 0, auf der nächsten Woche schlecht → **Varianz**. Gegenmittel: Regularisierung, mehr Historie, einfacheres Modell oder Ensembles ([[bagging]]).
+> - Unvorhersehbares (Wetterumschwung, virale Posts) bleibt als $\sigma^2$ – kein Modell beseitigt es.
+
 ## Typische Prüfungsfragen & Fallstricke
 - Formel der Zerlegung aufschreiben und **jeden Term in Worten** erklären.
 - „Ein Modell hat Trainingsfehler 2 % und Testfehler 25 % – Bias- oder Varianzproblem? Was tun?" → Varianz; regularisieren, mehr Daten, einfacheres Modell.

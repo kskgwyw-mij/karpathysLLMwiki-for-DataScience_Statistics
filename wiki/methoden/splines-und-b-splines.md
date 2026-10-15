@@ -69,6 +69,17 @@ Knoten $t_1 = 0, t_2 = 1, t_3 = 2, t_4 = 3$, Grad 2 (Übung VL1, F. 41):
 $$B_{1,2}(x) = \begin{cases} x^2/2 & 0 \le x < 1\\ (-2x^2 + 6x - 3)/2 & 1 \le x < 2 \\ (3-x)^2/2 & 2 \le x < 3 \\ 0 & \text{sonst}\end{cases}$$
 Vollständiger Rechenweg über Grad 0 und Grad 1: [[b-splines-grad-2-von-hand]]. Plot: `notebooks/kapitel-1-regression-splines.ipynb`.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – Spline auswerten
+> Knoten $0, 1, 2, 3, 4, 5$, Grad 2 ⇒ $6 - 2 - 1 = 3$ B-Splines. Sie sind verschobene Kopien des Übungs-Splines: $B_1$ auf $[0,3)$, $B_2$ auf $[1,4)$, $B_3$ auf $[2,5)$. Für $x = 2{,}5$:
+> - $B_1(2{,}5) = (3 - 2{,}5)^2/2 = 0{,}125$
+> - $B_2(2{,}5) = B_{1,2}(1{,}5) = (-4{,}5 + 9 - 3)/2 = 0{,}75$
+> - $B_3(2{,}5) = B_{1,2}(0{,}5) = 0{,}5^2/2 = 0{,}125$
+>
+> Summe $= 1$ (Zerlegung der Eins, hier überlappen $d + 1 = 3$ B-Splines). Das ist auch die Zeile der Basismatrix für $x = 2{,}5$: $(0{,}125;\ 0{,}75;\ 0{,}125)$. Mit $a = (1, 4, 2)$: $S(2{,}5) = 0{,}125 + 3 + 0{,}25 = 3{,}375$. Ändert man nur $a_3$, ändert sich $S$ nur auf $[2, 5)$ – **kompakter Träger**.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Tageslastprofil im Stromnetz
+> Der Stromverbrauch über 24 Stunden hat Morgen- und Abendspitzen. Ein Polynom hohen Grades über den ganzen Tag schwingt an den Rändern (Mitternacht) und reagiert global auf jeden Ausreißer. Kubische B-Splines mit Knoten an typischen Wendepunkten (z. B. 6, 9, 12, 17, 20 Uhr) passen sich **lokal** an: Ein Messfehler um 7 Uhr verbiegt die Abendkurve nicht. Mehr Knoten = flexibler, aber höhere Varianz; die Knotenzahl wählt man per [[kreuzvalidierung]].
+
 ## Typische Prüfungsfragen & Fallstricke
 - **B-Splines von Hand rekursiv berechnen** – erst alle $B_{i,0}$, dann $B_{i,1}$, dann $B_{i,2}$; immer intervallweise.
 - Gewichte der Rekursion erklären (zwei lineare Rampen).

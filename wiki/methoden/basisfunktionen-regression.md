@@ -49,6 +49,16 @@ $$B = \begin{pmatrix} B_0(x_1) & B_1(x_1) & \cdots & B_n(x_1) \\ B_0(x_2) & B_1(
 
 Rechenweg: [[basisfunktionen-uebung-folie-30]]. Notebook: `notebooks/kapitel-1-regression-splines.ipynb`.
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – stückweise konstante Basis
+> Daten $x = (0{,}5;\ 1{,}5;\ 2{,}5;\ 3{,}5)$, $y = (1, 3, 6, 8)$, zwei Bins $I_1 = [0, 2)$, $I_2 = [2, 4)$, Basis $B_1 = \mathbb 1_{I_1}$, $B_2 = \mathbb 1_{I_2}$ (ohne Einsen-Spalte):
+> $$B = \begin{pmatrix}1&0\\1&0\\0&1\\0&1\end{pmatrix},\quad B^TB = \begin{pmatrix}2&0\\0&2\end{pmatrix},\quad B^Ty = \begin{pmatrix}4\\14\end{pmatrix} \;\Rightarrow\; \hat a = \begin{pmatrix}2\\7\end{pmatrix}$$
+> Die Koeffizienten sind die **Mittelwerte je Bin**. Fallstrick: Nimmt man zusätzlich die Einsen-Spalte $B_0 = 1$ auf, ist $B_0 = B_1 + B_2$ – die Spalten sind linear abhängig, $B^TB$ ist **singulär** und die Normalgleichung hat keine eindeutige Lösung.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Saisonalität mit Fourier-Basis
+> Monatlicher Absatz einer Eisdiele mit Trend und Jahreszyklus ($T = 12$ Monate):
+> $$y_m = a_0 + a_1 m + a_2\sin\!\big(\tfrac{2\pi m}{12}\big) + a_3\cos\!\big(\tfrac{2\pi m}{12}\big) + \varepsilon_m$$
+> Die Zeile der Basismatrix für März ($m = 3$) ist $(1,\ 3,\ 1,\ 0)$, für Juni ($m = 6$) $(1,\ 6,\ 0,\ -1)$. Obwohl die Kurve wellenförmig ist, bleibt es eine lineare Regression in $a$ – gelöst mit derselben Normalgleichung. Wird der Sommergipfel zu spitz abgebildet, ergänzt man die nächste Frequenz ($k = 2$) – jede zusätzliche Basisfunktion erhöht aber die Varianz ([[bias-varianz-tradeoff]]).
+
 ## Typische Prüfungsfragen & Fallstricke
 - **Basismatrix aufstellen** für gegebene Daten und Basen (Zeile = Datenpunkt, Spalte = Funktion).
 - „Warum ist ein Polynom-Modell ein *lineares* Modell?" → linear in $a$.

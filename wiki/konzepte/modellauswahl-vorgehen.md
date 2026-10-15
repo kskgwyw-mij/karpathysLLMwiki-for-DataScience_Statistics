@@ -59,6 +59,21 @@ Die Wahl hängt weniger vom „besten" Algorithmus ab als von Daten und Kontext:
 ## Beispiel
 Zwei eigene Workshop-Fälle (Fake-Shop-Erkennung, Qualitätskontrolle in der Produktion) gegen die vier Phasen gespiegelt: [[modellauswahl-fallbeispiele]].
 
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – warum Phase 3 eine Dummy-Baseline braucht
+> 1 000 Kredite, davon 50 Ausfälle (5 %).
+> - **Dummy** „nie Ausfall": Accuracy $= 950/1000 = 95\,\%$, findet aber keinen einzigen Ausfall (Recall 0).
+> - **Modell:** TP = 30, FN = 20, FP = 40, TN = 910 ⇒ Accuracy $= 940/1000 = 94\,\%$, Recall $= 30/50 = 60\,\%$, Precision $= 30/70 \approx 43\,\%$.
+>
+> Nach Accuracy ist das Modell schlechter als die Dummy-Baseline, fachlich aber viel nützlicher. Deshalb muss in **Phase 1** eine zum Fachziel passende Metrik festgelegt werden (hier Recall bei tragbarer Precision), sonst wählt man das falsche Modell.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Stromverbrauch pro Haushalt für morgen
+> 1. **Kriterien:** Regression; Metrik MAE in kWh; Prognose nächtlich im Batch (Latenz unkritisch); Constraint Datenschutz (Smart-Meter-Daten); Abnahme z. B. MAE mindestens 15 % besser als Dummy.
+> 2. **Daten:** tabellarisch mit Zeitbezug; N groß (200 000 Haushalte × viele Tage), p ≈ 30 (Wetter, Wochentag, Feiertag, Vortagsverbrauch); einzelne Messlücken.
+> 3. **Baselines:** Dummy = Verbrauch am gleichen Wochentag der Vorwoche; ML-Baseline = lineare Regression mit Wetter und Wochentag.
+> 4. **Shortlist:** Gradient Boosted Trees (tabellarisch, viel Daten), regularisierte lineare Regression (erklärbar, Vergleich); ein neuronales Netz nur mit gutem Grund (VL0, F. 24).
+>
+> Validierung **zeitlich** getrennt (trainieren auf Vergangenheit, testen auf späteren Wochen), sonst Leakage ([[train-val-test-split]]).
+
 ## Typische Prüfungsfragen & Fallstricke
 - **Fallbeschreibung → Modellvorschlag mit Begründung**: Datentyp, N, p/N, Rauschen, Interpretierbarkeit nennen, dann 2–4 Kandidaten plus Baseline.
 - „Warum braucht man eine Dummy-Baseline?" → Ohne sie sieht man nicht, ob ein Modell überhaupt etwas lernt (Beispiel Accuracy-Falle in [[churn-output-interpretation]]).

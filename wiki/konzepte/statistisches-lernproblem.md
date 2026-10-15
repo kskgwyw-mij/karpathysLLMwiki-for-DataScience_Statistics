@@ -39,6 +39,20 @@ Typische Modelle für $f(x) \approx y$: lineare Regression, logistische Regressi
 ## Annahmen & Voraussetzungen
 - $\varepsilon$ hat Mittelwert 0 und ist unabhängig von $x$ – genau diese Annahme lässt in der Bias-Varianz-Herleitung den Mischterm verschwinden ([[bias-varianz-herleitung]]).
 
+## Beispiel
+> [!beispiel] Rechenbeispiel (nicht aus der VL) – reduzierbarer und irreduzibler Fehler
+> Wahres Modell $f(x) = 2 + 3x$, Rauschen mit $\mathrm{Var}(\varepsilon) = 1$. Ein geschätztes Modell sei $\hat f(x) = 1 + 3{,}5x$. Für $x = 1$:
+> - wahrer Erwartungswert $f(1) = 5$, Vorhersage $\hat f(1) = 4{,}5$
+> - erwarteter quadratischer Fehler $\mathbb E\big[(Y - \hat f(1))^2\big] = \underbrace{(5 - 4{,}5)^2}_{0{,}25\ \text{reduzierbar}} + \underbrace{\mathrm{Var}(\varepsilon)}_{1\ \text{irreduzibel}} = 1{,}25$
+>
+> Selbst mit dem wahren $f$ bliebe der Fehler 1 – mehr Daten oder ein besseres Modell können nur die 0,25 verkleinern. Die Zerlegung folgt aus $\mathbb E[\varepsilon] = 0$ und der Unabhängigkeit; sie ist der Spezialfall von [[bias-varianz-tradeoff]] mit festem $\hat f$.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – Wohnungspreise
+> $Y$ = Kaufpreis, $x$ = (Fläche, Lage, Baujahr, Balkon ja/nein).
+> - **Vorhersage:** Ein Portal will für eine neue Anzeige einen fairen Preis vorschlagen. Ob das Modell eine Blackbox ist, ist egal – Hauptsache, es trifft neue Wohnungen gut.
+> - **Inferenz:** Eine Maklerin fragt: „Um wie viel steigt der Preis durch einen Balkon, bei sonst gleicher Wohnung?" Dafür braucht man ein interpretierbares $\hat f$, z. B. ein lineares Modell mit Koeffizient für „Balkon".
+> - **$\varepsilon$:** Verhandlungsgeschick, persönlicher Geschmack, Zeitdruck beim Verkauf – Einflüsse, die in $x$ nicht stehen. Sie begrenzen jede Vorhersage nach unten.
+
 ## Typische Prüfungsfragen & Fallstricke
 - „Erklären Sie den Unterschied zwischen Vorhersage und Inferenz." → Tabelle oben; Inferenz verlangt Interpretierbarkeit (Bezug zu [[transparente-modelle]]).
 - Fallstrick: $\varepsilon$ ist **nicht** der Trainingsfehler eines Modells, sondern eine Eigenschaft der Daten.

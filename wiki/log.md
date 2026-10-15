@@ -55,3 +55,8 @@
 - Bestand umgestellt: 38 `[!info]`-Ergänzungen → 9 `[!beispiel]`, 29 `[!ergaenzung]`; `[!info] Relevanz` bleibt (stützt sich auf die VL).
 - AGENTS.md (Konvention „Eigene Ergänzungen") und Vorlagen konzept/methode angepasst.
 - Offen: Batches A–E mit neuen Beispielen und Abgleich unmarkierter Beispiele gegen die Folien.
+
+## [2026-10-15] query | Beispiele: Regression und Grundlagen (Batch A)
+- Je ein grünes Rechenbeispiel und ein Anwendungsfall auf [[statistisches-lernproblem]], [[lineare-regression]], [[logistische-regression]], [[basisfunktionen-regression]], [[splines-und-b-splines]], [[bias-varianz-tradeoff]], [[modellauswahl-vorgehen]].
+- Abgleich mit Folien: Odds-Ratio-Tabelle in [[logistische-regression]] war eigenes Material ohne Markierung → jetzt `[!beispiel]`. Übrige Beispiele stammen aus VL1-Übungen bzw. NB1.
+- Alle Zahlen mit Python nachgerechnet.
