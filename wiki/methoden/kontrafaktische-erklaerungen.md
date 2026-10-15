@@ -24,6 +24,7 @@ $$\min_{x'}\ d(x, x') \quad\text{u. d. N.}\quad f(x') \ge \text{Zielschwellenwer
 Das ist ein restringiertes Optimierungsproblem ([[restringierte-optimierung]]).
 
 **Gute Kontrafaktuale sind** (→ VL6, F. 10; [[q-nb07-local-xai|NB7]]):
+
 | Eigenschaft | Bedeutung |
 |---|---|
 | sparsam | nur wenige Merkmale ändern sich |

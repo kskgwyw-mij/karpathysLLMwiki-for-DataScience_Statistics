@@ -29,6 +29,7 @@ Man stellt sich die Zielfunktion als Landschaft über dem Parameterraum vor und 
 | Flaches Minimum | viele nahe Punkte haben fast denselben Zielwert |
 
 **Typische Fälle** (→ VL0, F. 72–73):
+
 | Fall | Beschreibung | Beispiel |
 |---|---|---|
 | Kein Minimum | Infimum existiert, wird aber nicht angenommen, oder $f$ ist nach unten unbeschränkt | $f(x) = e^x$: Infimum 0, kein $x$ erreicht es |
@@ -45,6 +46,7 @@ Geometrisch: Jede Verbindungsstrecke zweier Punkte des Graphen liegt **über** d
 - **Gegenbeispiele:** die meisten Trainingsziele tiefer neuronaler Netze
 
 **Was Konvexität bedeutet** (→ VL0, F. 76):
+
 | Gute Nachrichten | Wichtige Grenzen |
 |---|---|
 | Jedes lokale Minimum ist global | Konvex heißt nicht leicht, wenn Dimension oder Datenmenge riesig sind |

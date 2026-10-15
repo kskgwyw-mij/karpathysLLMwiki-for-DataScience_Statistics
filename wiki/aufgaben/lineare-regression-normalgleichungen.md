@@ -40,6 +40,7 @@ Deckt sich mit dem Notebook-Output `array([ 0.25, -0.25])`.
 
 ## Variante mit Ridge
 Mit Strafe $\lambda\|a\|^2$ (ohne $1/N$) wird $X^TX$ zu $X^TX + \lambda I$:
+
 | $\lambda$ | $a_0$ | $a_1$ | $\lVert a\rVert_2$ |
 |---|---|---|---|
 | 0 | 0,250 | −0,250 | 0,354 |

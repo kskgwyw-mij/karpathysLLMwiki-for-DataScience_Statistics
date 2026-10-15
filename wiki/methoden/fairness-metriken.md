@@ -54,6 +54,7 @@ Notation: $\hat Y$ Modellentscheidung, $Y$ wahres Label, $A$ Gruppenattribut. Au
 
 ## Beispiel
 Gruppe A: TP 40, FN 10, FP 20, TN 130; Gruppe B: TP 15, FN 15, FP 5, TN 65:
+
 | | Basisrate | Auswahlrate | TPR | FPR | PPV |
 |---|---|---|---|---|---|
 | A | 0,25 | 0,30 | 0,80 | 0,133 | 0,667 |

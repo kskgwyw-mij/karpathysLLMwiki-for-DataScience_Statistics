@@ -102,6 +102,7 @@ $$w(k) = \frac{k!\,(p-k-1)!}{p!}, \qquad \phi_i = \sum_{S\subseteq N\setminus\{i
 **M** Kontrafaktual – [[kontrafaktische-erklaerungen]]: $\min_{x'}d(x,x')$ u. d. N. $f(x')\ge$ Schwelle
 
 **M** Fairness – [[fairness-metriken]]
+
 | Metrik | gleich über Gruppen $a$ |
 |---|---|
 | Demographic Parity | $P(\hat Y = 1\mid A = a)$ |

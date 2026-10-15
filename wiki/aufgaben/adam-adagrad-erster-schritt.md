@@ -16,6 +16,7 @@ aktualisiert: 2026-10-15
 **Aufgabe.** Zwei Parameter, konstanter Gradient $g = (4;\ 0{,}5)$ in jedem Schritt, $\eta = 0{,}1$, $\varepsilon\approx 0$, $G_0 = 0$. Berechnen Sie die Schritte $\eta\, g_t/\sqrt{G_t}$ für $t = 1, 2$.
 
 **Lösung.**
+
 | $t$ | $G_t$ | Schritt Koordinate 1 | Schritt Koordinate 2 |
 |---|---|---|---|
 | 1 | $(16;\ 0{,}25)$ | $0{,}1\cdot 4/4 = 0{,}1$ | $0{,}1\cdot 0{,}5/0{,}5 = 0{,}1$ |
@@ -29,6 +30,7 @@ aktualisiert: 2026-10-15
 **Lösung.**
 $$m_1 = 0{,}1\,g_1,\quad v_1 = 0{,}001\,g_1^2,\quad \hat m_1 = \frac{m_1}{1 - 0{,}9} = g_1,\quad \hat v_1 = \frac{v_1}{1 - 0{,}999} = g_1^2$$
 $$\Delta\theta_1 = -\alpha\,\frac{g_1}{\sqrt{g_1^2 + \varepsilon}} \approx -\alpha\,\mathrm{sign}(g_1)$$
+
 | $g_1$ | $\Delta\theta_1$ |
 |---|---|
 | 0,001 | −0,000995 |

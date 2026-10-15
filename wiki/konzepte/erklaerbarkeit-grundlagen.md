@@ -43,6 +43,7 @@ Ein klares Erklärungsziel verhindert, dass Modellverhalten, reale Kausalität u
 | Qualitätskriterium | Fidelity, Stabilität, Handlungsfähigkeit, Fairness | wann ist die Erklärung gut genug? |
 
 **Einordnung der Methoden im Wiki:**
+
 | Methode | Umfang | Zeitpunkt | Modellbezug |
 |---|---|---|---|
 | [[transparente-modelle]], [[logistische-regression]], [[entscheidungsbaeume]] | global + lokal | ante-hoc | spezifisch |

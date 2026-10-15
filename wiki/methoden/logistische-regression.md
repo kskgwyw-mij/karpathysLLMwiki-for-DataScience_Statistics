@@ -35,6 +35,7 @@ $$p(x) = \frac{1}{1 + e^{-(\beta_0 + \beta^Tx)}}, \qquad \frac{p}{1-p} = e^{\bet
 
 ## Beispiel
 $\beta_j = 0{,}7$ ⇒ Odds Ratio $e^{0{,}7}\approx 2{,}01$: Die Odds verdoppeln sich pro Einheit.
+
 | Ausgangs-$p$ | neues $p$ | Änderung |
 |---|---|---|
 | 0,10 | 0,183 | +0,083 |

@@ -38,6 +38,7 @@ Mischt man eine Spalte, bleibt ihre Verteilung gleich, aber der Zusammenhang zum
 
 ## Beispiel ([[q-nb06-global-xai|NB6]])
 Gradient Boosting, Churn, 20 Wiederholungen, Metrik ROC AUC:
+
 | Merkmal | Mittel | Std |
 |---|---|---|
 | `tenure_months` | 0,062 | 0,028 |

@@ -58,6 +58,7 @@ Für jeden Gitterwert $z$: $x_j$ bei **allen** Beobachtungen durch $z$ ersetzen 
 
 ## Beispiel ([[q-nb06-global-xai|NB6]])
 ALE für `tenure_months` (Gradient Boosting, Churn):
+
 | Laufzeit (Intervallmitte) | 4 | 10,5 | 18 | 32 | 51,5 | 67,3 |
 |---|---|---|---|---|---|---|
 | ALE-Effekt auf p(churn) | +0,103 | +0,055 | −0,007 | −0,004 | −0,010 | −0,053 |

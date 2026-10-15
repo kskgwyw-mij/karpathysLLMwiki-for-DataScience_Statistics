@@ -21,6 +21,7 @@ b) Wie ändert sich die Wahrscheinlichkeit, wenn $x_j$ um 1 steigt und die Ausga
 a) $e^{0{,}7}\approx 2{,}01$: Die **Odds** $p/(1-p)$ verdoppeln sich ungefähr pro Einheit $x_j$ (bei sonst gleichen Merkmalen).
 
 b) Odds berechnen, mit 2,01 multiplizieren, zurückrechnen $p = \text{Odds}/(1 + \text{Odds})$:
+
 | $p_\text{alt}$ | Odds alt | Odds neu | $p_\text{neu}$ | $\Delta p$ |
 |---|---|---|---|---|
 | 0,1 | 0,111 | 0,224 | 0,183 | +0,083 |

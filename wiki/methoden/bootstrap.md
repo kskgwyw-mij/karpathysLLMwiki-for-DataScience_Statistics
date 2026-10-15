@@ -33,6 +33,7 @@ return {s¹, …, sᴮ}
 - **Die gesamte Lernpipeline gehört in $S$**: Preprocessing, Feature-Selektion, ggf. Tuning.
 
 **Konfidenzintervalle** (→ VL0, F. 65):
+
 | Typ | Formel / Idee | Annahme / Einsatz |
 |---|---|---|
 | Normal-Approximation | Statistik $\pm 1{,}96\times$ Bootstrap-Standardfehler | Normalverteilung |

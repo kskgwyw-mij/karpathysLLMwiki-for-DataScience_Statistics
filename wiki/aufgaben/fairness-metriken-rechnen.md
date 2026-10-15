@@ -26,6 +26,7 @@ c) Welche Metrik passt, wenn der Hauptschaden „geeignete Personen werden nicht
 
 ## Lösungsweg
 a)
+
 | | Basisrate $\frac{TP+FN}{n}$ | Auswahlrate $\frac{TP+FP}{n}$ | TPR $\frac{TP}{TP+FN}$ | FPR $\frac{FP}{FP+TN}$ | PPV $\frac{TP}{TP+FP}$ | Accuracy |
 |---|---|---|---|---|---|---|
 | A | 50/200 = 0,25 | 60/200 = 0,30 | 40/50 = 0,80 | 20/150 = 0,133 | 40/60 = 0,667 | 0,85 |

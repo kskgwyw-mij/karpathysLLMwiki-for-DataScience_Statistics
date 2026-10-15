@@ -42,3 +42,9 @@
 ## [2026-10-15] setup | README: Diagramm als Bild
 - Mermaid-Block in der README durch PNG ersetzt (Jan: GitHub zeigt das Flowchart nicht an); helle und dunkle Variante per `<picture>`.
 - Bilder und Mermaid-Quelle in `.github/assets/llm-wiki-kreislauf*` (in Obsidian ausgeblendet).
+
+## [2026-10-15] lint | Tabellen-Rendering in Obsidian
+- Jan: Fairness-Tabelle in [[formelsammlung]] wurde als Rohtext angezeigt. Ursache: Tabelle direkt nach Absatzzeile ohne Leerzeile – Obsidian braucht eine Leerzeile vor Tabellen.
+- Wikiweit 27 Stellen in 22 Dateien behoben (Leerzeile eingefügt, kein Inhalt geändert); Tabellen nach Überschriften waren korrekt.
+- Normstriche in Tabellen-Mathe: `\|…\|` wird in Tabellenzellen zu `|…|` – auf `\lVert…\rVert` umgestellt in [[probabilistische-sicht-map]], [[regularisierung]], [[restringierte-optimierung]].
+- Konvention für künftige Seiten: Leerzeile vor jeder Tabelle; in Tabellen keine `\|` in Formeln.

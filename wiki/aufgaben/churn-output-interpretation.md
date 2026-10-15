@@ -14,6 +14,7 @@ aktualisiert: 2026-10-15
 
 ## Gegeben
 900 Kunden, Testanteil 25 % (stratifiziert), **12,3 % Churn**.
+
 | Modell | Accuracy | ROC AUC |
 |---|---|---|
 | Logistische Regression, `class_weight="balanced"` | 0,680 | 0,783 |
@@ -32,6 +33,7 @@ e) Formulieren Sie einen Satz zur Wirkung der Vertragslaufzeit ohne kausale Übe
 a) „Nie Churn" vorhersagen: auf dem Testset 197 von 225 richtig = **87,6 %** Accuracy – mehr als das Boosting-Modell (86,2 %). Ohne Dummy-Baseline ([[modellauswahl-vorgehen]], Phase 3) würde man 86 % für gut halten.
 
 b) Accuracy hängt am Schwellenwert 0,5 und an der Klassenverteilung. Nachgerechnet auf dem Testset (28 Churner):
+
 | Modell | vorhergesagt positiv | TP / FN / FP | Recall | Precision |
 |---|---|---|---|---|
 | Logistische Regression (balanced) | 39 % | 22 / 6 / 66 | 0,79 | 0,25 |

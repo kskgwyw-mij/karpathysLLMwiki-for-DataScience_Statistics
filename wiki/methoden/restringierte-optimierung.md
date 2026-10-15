@@ -39,11 +39,12 @@ $\Pi_C$ liefert den **nächstgelegenen zulässigen Punkt** (unter einer gewählt
 $$\mathrm{prox}_{\eta h}(v) = \arg\min_\theta\ h(\theta) + \frac{1}{2\eta}\|\theta - v\|^2$$
 Wähle den Punkt, der eine kleine Strafe $h$ mit Nähe zu $v$ ausbalanciert. Für $\min \mathcal L(\theta) = f(\theta) + h(\theta)$ mit glattem $f$ und nicht glattem $h$:
 $$\theta_{t+1} = \mathrm{prox}_{\eta h}\big(\theta_t - \eta\nabla f(\theta_t)\big)$$
+
 | $h$ | proximaler Operator |
 |---|---|
-| $\lambda\|\theta\|_1$ | **Soft-Thresholding** (Lasso) |
+| $\lambda\lVert\theta\rVert_1$ | **Soft-Thresholding** (Lasso) |
 | Indikatorfunktion einer Menge $C$ | **Projektion** auf $C$ → projizierter Gradient ist Spezialfall |
-| $\lambda\|\theta\|_2^2$ | Schrumpfen Richtung 0 |
+| $\lambda\lVert\theta\rVert_2^2$ | Schrumpfen Richtung 0 |
 
 Key idea: Ein proximaler Schritt ist ein regularisierter Korrekturschritt – den schwierigen Teil $h$ optimieren und dabei nahe am Gradientenvorschlag bleiben.
 

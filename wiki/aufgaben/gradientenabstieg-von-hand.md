@@ -16,6 +16,7 @@ aktualisiert: 2026-10-15
 **Aufgabe.** $f(\theta) = \theta^2$, $\theta_0 = 2$. Führen Sie vier GD-Schritte mit $\eta \in \{0{,}1;\ 0{,}5;\ 0{,}9;\ 1{,}1\}$ durch. Für welche $\eta$ konvergiert das Verfahren?
 
 **Lösung.** $\nabla f = 2\theta$ ⇒ $\theta_{t+1} = \theta_t - 2\eta\theta_t = (1 - 2\eta)\,\theta_t$.
+
 | $\eta$ | Faktor $1-2\eta$ | $\theta_1$ | $\theta_2$ | $\theta_3$ | $\theta_4$ |
 |---|---|---|---|---|---|
 | 0,1 | 0,8 | 1,6 | 1,28 | 1,024 | 0,819 |
@@ -28,6 +29,7 @@ Konvergenz genau für $\lvert 1 - 2\eta\rvert < 1 \Leftrightarrow 0 < \eta < 1$.
 **Aufgabe.** Gleiche Funktion, $\theta_0 = 2$, $\eta = 0{,}1$, $\beta = 0{,}9$, $v_0 = 0$. Vier Schritte mit $v_{t+1} = \beta v_t + \nabla f(\theta_t)$, $\theta_{t+1} = \theta_t - \eta v_{t+1}$.
 
 **Lösung.**
+
 | $t$ | $\theta_t$ | $g_t = 2\theta_t$ | $v_{t+1} = 0{,}9\,v_t + g_t$ | $\theta_{t+1} = \theta_t - 0{,}1\,v_{t+1}$ |
 |---|---|---|---|---|
 | 0 | 2 | 4 | 4 | 1,6 |

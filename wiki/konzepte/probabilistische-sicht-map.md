@@ -36,10 +36,11 @@ $$p(D\mid\theta) = \prod_{i=1}^N \exp\big(-\|f_\theta(x_i) - y_i\|^2\big) \;\Rig
 → Kleinste Quadrate = **Maximum Likelihood** unter Gauß-Rauschen.
 
 **Prior** (→ VL3, F. 37):
+
 | Prior | $-\log p(\theta)$ | ergibt |
 |---|---|---|
-| $p(\theta) = \exp(-\|\theta\|^2)$ (Gauß) | $\|\theta\|^2$ | L2-Regularisierung ([[ridge-regression]]) |
-| $p(\theta) = \exp(-\|\theta\|_1)$ (Laplace) | $\|\theta\|_1$ | L1-Regularisierung ([[lasso-regression]]) |
+| $p(\theta) = \exp(-\lVert\theta\rVert^2)$ (Gauß) | $\lVert\theta\rVert^2$ | L2-Regularisierung ([[ridge-regression]]) |
+| $p(\theta) = \exp(-\lVert\theta\rVert_1)$ (Laplace) | $\lVert\theta\rVert_1$ | L1-Regularisierung ([[lasso-regression]]) |
 
 Gleichheiten gelten nur bis auf Konstanten; Varianzen und Normierungen sind weggelassen. Mit Varianzen ([[q-nb04-prior-map|NB4]]):
 $$\text{MAP minimiert}\quad \frac{\mathrm{SSE}(\theta)}{2\sigma_\text{noise}^2} + \frac{\lambda}{2}\|\theta\|^2 \;\Rightarrow\; \big(X^TX + \lambda\sigma_\text{noise}^2 I\big)\theta = X^Ty$$
@@ -53,6 +54,7 @@ Der Regularisierungsparameter entspricht also dem Verhältnis von Rauschvarianz 
 
 ## Beispiel ([[q-nb04-prior-map|NB4]])
 Wahre Parameter $(0{,}4;\,1{,}0)$, sechs Punkte mit einem Ausreißer bei hohem $x$, $\sigma_\text{noise} = 0{,}8$, $\lambda = 2$:
+
 | | Schätzung | Abstand zur Wahrheit | Test-MSE |
 |---|---|---|---|
 | MLE | $(0{,}616;\,1{,}335)$ | 0,398 | 0,169 |

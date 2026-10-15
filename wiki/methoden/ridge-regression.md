@@ -45,6 +45,7 @@ Verallgemeinerung: jede andere Norm, auch mit Transformation $\lambda\|T(\theta)
 
 ## Beispiel
 Daten aus [[lineare-regression-normalgleichungen]], Strafe auf beide Koeffizienten:
+
 | $\lambda$ | $a_0$ | $a_1$ | $\lVert a\rVert_2$ |
 |---|---|---|---|
 | 0 | 0,250 | −0,250 | 0,354 |

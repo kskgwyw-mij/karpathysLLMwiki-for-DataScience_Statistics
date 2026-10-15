@@ -49,6 +49,7 @@ return θₜ
 
 ## Beispiel
 $f(\theta) = \theta^2$, $\theta_0 = 2$:
+
 | $\eta$ | $\theta_1, \theta_2, \theta_3, \theta_4$ | Verhalten |
 |---|---|---|
 | 0,1 | 1,6; 1,28; 1,024; 0,819 | langsam, monoton |

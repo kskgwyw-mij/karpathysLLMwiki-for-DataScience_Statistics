@@ -25,8 +25,8 @@ $$\mathcal L(\theta; X, Y) = \frac{1}{N}\sum_{i=1}^N \mathcal D\big(f_\theta(x_i
 ### Taxonomie (→ VL0, F. 36–43)
 | Methode | Idee | Formel / Umsetzung | Seite |
 |---|---|---|---|
-| **Harte** Regularisierung | Modellklasse strikt einschränken (Gleichung/Ungleichung, beliebige Aussage) | $\min \frac1N\sum\|f_\theta(x_i)-y_i\|^2$ mit $\theta \in C \subset \mathbb R^d$ | [[ridge-regression]], [[restringierte-optimierung]] |
-| **Weiche** (variationelle) Regularisierung | Bedingung als Strafterm (Funktional $\mathcal R:\mathbb R^d\to[0,\infty)$) | $\frac1N\sum\|f_\theta(x_i)-y_i\|^2 + \lambda\,\mathcal R(\theta)$, $\lambda\ge 0$ | [[ridge-regression]], [[lasso-regression]] |
+| **Harte** Regularisierung | Modellklasse strikt einschränken (Gleichung/Ungleichung, beliebige Aussage) | $\min \frac1N\sum\lVert f_\theta(x_i)-y_i\rVert^2$ mit $\theta \in C \subset \mathbb R^d$ | [[ridge-regression]], [[restringierte-optimierung]] |
+| **Weiche** (variationelle) Regularisierung | Bedingung als Strafterm (Funktional $\mathcal R:\mathbb R^d\to[0,\infty)$) | $\frac1N\sum\lVert f_\theta(x_i)-y_i\rVert^2 + \lambda\,\mathcal R(\theta)$, $\lambda\ge 0$ | [[ridge-regression]], [[lasso-regression]] |
 | **Output**-Regularisierung | Ausgabe statt Parameter bestrafen | $\ldots + \lambda\,\mathcal R(f_\theta(x_i))$ | [[output-regularisierung]] |
 | **Early Stopping** | Optimierung frühzeitig abbrechen | Val-Daten als Abbruchkriterium | [[early-stopping]] |
 | Regularisierung **durch Design** | Modellklasse so wählen, dass sie nicht überanpassen kann | Deep Image Prior, Equivariant Networks, Input Convex Networks; Vorwissen steckt in der Modellklasse | – |

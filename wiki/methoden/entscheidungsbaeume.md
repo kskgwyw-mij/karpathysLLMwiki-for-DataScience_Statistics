@@ -32,6 +32,7 @@ Wie ein Fragenkatalog: „Probeklausur ≤ 64,5 Punkte? Wenn ja: Übungsschnitt 
 
 ## Beispiel ([[q-nb05-tree-exam-grade|NB5]])
 Note 1–5 aus synthetischen Lerndaten, `class_weight="balanced"`, `min_samples_leaf=12`:
+
 | Tiefe | Accuracy | Balanced Acc. | Blätter |
 |---|---|---|---|
 | 2 | 0,461 | 0,495 | 4 |

@@ -25,6 +25,7 @@ Berechnen Sie $\phi_1, \phi_2, \phi_3$ und prüfen Sie die Effizienzeigenschaft.
 **Gewichte** für $p = 3$: $w(k) = \frac{k!\,(3-k-1)!}{3!}$ ⇒ $w(0) = \frac{1\cdot 2}{6} = \frac13$, $w(1) = \frac{1\cdot 1}{6} = \frac16$, $w(2) = \frac{2\cdot 1}{6} = \frac13$.
 
 **Merkmal 1** – Teilmengen $S\subseteq\{2,3\}$:
+
 | $S$ | $w$ | $f(S\cup\{1\}) - f(S)$ |
 |---|---|---|
 | $\varnothing$ | 1/3 | 14 − 10 = 4 |
