@@ -30,3 +30,7 @@
 - Jan: 13.11.2026, 11:00 ist der aktuelle Termin; der 03.07. aus VL1 F. 12 ist überholt.
 - [[overview]] (Termin, Dauer, offene Fragen) und [[q-vl01-glm-basisfunktionen-splines]] angepasst.
 - Offen bleibt nur die Dauer am 13.11.
+
+## [2026-10-15] setup | README: Lernablauf
+- README: neuer Abschnitt „Lernen“ (Lernsitzung in Obsidian → `quiz <thema>` im Terminal, tägliche Karteikarten), Verweis auf Lernplan in [[overview]].
+- README „Einrichtung“: Obsidian Git nicht nötig, der Agent committet und pusht selbst.
