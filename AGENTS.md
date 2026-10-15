@@ -139,6 +139,7 @@ Das Vault ist ein **öffentliches** GitHub-Repo.
 - `raw/` ist per `.gitignore` ausgeschlossen (Urheberrecht an Folien, Übungen, Altklausuren). Nur die leere Ordnerstruktur wird versioniert. Niemals Rohquellen force-adden oder Inhalte daraus wörtlich in längeren Passagen ins Wiki kopieren – zusammenfassen, eigene Formulierungen, Formeln und Beispiele sind in Ordnung.
 - Keine personenbezogenen Daten Dritter (Mitstudierende, Lehrende über Name und Rolle hinaus) und keine dienstlichen Inhalte ins Wiki.
 - Nach jeder abgeschlossenen Operation ein Commit, Nachricht im Log-Format: `ingest: vl03-ridge-lasso`, `quiz: kreuzvalidierung`, `lint: 2026-10-21`.
+- Direkt danach `git push origin main`, ohne Rückfrage. Wird der Push abgelehnt, nie force-pushen, sondern Jan Bescheid geben.
 
 ## Grenzen
 

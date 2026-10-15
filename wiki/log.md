@@ -15,3 +15,7 @@
 - Folienfehler dokumentiert: Newton-Update ohne $\theta_t$ (VL0 F. 91, VL4 F. 55), Dropout-Text auf Label-Smoothing-Folie, PDP-Formel ohne $1/N$; Bugs in NB3 (Early Stopping nie aktiv).
 - Handrechnungen mit Code verifiziert; drei Notebooks in `notebooks/` erzeugt und ausgeführt.
 - Offen: Prüfungsrelevanz Kapitel 5–6, Termin 03.07. vs. 13.11., Altklausuren.
+
+## [2026-10-15] setup | Schema: Push nach jedem Commit
+- AGENTS.md, Abschnitt Git: nach jedem Commit `git push origin main` ohne Rückfrage; bei abgelehntem Push kein Force-Push, sondern Jan informieren (auf Jans Wunsch).
+- git nutzt die gh-Anmeldung (`gh auth setup-git`).
