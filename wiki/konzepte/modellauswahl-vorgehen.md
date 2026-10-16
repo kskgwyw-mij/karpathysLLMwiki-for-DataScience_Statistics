@@ -2,10 +2,10 @@
 typ: konzept
 themen: [modellwahl]
 aliases: [Modellauswahl, Wie wähle ich die passende ML Methode, Model Selection, Faustregeln Modellwahl]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl02-bias-varianz-modellwahl]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl02-bias-varianz-modellwahl]]", "[[q-lernhilfe-sl2]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Modellauswahl: Welche Methode für welches Problem?
@@ -80,6 +80,9 @@ Zwei eigene Workshop-Fälle (Fake-Shop-Erkennung, Qualitätskontrolle in der Pro
 - Fallstrick: nur die beste Metrik betrachten statt Gesamtpaket (Erklärbarkeit, Latenz, Wartbarkeit, Fairness).
 - Fallstrick: bei unbalancierten Klassen Accuracy als Metrik wählen.
 
+> [!ergaenzung] Klausurhinweis (nicht aus der VL) – laut [[q-lernhilfe-sl2|Lernhilfe]], S. 7
+> Ein beliebtes Klausurmuster: Szenario vorgeben, Methode empfehlen und begründen – etwa 500 Patienten, 2000 Gen-Merkmale, Erklärbarkeit nötig. Denkweg: Problemtyp → N vs. p → Datentyp → Anforderungen, und immer mit einer Baseline beginnen. Ausgearbeitet als [[modellauswahl-fallbeispiele#Fall C · Genexpression|Fall C]].
+
 ## Verwandt
 - [[bias-varianz-tradeoff]] – Hintergrund der Faustregeln
 - [[regularisierung]] – „lieber einfach und regularisiert"
@@ -101,3 +104,4 @@ Was hilft bei stark verrauschten Labels laut VL?::Robuste Modelle, Regularisieru
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folien 17–34
 - [[q-vl02-bias-varianz-modellwahl|VL2]], Folien 9–27
+- [[q-lernhilfe-sl2|Lernhilfe]], S. 5–7 (Klausurhinweis)

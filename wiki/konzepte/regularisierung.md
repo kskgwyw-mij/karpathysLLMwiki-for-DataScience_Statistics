@@ -2,7 +2,7 @@
 typ: konzept
 themen: [regularisierung]
 aliases: [Regularization, Regularisierungsmethoden, Harte Regularisierung, Weiche Regularisierung, Variationelle Regularisierung, Regularisierung durch Design]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb02-mnist-regularization]]", "[[q-lab01-pytorch-introduction]]", "[[q-lab-abschlussprojekt-aufgabe]]", "[[q-abschlussprojekt-abgabe]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb02-mnist-regularization]]", "[[q-lab01-pytorch-introduction]]", "[[q-lab-abschlussprojekt-aufgabe]]", "[[q-abschlussprojekt-abgabe]]", "[[q-lernhilfe-sl2]]", "[[q-esl-elements-of-statistical-learning]]"]
 relevanz: hoch
 beherrschung: neu
 aktualisiert: 2026-10-16
@@ -36,6 +36,11 @@ $$\mathcal L(\theta; X, Y) = \frac{1}{N}\sum_{i=1}^N \mathcal D\big(f_\theta(x_i
 **Ergänzung aus dem Lab:** Die [[q-lab-abschlussprojekt-aufgabe|Kaggle-Aufgabe]] (S. 1) zählt außerdem **Data Augmentation** zu den Regularisierungsmethoden → [[data-augmentation]]. In den Folien kommt sie nur in der Diagnose-Tabelle unten vor („Datenaugmentation prüfen").
 
 $\lambda$ heißt **Regularisierungsparameter** und gibt an, wie stark die Bestrafung einfließt (→ VL0, F. 40). Mehrere Funktionale lassen sich kombinieren: $\ldots + \lambda_1\mathcal R_1(\theta) + \lambda_2\mathcal R_2(\theta)$, z. B. Elastic Net = L1 + L2 (→ [[q-vl03-regularisierung-cv|VL3]], F. 23).
+
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Hart und weich hängen zusammen (Lagrange)
+> Die beiden Formen sind zwei Seiten derselben Medaille. Die harte Variante mit Schranke
+> $$\min_\theta \frac1N\sum_{i=1}^N\lVert f_\theta(x_i)-y_i\rVert^2 \quad\text{mit}\quad \mathcal R(\theta)\le t$$
+> hat bei konvexen Problemen dieselbe Lösung wie die weiche Variante mit passendem $\lambda\ge 0$; $\lambda$ ist der Lagrange-Multiplikator der Nebenbedingung (KKT, [[restringierte-optimierung]]). Ein größeres $\lambda$ entspricht einer engeren Schranke $t$. Für Ridge entsprechen sich $\lambda$ und $t$ eineindeutig (→ [[q-lernhilfe-sl2|Lernhilfe]], S. 8; ESL 3.4.1, Gl. (3.41)/(3.42), S. 63). Deshalb zeigen die Bilder mit Kreis (L2) und Raute (L1) in [[l0-l1-l2-vergleich]] die harte Form, obwohl man meist die weiche rechnet.
 
 ### Wahrscheinlichkeitstheoretische Deutung
 Weiche Regularisierung = Maximum a posteriori mit Prior $p(\theta)$: Gauß-Prior → L2, Laplace-Prior → L1. Siehe [[probabilistische-sicht-map]].
@@ -99,6 +104,9 @@ Kein allgemeines Schema, nur Vorschläge.
 - Fallstrick: $\lambda = 0$ → keine Regularisierung, $\lambda\to\infty$ → „nur Regularisierung", bei L2 $\theta = 0$.
 - Fallstrick: Regularisierung reduziert Varianz, nicht den irreduziblen Fehler.
 
+> [!ergaenzung] Klausurhinweis (nicht aus der VL) – laut [[q-lernhilfe-sl2|Lernhilfe]], S. 10
+> Drei Fakten mit hohem Wert: (1) die weiche Zielfunktion $\text{Loss} + \lambda\mathcal R(\theta)$ und die Grenzfälle $\lambda = 0$ und $\lambda\to\infty$; (2) L1 → Sparsity (Merkmalsauswahl), L2 → glattes Schrumpfen, L0 ideal, aber nicht handhabbar und nicht differenzierbar ([[l0-l1-l2-vergleich]]); (3) Early Stopping ≙ L2 beim linearen Modell ([[early-stopping]]). Außerdem aus der Lücke zwischen Train- und Val-Fehler ablesen, ob $\lambda$ rauf oder runter muss (Diagnose-Tabelle oben).
+
 ## Verwandt
 - [[bias-varianz-tradeoff]] – warum Regularisierung hilft
 - [[l0-l1-l2-vergleich]] – Geometrie und Eigenschaften der Normen
@@ -128,3 +136,5 @@ Welche Regularisierungsmethoden nennt die Lab-Aufgabe?::L1, L2/Weight Decay, Dro
 - [[q-lab01-pytorch-introduction|Lab 1]], Abschnitt „Comparing the results"
 - [[q-lab-abschlussprojekt-aufgabe|Kaggle-Aufgabe]], S. 1
 - [[q-abschlussprojekt-abgabe|eigene Abgabe]], S. 2–3
+- [[q-lernhilfe-sl2|Lernhilfe]], S. 7–10 (Lagrange-Zusammenhang, Klausurhinweis)
+- [[q-esl-elements-of-statistical-learning|ESL]], Abschnitt 3.4.1, S. 63

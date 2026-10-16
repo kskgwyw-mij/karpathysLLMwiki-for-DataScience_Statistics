@@ -13,9 +13,9 @@
 ## Konzepte
 ### Kapitel 1–2 · GLM, Bias-Varianz, Regularisierung, Modellwahl
 - [[statistisches-lernproblem]] — $Y = f(x) + \varepsilon$, Vorhersage vs. Inferenz · hoch · Quellen: 2
-- [[bias-varianz-tradeoff]] — MSE = Bias² + Varianz + σ², Diagnose Under-/Overfitting · hoch · Quellen: 4
-- [[regularisierung]] — Definition, Taxonomie (hart, weich, Output, Early Stopping, Design, Dropout, Label Smoothing), Entscheidungsschema, Diagnose · hoch · Quellen: 7
-- [[modellauswahl-vorgehen]] — Faustregeln nach N, p/N, Datentyp; 4-Phasen-Ablauf · hoch · Quellen: 2
+- [[bias-varianz-tradeoff]] — MSE = Bias² + Varianz + σ², Zielscheibe, U-Kurve, Diagnose Under-/Overfitting · hoch · Quellen: 5
+- [[regularisierung]] — Definition, Taxonomie (hart, weich, Output, Early Stopping, Design, Dropout, Label Smoothing), hart ↔ weich über Lagrange, Entscheidungsschema, Diagnose · hoch · Quellen: 9
+- [[modellauswahl-vorgehen]] — Faustregeln nach N, p/N, Datentyp; 4-Phasen-Ablauf; Szenario-Aufgabe als Klausurmuster · hoch · Quellen: 3
 - [[train-val-test-split]] — Hyperparameter-Auswahlprozess, Test nur einmal, Data Leakage · hoch · Quellen: 6
 ### Kapitel 3 · Optimierung
 - [[optimierung-grundlagen]] — Minima-Typen, Max↔Min, Konvexität und ihre Folgen · hoch · Quellen: 2
@@ -29,7 +29,7 @@
 
 ## Methoden
 ### Kapitel 1 · General Linear Models
-- [[lineare-regression]] — Designmatrix, Herleitung der Normalgleichung $\hat a = (X^TX)^{-1}X^Ty$ · hoch · Quellen: 4
+- [[lineare-regression]] — Designmatrix, Herleitung der Normalgleichung $\hat a = (X^TX)^{-1}X^Ty$, Orthogonalprojektion · hoch · Quellen: 5
 - [[basisfunktionen-regression]] — Polynom, RBF, Sigmoid, Fourier, Bins; Basismatrix B · hoch · Quellen: 3
 - [[splines-und-b-splines]] — Spline-Definition, Cox-de-Boor-Rekursion, Eigenschaften · mittel · Quellen: 2
 ### Kapitel 2 · Regularisierung
@@ -69,10 +69,10 @@
 - [[basisfunktionen-uebung-folie-30]] — Basismatrix, $\{1,x\}$ von Hand, $\{1,x,x^2\}$ · hoch · Quellen: 1
 - [[b-splines-grad-2-von-hand]] — Cox-de Boor Grad 0 → 1 → 2 · mittel · Quellen: 1
 - [[bias-varianz-herleitung]] — Herleitung Schritt für Schritt („nur für Interessierte") · niedrig · Quellen: 1
-- [[modellauswahl-fallbeispiele]] — Qualitätskontrolle und Fake-Shop gegen die 4 Phasen · hoch · Quellen: 3
+- [[modellauswahl-fallbeispiele]] — Qualitätskontrolle, Fake-Shop und Gen-Szenario (Klausurmuster) gegen die 4 Phasen · hoch · Quellen: 6
 - [[gradientenabstieg-von-hand]] — Lernrate, Momentum, Konditionierung, Newton-Schritt · hoch · Quellen: 2
 - [[adam-adagrad-erster-schritt]] — diagonale Vorkonditionierung, Bias-Korrektur · mittel · Quellen: 1
-- [[bootstrap-oob-anteil]] — $(1-1/n)^n\to e^{-1}$ · mittel · Quellen: 2
+- [[bootstrap-oob-anteil]] — $(1-1/n)^n\to e^{-1}$, 63,2 % / 36,8 % (Klausurhinweis) · hoch · Quellen: 3
 - [[logistische-regression-odds-ratio]] — gleiches β, verschiedene Δp · mittel · Quellen: 1
 - [[shapley-von-hand]] — drei Merkmale, Gewichte, Effizienz · mittel · Quellen: 1
 - [[fairness-metriken-rechnen]] — Konfusionsmatrizen je Gruppe · mittel · Quellen: 1
@@ -97,6 +97,7 @@
 | [[q-vl05-xai-transparente-globale-modelle]] — XAI I · mittel | `vorlesung/vl05-xai-transparente-globale-modelle.pdf` | `3_Slides/5_Statistical_Learning_2_XAI_1.pdf` |
 | [[q-vl06-xai-lokal-fairness]] — XAI II, Fairness · mittel | `vorlesung/vl06-xai-lokal-fairness.pdf` | `3_Slides/6_slides_6.pdf` |
 | [[q-esl-elements-of-statistical-learning]] — Lehrbuch, Kapitelzuordnung · niedrig | `literatur/esl-elements-of-statistical-learning.pdf` | `3_Slides/7_elements.pdf` |
+| [[q-lernhilfe-sl2]] — Lernhilfe eines Studierenden zu VL0, **Klausurschwerpunkte** aus echten Klausuren · hoch | `literatur/lernhilfe-sl2.pdf` | – (Upload von Jan, 16.10.) |
 | [[q-literaturliste]] — Lektüreliste ISLP, PSDS, HOML, Kapitelzuordnung (ungeprüft) · niedrig | – (nicht in `raw/`) | – |
 | [[q-nb01-linear-regression]] — Normalgleichung in NumPy · hoch | `uebungen/nb01-linear-regression.ipynb` | `4_Jupyter Notebooks/1_linear_regression.json` |
 | [[q-nb02-mnist-regularization]] — 8 Regularisierungen auf MNIST · mittel | `uebungen/nb02-mnist-regularization.ipynb` | `4_Jupyter Notebooks/2_mnist_regularization_pytorch.xxx` |

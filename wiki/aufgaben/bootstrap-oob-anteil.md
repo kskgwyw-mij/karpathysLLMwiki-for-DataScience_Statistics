@@ -1,16 +1,19 @@
 ---
 typ: aufgabe
 themen: [resampling]
-quellen: ["[[q-vl00-essentiell]]", "[[q-esl-elements-of-statistical-learning]]"]
-relevanz: mittel
+quellen: ["[[q-vl00-essentiell]]", "[[q-esl-elements-of-statistical-learning]]", "[[q-lernhilfe-sl2]]"]
+relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Aufgabe · Wie viele Beobachtungen sind Out-of-Bag?
 
 > [!beispiel] Selbst erstellte Übungsaufgabe
 > Nicht aus der Vorlesung; die Rechnung stützt den OOB-Begriff aus [[q-vl00-essentiell|VL0]], F. 67, und folgt ESL 7.11.
+
+> [!ergaenzung] Klausurhinweis (nicht aus der VL) – laut [[q-lernhilfe-sl2|Lernhilfe]], S. 12
+> Die Aufteilung **ca. 63,2 % in-bag / 36,8 % out-of-bag** ($\approx 1/e$) gehört zu den genannten Prüfungspunkten. Deshalb steht diese Aufgabe auf Relevanz `hoch` (vorher `mittel`, 16.10.).
 
 ## Aufgabenstellung
 a) Mit welcher Wahrscheinlichkeit ist eine bestimmte Beobachtung $z_j$ **nicht** in einer Bootstrap-Stichprobe der Größe $n$ enthalten?
@@ -42,3 +45,4 @@ c) Erwartete Anzahl verschiedener Beobachtungen: $n\big(1 - (1-1/n)^n\big) \appr
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folie 67
 - [[q-esl-elements-of-statistical-learning|ESL]], Abschnitt 7.11, S. 249
+- [[q-lernhilfe-sl2|Lernhilfe]], S. 11–12

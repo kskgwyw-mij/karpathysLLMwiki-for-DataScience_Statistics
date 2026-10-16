@@ -14,6 +14,7 @@ aktualisiert: 2026-10-16
 | **Dauer** | für den alten Termin 03.07. laut Terminplan der VL 2 Stunden (12:00–14:00) – für den 13.11. unbestätigt |
 | **Gewichtung** | Prüfung **75 %** der Gesamtnote; **> 60 %** in der Prüfung nötig zum Bestehen; die übrigen 25 % (Mitarbeit, Aufgaben) können **nur verbessern** |
 | **Wichtigste Quelle** | [[q-vl00-essentiell\|Folienauswahl „essentiell"]] – „eine gute Note ist möglich, wenn diese Folien gut verstanden sind"; einzelne Teilaufgaben können zusätzliches VL-Wissen brauchen |
+| **Klausurhinweise** | [[q-lernhilfe-sl2\|Lernhilfe]] eines Studierenden (Juni 2026), deren „Exam focus"-Kästen laut Jan (16.10.) auf echte Klausuren hinweisen. Aufgabentypen: Formeln aufschreiben und Terme erklären, Normalgleichung herleiten, Verfahren schrittweise beschreiben, Begriffe abgrenzen, Fallszenario mit begründetem Modellvorschlag, Diagnose aus Train-/Val-Fehlern. Übersicht: [[q-lernhilfe-sl2#Klausurschwerpunkte\|Klausurschwerpunkte]] |
 | **Lektüre** | ISLP (James et al. 2023), PSDS (Bruce et al. 2020) und HOML (Géron 2022) laut Jan (16.10.), dazu ESL aus [[q-vl01-glm-basisfunktionen-splines\|VL1]], F. 11. Alles ist Vertiefung; die Kapitelzuordnung steht in [[q-literaturliste]] |
 
 Fortschritt und Countdown: [[dashboard]] · Alle Formeln: [[formelsammlung]] · Katalog: [[index]]
@@ -47,7 +48,7 @@ Fortschritt und Countdown: [[dashboard]] · Alle Formeln: [[formelsammlung]] · 
 | 13.11. | Klausur 11:00 | – |
 
 ## Offene Fragen an Jan
-- **Prüfungsrelevanz von Kapitel 5–6:** Probabilistische Sicht, XAI und Fairness fehlen in der Auswahl „essentiell". Kommen sie in der Klausur vor? Je nach Antwort stufe ich sie auf `hoch` hoch oder auf `niedrig` herunter.
+- **Prüfungsrelevanz von Kapitel 5–6:** Probabilistische Sicht, XAI und Fairness fehlen in der Auswahl „essentiell". Kommen sie in der Klausur vor? Je nach Antwort stufe ich sie auf `hoch` hoch oder auf `niedrig` herunter. Die [[q-lernhilfe-sl2|Lernhilfe]] hilft hier nicht weiter, weil sie nur VL0 abdeckt. Vielleicht wissen es die Absolventen.
 - **Dauer am 13.11.:** Die VL nannte für den alten Termin 03.07. zwei Stunden. Gilt das auch am 13.11.?
 - **Lab-Abschlussprojekt:** Zählt es zu den 25 % „Mitarbeit, Aufgaben" oder ist es eine eigene Lehrveranstaltung? ([[q-lab-abschlussprojekt-aufgabe]])
-- **Altklausuren/Probeklausur:** Gibt es welche? Dann kommen sie nach `raw/altklausuren/`, und die Quizfragen orientieren sich an ihrem Stil.
+- **Altklausuren/Probeklausur:** Gibt es welche? Dann kommen sie nach `raw/altklausuren/`, und die Quizfragen orientieren sich an ihrem Stil. Bis dahin geben die Klausurhinweise der [[q-lernhilfe-sl2|Lernhilfe]] den Stil vor.

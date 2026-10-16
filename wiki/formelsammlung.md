@@ -17,6 +17,9 @@ $$Y = f(x) + \varepsilon, \qquad \mathbb E[\varepsilon] = 0$$
 $$y = Xa + \varepsilon, \qquad L(a) = \|y - Xa\|^2, \qquad \nabla L = -2X^Ty + 2X^TXa$$
 $$X^TXa = X^Ty \quad\Rightarrow\quad \hat a = (X^TX)^{-1}X^Ty$$
 
+**E** Geometrie: Residuum senkrecht auf allen Spalten, $\hat y$ = Orthogonalprojektion von $y$ auf den Spaltenraum von $X$ – [[lineare-regression]]
+$$X^T(y - X\hat a) = 0, \qquad \hat y = X(X^TX)^{-1}X^Ty = Hy$$
+
 **E** 2×2-Inverse für Handrechnungen
 $$\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1} = \frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}, \qquad X^TX = \begin{pmatrix}K & \sum x\\ \sum x & \sum x^2\end{pmatrix},\ X^Ty = \begin{pmatrix}\sum y\\ \sum xy\end{pmatrix}$$
 
@@ -35,6 +38,8 @@ $$\mathrm{MSE}(x) = \underbrace{\big(f(x) - \mathbb E[\hat f(x)]\big)^2}_{\text{
 **H** Regularisierung – [[regularisierung]]
 $$\text{hart: } \min\frac1N\sum_i\|f_\theta(x_i) - y_i\|^2 \text{ mit } \theta\in C, \qquad \text{weich: } \frac1N\sum_i\|f_\theta(x_i) - y_i\|^2 + \lambda\mathcal R(\theta)$$
 $$\text{Output: } \ldots + \lambda\mathcal R\big(f_\theta(x_i)\big), \qquad \text{kombiniert: } \ldots + \lambda_1\mathcal R_1(\theta) + \lambda_2\mathcal R_2(\theta)$$
+
+**E** hart ↔ weich (Lagrange, konvexer Fall): $\min \mathcal L(\theta)$ mit $\mathcal R(\theta)\le t$ $\Leftrightarrow$ $\min \mathcal L(\theta) + \lambda\mathcal R(\theta)$ für passendes $\lambda\ge 0$; größeres $\lambda$ ↔ kleineres $t$
 
 **H** L2 / Ridge – [[ridge-regression]]: $\ldots + \lambda\|\theta\|^2$; hart $\|\theta\|\le R$ (Kreis); $\lambda = 0$ keine, $\lambda\to\infty$ ⇒ $\theta = 0$
 **E** geschlossen (ohne $1/N$): $\hat\theta = (X^TX + \lambda I)^{-1}X^Ty$

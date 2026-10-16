@@ -2,10 +2,10 @@
 typ: konzept
 themen: [bias-varianz, generalisierung]
 aliases: [Bias-Variance Trade-Off, Bias-Varianz-Zerlegung, Fehlerzerlegung, Overfitting, Underfitting]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl02-bias-varianz-modellwahl]]", "[[q-vl03-regularisierung-cv]]", "[[q-esl-elements-of-statistical-learning]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl02-bias-varianz-modellwahl]]", "[[q-vl03-regularisierung-cv]]", "[[q-esl-elements-of-statistical-learning]]", "[[q-lernhilfe-sl2]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Bias-Varianz-Trade-off
@@ -23,6 +23,11 @@ Zwei Ziele stehen gegeneinander (→ VL0, F. 13):
 Beides gleichzeitig perfekt zu erfüllen ist im Allgemeinen nicht möglich. Man denkt sich viele verschiedene Trainingsdatensätze aus derselben Verteilung und trainiert auf jedem ein Modell:
 - **Bias** fragt, wie weit das *durchschnittliche* dieser Modelle vom wahren $f$ entfernt ist. Ein zu einfaches Modell (Gerade für eine Parabel) liegt systematisch daneben.
 - **Varianz** fragt, wie stark die Modelle *untereinander* schwanken, also wie sensibel $\hat f$ auf die konkreten Trainingsdaten reagiert. Ein zu flexibles Modell folgt jedem Rauschpunkt.
+
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Zielscheibe und U-Kurve
+> **Zielscheibe:** Jedes trainierte Modell ist ein Wurf, die Mitte ist das wahre $f(x)$. Bias heißt, die Würfe liegen *systematisch* neben der Mitte; Varianz heißt, sie *streuen*. Einfache Modelle treffen eng gebündelt daneben (kleine Varianz, großer Bias), flexible Modelle streuen um die Mitte (kleiner Bias, große Varianz) (→ [[q-lernhilfe-sl2|Lernhilfe]], S. 5).
+>
+> **U-Kurve:** Mit wachsender Modellkomplexität sinkt der Bias und steigt die Varianz. Der Testfehler ist deshalb U-förmig mit einem Optimum in der Mitte, der Trainingsfehler fällt immer weiter, und $\sigma^2$ bleibt konstant (→ Lernhilfe, S. 5; ESL 2.9, Abb. 2.11, S. 38).
 
 ## Formal
 Mit $y = f(x) + \varepsilon$, $\mathbb E[\varepsilon] = 0$, $\mathbb E[\varepsilon^2] = \sigma^2$ (→ [[q-vl02-bias-varianz-modellwahl|VL2]], F. 5–7):
@@ -74,6 +79,9 @@ Polynom-Regression auf verrauschten Daten ([[basisfunktionen-uebung-folie-30]]):
 - Fallstrick: Der irreduzible Fehler hängt nicht vom Modell ab.
 - Fallstrick: Es heißt **Bias²**, nicht Bias.
 
+> [!ergaenzung] Klausurhinweis (nicht aus der VL) – laut [[q-lernhilfe-sl2|Lernhilfe]], S. 5
+> Die dreiteilige Zerlegung aufschreiben und jeden Term in Worten erklären. Typische Frage: „Was passiert mit Bias und Varianz, wenn die Modellkomplexität steigt?" → Bias sinkt, Varianz steigt, der Gesamtfehler ist U-förmig mit einem Optimum dazwischen, der irreduzible Fehler bleibt gleich.
+
 ## Verwandt
 - [[bias-varianz-herleitung]] – Schritt-für-Schritt-Herleitung
 - [[regularisierung]] – wichtigstes Werkzeug gegen Varianz
@@ -95,4 +103,5 @@ Welchen Term reduzieren mehr Trainingsdaten?::Die Varianz.
 - [[q-vl00-essentiell|VL0]], Folien 12–16, 57
 - [[q-vl02-bias-varianz-modellwahl|VL2]], Folien 3–8
 - [[q-vl03-regularisierung-cv|VL3]], Folie 2
-- [[q-esl-elements-of-statistical-learning|ESL]], Abschnitte 2.9 (S. 37) und 7.2–7.3 (S. 219–223)
+- [[q-esl-elements-of-statistical-learning|ESL]], Abschnitte 2.9 (S. 37–38, Abb. 2.11) und 7.2–7.3 (S. 219–223)
+- [[q-lernhilfe-sl2|Lernhilfe]], S. 4–5 (Zielscheibe, U-Kurve, Klausurhinweis)

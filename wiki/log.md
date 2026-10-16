@@ -102,3 +102,10 @@
 - Ergänzt: [[adaptive-optimierer]] (RMSprop, AdamW, Lab-Ergebnisse), [[newton-und-quasi-newton]] (L-BFGS-Closure, Minibatch-Ergebnis), [[gradientenabstieg]] (Schedules), [[sgd]], [[momentum-und-nesterov]], [[regularisierung]], [[dropout]], [[label-smoothing]], [[early-stopping]], [[train-val-test-split]], [[lasso-regression]], [[l0-l1-l2-vergleich]], [[optimierer-uebersicht]], [[formelsammlung]], [[index]], [[overview]].
 - Lab 2 hat Lücken (`create_optimizer`, `create_scheduler`, LION-Update); Schedule-Parameter aus den ausgegebenen Lernraten zurückgerechnet (grün). Ergebnisse der eigenen Abgabe stehen auf Themenseiten in grünen Anwendungsfällen.
 - Offen: Gehört das Abschlussprojekt zu den 25 %? Optimierer-Rankings in Lab 2 und eigener Abgabe widersprechen sich (Einzelläufe, kein Widerspruch zur VL).
+
+## [2026-10-16] ingest | Lernhilfe eines Studierenden (lernhilfe-sl2)
+- Upload von Jan nach `raw/literatur/lernhilfe-sl2.pdf`; laut Jan weisen die „Exam focus"-Kästen auf echte Klausuren hin. Neue Quellenseite [[q-lernhilfe-sl2]] mit Abschnitt-für-Abschnitt-Abgleich gegen VL0 (deckungsgleich, keine Widersprüche) und Tabelle der Klausurschwerpunkte.
+- Grün ergänzt, belegt mit Lernhilfe und ESL: Orthogonalprojektion in [[lineare-regression]], Zielscheibe und U-Kurve in [[bias-varianz-tradeoff]], hart ↔ weich über Lagrange in [[regularisierung]], Gen-Szenario als Fall C in [[modellauswahl-fallbeispiele]] (mit CV-Fallstrick aus ESL 7.10.2).
+- Klausurhinweise als grüne Callouts auf [[lineare-regression]], [[bias-varianz-tradeoff]], [[regularisierung]], [[modellauswahl-vorgehen]], [[bootstrap-oob-anteil]]; [[bootstrap-oob-anteil]] von `mittel` auf `hoch`. Außerdem [[formelsammlung]], [[overview]] (Zeile „Klausurhinweise"), [[index]].
+- Jan hat den Moodle-Export nach `raw/vorlesung/` gelegt; Kopien unter den Namen, die die Quellenseiten erwarten (`vl00`–`vl06`, `nb01`–`nb07`, ESL, Aktivität, Daten, Workshop-Abgaben), Originalordner unverändert.
+- Offen: Kamen XAI, Fairness oder MAP in der Klausur vor? Gab es Zahlenrechnungen? (Die Kästen nennen vor allem Herleiten, Erklären, Begründen.)

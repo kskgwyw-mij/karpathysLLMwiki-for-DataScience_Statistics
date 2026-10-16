@@ -2,10 +2,10 @@
 typ: methode
 themen: [glm, regression]
 aliases: [Linear Regression, Kleinste Quadrate, Least Squares, Normalgleichung, OLS]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl01-glm-basisfunktionen-splines]]", "[[q-nb01-linear-regression]]", "[[q-esl-elements-of-statistical-learning]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl01-glm-basisfunktionen-splines]]", "[[q-nb01-linear-regression]]", "[[q-esl-elements-of-statistical-learning]]", "[[q-lernhilfe-sl2]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Lineare Regression
@@ -35,6 +35,11 @@ $$\frac{\partial L}{\partial a}(a) = -2X^Ty + 2X^TXa \overset{!}{=} 0 \quad\Long
 
 > [!ergaenzung] Ergänzung (nicht aus der VL)
 > Herleitung der Ableitung: $L(a) = y^Ty - 2a^TX^Ty + a^TX^TXa$. Mit $\nabla_a(a^Tb) = b$ und $\nabla_a(a^TMa) = 2Ma$ für symmetrisches $M$ folgt die Formel oben. $X^TX$ ist invertierbar, wenn die Spalten von $X$ linear unabhängig sind (insbesondere braucht man $K \ge n+1$). Da $L$ konvex ist, ist der stationäre Punkt das globale Minimum ([[optimierung-grundlagen]]).
+
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Geometrische Deutung: Orthogonalprojektion
+> Alle möglichen Vorhersagen $Xa$ bilden den **Spaltenraum** von $X$. Kleinste Quadrate sucht darin den Punkt $\hat y = X\hat a$ mit dem kürzesten Abstand zu $y$, und das ist die **Orthogonalprojektion** von $y$ auf diesen Raum. Das Residuum $y - \hat y$ steht deshalb senkrecht auf jeder Spalte von $X$:
+> $$X^T(y - X\hat a) = 0$$
+> Das ist genau die Normalgleichung. Als Matrix geschrieben: $\hat y = X(X^TX)^{-1}X^T y = Hy$; $H$ heißt Hut- oder Projektionsmatrix (→ [[q-lernhilfe-sl2|Lernhilfe]], S. 3; ESL 3.2, S. 46). Das Residuen-Beispiel unten prüft diese Orthogonalität mit Zahlen.
 
 **Für $\{1, x\}$ (einfache Regression)** sind die Einträge Summen:
 $$X^TX = \begin{pmatrix} K & \sum x_j \\ \sum x_j & \sum x_j^2\end{pmatrix}, \qquad X^Ty = \begin{pmatrix}\sum y_j \\ \sum x_j y_j\end{pmatrix}$$
@@ -75,6 +80,9 @@ Vollständiger Rechenweg: [[lineare-regression-normalgleichungen]]. Notebook: `n
 - Verwechslung $X^TX$ ($(n{+}1)\times(n{+}1)$) mit $XX^T$ ($K\times K$).
 - Hochgestellte Indizes sind Komponenten, keine Potenzen.
 
+> [!ergaenzung] Klausurhinweis (nicht aus der VL) – laut [[q-lernhilfe-sl2|Lernhilfe]], S. 3
+> Die geschlossene Lösung angeben **und herleiten** können, außerdem sagen, **wann sie versagt**: $X^TX$ ist singulär, wenn es mehr Unbekannte als Beobachtungen gibt ($n + 1 > K$) oder Merkmale perfekt korreliert sind. Dann existiert die Inverse nicht – ein Motiv für [[ridge-regression]], denn $X^TX + \lambda I$ ist für $\lambda > 0$ immer invertierbar.
+
 ## Verwandt
 - [[statistisches-lernproblem]] – lineares $f$ als Spezialfall
 - [[basisfunktionen-regression]] – gleiche Lösung mit Basismatrix $B$ statt $X$
@@ -90,9 +98,11 @@ Wozu dient die Einsen-Spalte in der Designmatrix?::Sie liefert den Achsenabschni
 Welche Dimension hat die Designmatrix bei $K$ Beobachtungen und $n$ Merkmalen?::$K \times (n+1)$.
 Wann ist $X^TX$ invertierbar?::Wenn die Spalten von $X$ linear unabhängig sind (keine perfekte Kollinearität, $K \ge n+1$).
 Warum `np.linalg.solve` statt `inv`?::Löst das lineare System direkt, numerisch stabiler und günstiger als die explizite Inverse.
+Was ist $\hat y = X\hat a$ geometrisch?::Die Orthogonalprojektion von $y$ auf den Spaltenraum von $X$; das Residuum steht senkrecht auf allen Spalten: $X^T(y - X\hat a) = 0$.
 
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folien 7–10
 - [[q-vl01-glm-basisfunktionen-splines|VL1]], Folien 19–23
 - [[q-nb01-linear-regression|NB1]]
-- [[q-esl-elements-of-statistical-learning|ESL]], Abschnitt 3.2, S. 44
+- [[q-esl-elements-of-statistical-learning|ESL]], Abschnitt 3.2, S. 44–46
+- [[q-lernhilfe-sl2|Lernhilfe]], S. 2–3 (Orthogonalprojektion, Klausurhinweis)
