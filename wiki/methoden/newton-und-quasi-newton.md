@@ -2,10 +2,10 @@
 typ: methode
 themen: [optimierung]
 aliases: [Newton-Verfahren, Newton Method, Quasi-Newton, BFGS, L-BFGS, Hesse-Matrix, Second-order methods, Verfahren zweiter Ordnung]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-lab02-pytorch-optimizer-comparison]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Newton- und Quasi-Newton-Verfahren
@@ -63,6 +63,8 @@ für t = 0, 1, 2, …:
 ```
 Das BFGS-Update ist so konstruiert, dass es unter Standard-Krümmungsbedingungen **positive Definitheit erhält**. L-BFGS berechnet $p_t$ per „two-loop recursion" aus den letzten $m$ Paaren $(s_t, y_t)$.
 
+**L-BFGS in PyTorch** (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „The optimizers we compare", „Training function"): `torch.optim.LBFGS` nähert Krümmungsinformation an und funktioniert eher bei kleineren, glatten Problemen. Weil es pro Update Loss und Gradienten **mehrfach** auswerten kann, braucht `optimizer.step(closure)` eine **Closure**, die Gradienten zurücksetzt, den Loss neu berechnet und `backward()` aufruft ([[trainingsschleife]]). SGD und Adam brauchen das nicht, sie verwenden genau einen Gradienten pro Schritt.
+
 ### Erste vs. zweite Ordnung (→ VL0, F. 94)
 | Erste Ordnung | Zweite Ordnung / Quasi-Newton |
 |---|---|
@@ -71,6 +73,8 @@ Das BFGS-Update ist so konstruiert, dass es unter Standard-Krümmungsbedingungen
 | braucht Lernraten-Tuning und oft viele Iterationen | attraktiv für kleinere glatte Probleme oder „final polishing" |
 
 ## Beispiel
+**L-BFGS auf Minibatches** (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „Optimizer experiments", „Test accuracy table"): Auf MNIST mit Minibatches von 128 Bildern und Lernrate 0,8 ist L-BFGS mit Abstand am schlechtesten (Test-Acc 0,708 gegenüber 0,935 für SGD mit Momentum). Der Trainings-Loss springt in Epoche 3 auf 3 968, die Val-Accuracy schwankt zwischen 0,40 und 0,90. Das Notebook nimmt L-BFGS „vor allem zum Vergleich und zur Diskussion" auf: Es ist eher für kleinere deterministische Probleme gedacht als für Deep Learning mit Minibatches. Das bestätigt die VL-Aussage, dass stochastische Varianten zweiter Ordnung schwierig sind, weil die Krümmungsschätzungen verrauscht sind.
+
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – quadratische Funktion in einem Schritt
 > $f(\theta) = (\theta_1 - 1)^2 + 10(\theta_2 + 2)^2$, Start $(0,0)$: $\nabla f = (-2;\ 40)$, $H = \mathrm{diag}(2, 20)$, $\theta_1 = (0,0) - H^{-1}\nabla f = (1;\,-2)$ – das exakte Minimum nach **einem** Schritt. GD mit $\eta = 0{,}05$ braucht für $\theta_1$ dagegen viele Schritte (Faktor 0,9 pro Schritt). Rechenweg: [[gradientenabstieg-von-hand]].
 
@@ -108,7 +112,10 @@ Wie approximieren Quasi-Newton-Verfahren die Hesse-Matrix?::Die inverse Hesse-Ma
 Unterschied BFGS und L-BFGS?::L-BFGS speichert nur eine begrenzte Historie der letzten $m$ Update-Paare und eignet sich für größere Modelle.
 Wann sind Verfahren zweiter Ordnung attraktiv?::Für kleinere glatte Probleme oder zum „final polishing".
 Warum sind stochastische Varianten zweiter Ordnung schwierig?::Krümmungsschätzungen aus Minibatches sind verrauscht.
+Warum braucht L-BFGS in PyTorch eine Closure?::Es kann pro Update Loss und Gradient mehrfach auswerten; die Closure berechnet beides neu.
+Wie schnitt L-BFGS in Lab 2 auf MNIST-Minibatches ab?::Am schlechtesten (Test-Acc 0,71), mit Loss-Sprüngen; L-BFGS passt eher zu kleinen, glatten, deterministischen Problemen.
 
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folien 91–94
 - [[q-vl04-map-resampling-optimierung|VL4]], Folien 54–61
+- [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „The optimizers we compare", „Training function", „Test accuracy table"

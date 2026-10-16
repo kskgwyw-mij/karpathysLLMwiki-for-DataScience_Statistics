@@ -2,10 +2,10 @@
 typ: methode
 themen: [regularisierung, regression, sparsity]
 aliases: [Lasso, L1-Regularisierung, Basis Pursuit, L0-Regularisierung, Sparsity, Elastic Net, Konvexifizierung]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-vl05-xai-transparente-globale-modelle]]", "[[q-nb02-mnist-regularization]]", "[[q-esl-elements-of-statistical-learning]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-vl05-xai-transparente-globale-modelle]]", "[[q-nb02-mnist-regularization]]", "[[q-esl-elements-of-statistical-learning]]", "[[q-lab01-pytorch-introduction]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Lasso / L1-Regularisierung (und L0, Elastic Net)
@@ -52,7 +52,7 @@ $\|\theta\|_1$ ist in 0 nicht differenzierbar → **proximale Gradientenverfahre
 - Bei stark korrelierten Merkmalen wählt Lasso oft willkürlich eines aus der Gruppe → Elastic Net.
 
 ## Beispiel
-[[q-nb02-mnist-regularization|NB2]] (MNIST, $\lambda_1 = 10^{-6}$): Anteil der fc1-Gewichte mit $\lvert w\rvert < 10^{-3}$ steigt von 2,3 % (Baseline) auf **15,6 %**; L2 bleibt bei 2,2 %. Die L1-Norm sinkt von 1341 auf 914.
+[[q-nb02-mnist-regularization|NB2]] (MNIST, $\lambda_1 = 10^{-6}$): Anteil der fc1-Gewichte mit $\lvert w\rvert < 10^{-3}$ steigt von 2,3 % (Baseline) auf **15,6 %**; L2 bleibt bei 2,2 %. Die L1-Norm sinkt von 1341 auf 914. In [[q-lab01-pytorch-introduction|Lab 1]] mit $\lambda_1 = 10^{-4}$ sind es sogar **37,0 %** gegenüber 2,0 % (Abschnitt „Comparing weight statistics"); L1 wird dort von Hand vor `backward()` zum Loss addiert, weil PyTorch-Optimierer dafür keinen Parameter haben ([[trainingsschleife]]).
 
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – Lasso-Pfad im orthonormalen Fall
 > Ist $X^TX = I$, zerfällt $\min_\theta \tfrac12\|y - X\theta\|^2 + \lambda\|\theta\|_1$ in Einzelprobleme: $\hat\theta_j = \mathrm{sign}(\hat\theta_j^\text{KQ})\max\big(\lvert\hat\theta_j^\text{KQ}\rvert - \lambda,\ 0\big)$. Mit dem Kleinste-Quadrate-Schätzer $\hat\theta^\text{KQ} = (4;\ 0{,}5;\ -2)$:
@@ -107,4 +107,5 @@ Welche Alternative zu L1 nennt die VL für Sparsity?::Greedy Algorithmen.
 - [[q-vl04-map-resampling-optimierung|VL4]], Folien 74–76
 - [[q-vl05-xai-transparente-globale-modelle|VL5]], Folie 13
 - [[q-nb02-mnist-regularization|NB2]]
+- [[q-lab01-pytorch-introduction|Lab 1]], Abschnitte „L1 regularization", „Comparing weight statistics"
 - [[q-esl-elements-of-statistical-learning|ESL]], Abschnitt 3.4.2, S. 68

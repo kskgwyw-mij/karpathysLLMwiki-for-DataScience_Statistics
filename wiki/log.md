@@ -95,3 +95,10 @@
 - Neue Seite [[q-literaturliste]]: ISLP, PSDS und HOML wie von Jan angegeben, Rolle als Vertiefung, Kapitelzuordnung zu den Wiki-Themen als grüne Ergänzung (aus den Inhaltsverzeichnissen, nicht gegen die Bücher geprüft).
 - [[overview]] um die Zeile „Lektüre“ ergänzt, [[index]] um eine Zeile in der Quellentabelle.
 - Offen: Herkunft der Liste (VL1, F. 11 nennt nur ESL), Bibliographie von ISLP (fünfter Autor, „in Python“), PDFs für `raw/literatur/`, Buchverweise auf den Themenseiten erst nach dem Ingest.
+
+## [2026-10-16] ingest | Lab: PyTorch-Notebooks, Kaggle-Aufgabe, eigene Abgabe
+- Batch nach Rückfrage (Relevanz `mittel`, eigene Abgabe ins Wiki, Fokus Optimierer, Lab 1 vs. NB2, Trainings-Mechanik, Data Augmentation). Rohdateien aus dem Moodle-ZIP nach `raw/uebungen/` kopiert (Abgabe ohne Matrikel-ID im Namen).
+- Neue Quellenseiten: [[q-lab01-pytorch-introduction]], [[q-lab02-pytorch-optimizer-comparison]], [[q-lab-abschlussprojekt-aufgabe]], [[q-abschlussprojekt-abgabe]]. Neue Seiten: [[trainingsschleife]], [[data-augmentation]], [[regularisierung-mnist-lab01-vs-nb02]].
+- Ergänzt: [[adaptive-optimierer]] (RMSprop, AdamW, Lab-Ergebnisse), [[newton-und-quasi-newton]] (L-BFGS-Closure, Minibatch-Ergebnis), [[gradientenabstieg]] (Schedules), [[sgd]], [[momentum-und-nesterov]], [[regularisierung]], [[dropout]], [[label-smoothing]], [[early-stopping]], [[train-val-test-split]], [[lasso-regression]], [[l0-l1-l2-vergleich]], [[optimierer-uebersicht]], [[formelsammlung]], [[index]], [[overview]].
+- Lab 2 hat Lücken (`create_optimizer`, `create_scheduler`, LION-Update); Schedule-Parameter aus den ausgegebenen Lernraten zurückgerechnet (grün). Ergebnisse der eigenen Abgabe stehen auf Themenseiten in grünen Anwendungsfällen.
+- Offen: Gehört das Abschlussprojekt zu den 25 %? Optimierer-Rankings in Lab 2 und eigener Abgabe widersprechen sich (Einzelläufe, kein Widerspruch zur VL).

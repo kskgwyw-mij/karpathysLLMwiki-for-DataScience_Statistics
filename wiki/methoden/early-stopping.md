@@ -2,10 +2,10 @@
 typ: methode
 themen: [regularisierung, optimierung]
 aliases: [Early Stopping, Frühzeitiges Stoppen, Patience]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb02-mnist-regularization]]", "[[q-nb03-regularization-simple]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb02-mnist-regularization]]", "[[q-nb03-regularization-simple]]", "[[q-lab01-pytorch-introduction]]", "[[q-lab-abschlussprojekt-aufgabe]]", "[[q-abschlussprojekt-abgabe]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Early Stopping
@@ -41,6 +41,11 @@ am Ende best_state laden
 
 ## Beispiel
 Richtwert **Patience 5–10** (→ [[q-vl03-regularisierung-cv|VL3]], F. 41). In NB2 Patience 3 bei nur 8 Epochen. In [[q-nb03-regularization-simple|NB3]] ist Early Stopping durch einen Bug (`'use_early_stopping'==True`) nie aktiv.
+
+In [[q-lab01-pytorch-introduction|Lab 1]] gilt Patience 10 bei höchstens 20 Epochen; nach jeder Epoche wird der Zustand mit der bisher besten Val-Loss gespeichert und am Ende geladen, bevor die Test-Accuracy berechnet wird (Funktion `train_model`). Ausgelöst hat es nur beim komplexen Modell: beste Val-Loss in Epoche 10, Abbruch nach zehn Epochen ohne Verbesserung. Bei allen anderen Läufen wurde trotzdem das beste statt des letzten Modells verwendet.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – eigenes Abschlussprojekt
+> Im [[q-abschlussprojekt-abgabe|eigenen Fashion-MNIST-Projekt]] läuft Early Stopping (Patience 3, Mindestverbesserung $10^{-4}$, beste Epoche laden) als sechste Regularisierung in allen 20 Läufen mit. Unregularisierte Läufe stoppen am frühesten (keine Regularisierung × SGD mit Momentum: beste Epoche 5), regularisierte nutzen fast das volle Budget von 12 Epochen. Die per Early Stopping gefundene Epochenzahl (11) wurde danach für das Neutraining auf allen Trainingsdaten übernommen, ohne Val-Set ([[train-val-test-split]]).
 
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – Patience Schritt für Schritt
 > Patience 3, Mindestverbesserung $10^{-4}$, Val-Loss je Epoche:
@@ -79,3 +84,5 @@ Welches Modell nimmt man nach Early Stopping?::Das der besten Validierungsepoche
 - [[q-vl00-essentiell|VL0]], Folien 42, 49–50, 87
 - [[q-vl03-regularisierung-cv|VL3]], Folien 9, 26–27, 41
 - [[q-nb02-mnist-regularization|NB2]], [[q-nb03-regularization-simple|NB3]]
+- [[q-lab01-pytorch-introduction|Lab 1]], Funktion `train_model` und Abschnitt „Comparing the results"
+- [[q-lab-abschlussprojekt-aufgabe|Kaggle-Aufgabe]], S. 1 (Early Stopping als Regularisierungsmethode)

@@ -2,10 +2,10 @@
 typ: methode
 themen: [regularisierung, klassifikation]
 aliases: [Label Smoothing, weiche Labels]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-nb02-mnist-regularization]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-nb02-mnist-regularization]]", "[[q-lab01-pytorch-introduction]]", "[[q-abschlussprojekt-abgabe]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Label Smoothing
@@ -35,6 +35,11 @@ Für ein binäres Label wird aus $y = 1$ der Wert $1-\varepsilon$ und aus $y = 0
 
 ## Beispiel
 [[q-nb02-mnist-regularization|NB2]] mit $\varepsilon = 0{,}1$: **höchste** Val-Loss (0,770 gegenüber 0,305 Baseline), aber **beste** Test-Accuracy (0,934). Der Loss-Wert ist nicht vergleichbar, weil die Zielverteilung eine andere ist – selbst ein perfektes Modell erreicht mit weichen Zielen keine Cross-Entropy nahe 0.
+
+[[q-lab01-pytorch-introduction|Lab 1]] bestätigt das mit 20 Epochen: Label Smoothing 0,1 hat die höchste Val-Loss (0,70 gegenüber 0,25–0,29) und die beste Test-Accuracy aller Varianten (**0,944** gegenüber 0,928 Baseline). In PyTorch reicht `nn.CrossEntropyLoss(label_smoothing=0.1)` (Abschnitt „Label smoothing"). Gegenüberstellung: [[regularisierung-mnist-lab01-vs-nb02]].
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – eigenes Abschlussprojekt
+> Im [[q-abschlussprojekt-abgabe|eigenen Fashion-MNIST-Projekt]] ist Label Smoothing ($\varepsilon = 0{,}1$) mit AdamW die beste von 20 Varianten (Val-Acc 0,9315, Test-Acc 0,929). Die Lernkurven zeigen den Fallstrick von oben: Train- und Val-Loss liegen um etwa 0,6–0,7 statt 0,1–0,3, weil Smoothing das Minimum der Cross-Entropy anhebt. Die Abstände zu Dropout (< 0,2 Prozentpunkte) liegen vermutlich im Bereich des Seed-Rauschens.
 
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – warum Überkonfidenz bestraft wird
 > Binäre Cross-Entropy $-[t\log q + (1-t)\log(1-q)]$, wahres Label $y = 1$, Modell gibt $q$ aus:
@@ -74,3 +79,4 @@ Warum ist die Val-Loss mit Label Smoothing nicht mit der Baseline vergleichbar?:
 - [[q-vl00-essentiell|VL0]], Folie 52
 - [[q-vl03-regularisierung-cv|VL3]], Folien 31–32
 - [[q-nb02-mnist-regularization|NB2]]
+- [[q-lab01-pytorch-introduction|Lab 1]], Abschnitte „Label smoothing", „Comparing the results"

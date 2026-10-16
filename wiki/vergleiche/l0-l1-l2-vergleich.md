@@ -2,10 +2,10 @@
 typ: vergleich
 themen: [regularisierung, sparsity]
 aliases: [L1 vs L2, Ridge vs Lasso, Normen-Vergleich]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl05-xai-transparente-globale-modelle]]", "[[q-nb02-mnist-regularization]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl05-xai-transparente-globale-modelle]]", "[[q-nb02-mnist-regularization]]", "[[q-lab01-pytorch-introduction]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Vergleich: L0 vs. L1 vs. L2
@@ -38,12 +38,14 @@ Quellen: [[q-vl00-essentiell|VL0]] F. 45–47; [[q-vl03-regularisierung-cv|VL3]]
 >
 > Der L1-Gradient hat in der Nähe von 0 konstant Betrag $\lambda$ und zieht kleine Werte bis auf 0; der L2-Gradient $2\lambda\theta$ wird mit $\theta$ immer kleiner.
 
-## Empirisch ([[q-nb02-mnist-regularization|NB2]])
-| | Anteil fc1-Gewichte $\lvert w\rvert < 10^{-3}$ | Test-Accuracy |
-|---|---|---|
-| Baseline | 2,3 % | 0,924 |
-| L2 ($10^{-4}$) | 2,2 % | 0,920 |
-| L1 ($10^{-6}$) | 15,6 % | 0,919 |
+## Empirisch ([[q-nb02-mnist-regularization|NB2]], [[q-lab01-pytorch-introduction|Lab 1]])
+| | NB2: Anteil fc1-Gewichte $\lvert w\rvert < 10^{-3}$ | NB2: Test-Acc | Lab 1: Anteil $\lvert w\rvert < 10^{-3}$ | Lab 1: Test-Acc |
+|---|---|---|---|---|
+| Baseline | 2,3 % | 0,924 | 2,0 % | 0,928 |
+| L2 (NB2 $10^{-4}$, Lab 1 $10^{-2}$) | 2,2 % | 0,920 | 8,6 % | 0,931 |
+| L1 (NB2 $10^{-6}$, Lab 1 $10^{-4}$) | 15,6 % | 0,919 | **37,0 %** | 0,935 |
+
+Mit größerem $\lambda$ (Lab 1) wird das Muster deutlicher: L2 verkleinert das mittlere $\lvert w\rvert$ um 59 %, erzeugt aber kaum Nullen; L1 setzt mehr als ein Drittel der Gewichte praktisch auf 0. Gegenüberstellung der beiden Notebooks: [[regularisierung-mnist-lab01-vs-nb02]].
 
 ## Wann was?
 - Viele irrelevante Merkmale, Interpretierbarkeit gewünscht → **L1**

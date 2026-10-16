@@ -1,14 +1,14 @@
 ---
 typ: methode
 themen: [optimierung]
-aliases: [AdaGrad, AdaDelta, Adam, AdamW, LION, Adaptive Optimizer, adaptive Lernraten]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb02-mnist-regularization]]"]
+aliases: [AdaGrad, AdaDelta, RMSprop, Adam, AdamW, LION, Adaptive Optimizer, adaptive Lernraten]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb02-mnist-regularization]]", "[[q-lab02-pytorch-optimizer-comparison]]", "[[q-abschlussprojekt-abgabe]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
-# Adaptive Optimierer: AdaGrad, AdaDelta, Adam, LION
+# Adaptive Optimierer: AdaGrad, AdaDelta, RMSprop, Adam, LION
 
 #flashcards/statistik
 
@@ -42,6 +42,13 @@ $$\Delta\theta_t = -\frac{\mathrm{RMS}[\Delta\theta]_{t-1}}{\mathrm{RMS}[g]_t}\,
 - $\mathrm{RMS}[\Delta\theta]$ hält die Einheiten des Updates vergleichbar mit den Parametereinheiten.
 - robuster als AdaGrad bei langem Training; heute ist Adam verbreiteter.
 
+### RMSprop (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitt „The optimizers we compare")
+RMSprop passt die Lernrate **pro Parameter** über ein **gleitendes Mittel der quadrierten Gradienten** an. Die [[q-lab-abschlussprojekt-aufgabe|Kaggle-Aufgabe]] zählt es zu den Optimierern aus der Vorlesung (S. 2). In den Folien steht es laut aktuellem Wiki-Stand nicht.
+
+> [!ergaenzung] Ergänzung (nicht aus der VL) – RMSprop-Update
+> $$v_t = \alpha\,v_{t-1} + (1-\alpha)\,g_t^2, \qquad \theta_t = \theta_{t-1} - \eta\,\frac{g_t}{\sqrt{v_t} + \varepsilon}$$
+> PyTorch-Default $\alpha = 0{,}99$. RMSprop ist AdaGrad mit gleitendem Mittel statt Summe (dieselbe Idee wie der Nenner von AdaDelta) und entspricht Adam **ohne** erstes Moment und ohne Bias-Korrektur. Damit fällt die effektive Lernrate nicht mehr monoton wie bei AdaGrad.
+
 ### Adam (→ VL4, F. 50–51)
 $$m_t = \beta_1 m_{t-1} + (1-\beta_1)\,g_t \quad\text{(erstes Moment)}, \qquad v_t = \beta_2 v_{t-1} + (1-\beta_2)\,g_t^2 \quad\text{(zweites Moment)}$$
 $$\hat m_t = \frac{m_t}{1-\beta_1^t}, \qquad \hat v_t = \frac{v_t}{1-\beta_2^t}, \qquad \theta_t = \theta_{t-1} - \alpha\,\frac{\hat m_t}{\sqrt{\hat v_t + \varepsilon}}$$
@@ -56,7 +63,10 @@ $$\hat m_t = \frac{m_t}{1-\beta_1^t}, \qquad \hat v_t = \frac{v_t}{1-\beta_2^t},
 > Für $t = 1$: $\hat m_1 = g_1$, $\hat v_1 = g_1^2$, also $\Delta\theta \approx -\alpha\cdot g_1/\lvert g_1\rvert = -\alpha\,\mathrm{sign}(g_1)$. Der erste Schritt hat in jeder Koordinate ungefähr Betrag $\alpha$ – **unabhängig von der Gradientengröße**. Ohne Bias-Korrektur wäre er wegen $m_1 = 0{,}1\,g_1$ und $v_1 = 0{,}001\,g_1^2$ um den Faktor $0{,}1/\sqrt{0{,}001}\approx 3{,}2$ größer. Rechenweg: [[adam-adagrad-erster-schritt]].
 
 > [!ergaenzung] Ergänzung (nicht aus der VL) – AdamW vs. L2 in Adam
-> L2 im Loss landet im Gradienten und wird dann von $\sqrt{\hat v}$ geteilt – Parameter mit großen Gradienten werden kaum geschrumpft. AdamW zieht den Weight-Decay-Term $\eta\lambda\theta$ **separat** ab, entkoppelt von der adaptiven Skalierung. In [[q-nb02-mnist-regularization|NB2]] wird L2 über `torch.optim.Adam(weight_decay=…)` umgesetzt, also die gekoppelte Variante.
+> L2 im Loss landet im Gradienten und wird dann von $\sqrt{\hat v}$ geteilt – Parameter mit großen Gradienten werden kaum geschrumpft. AdamW zieht den Weight-Decay-Term $\eta\lambda\theta$ **separat** ab, entkoppelt von der adaptiven Skalierung. In [[q-nb02-mnist-regularization|NB2]] und [[q-lab01-pytorch-introduction|Lab 1]] wird L2 über `torch.optim.Adam(weight_decay=…)` umgesetzt, also die gekoppelte Variante.
+> $$\text{AdamW: } \theta_t = \theta_{t-1} - \alpha\Big(\frac{\hat m_t}{\sqrt{\hat v_t + \varepsilon}} + \lambda\,\theta_{t-1}\Big)$$
+
+**Im Lab** (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „The optimizers we compare", „Summary"): AdamW ist Adam mit **entkoppeltem Weight Decay** und wird bevorzugt, wenn Weight Decay als Regularisierung dient. Auch die LION-Implementierung im Lab schrumpft die Parameter entkoppelt mit dem Faktor $1 - \eta\lambda$, „ähnlich wie AdamW".
 
 ### LION (→ VL4, F. 62–63)
 ```
@@ -73,6 +83,11 @@ für t = 1, 2, …:
 
 ## Beispiel
 AdaGrad-Schritte bei unterschiedlich großen Gradienten und der erste Adam-Schritt: [[adam-adagrad-erster-schritt]].
+
+**Lab 2, MNIST, 8 Epochen, gleiches Netz und gleicher Seed** (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitt „Test accuracy table"): Adam ($10^{-3}$) 0,9226, AdamW ($10^{-3}$, Weight Decay $10^{-4}$) 0,9228, RMSprop ($10^{-3}$) 0,9149, LION ($10^{-4}$) 0,8939. Alle adaptiven Verfahren liegen hier **hinter SGD mit Momentum** (0,9353). Das Notebook folgert, dass ein fairer Vergleich Lernraten-Tuning braucht und kein Optimierer immer der beste ist. Das passt zur VL-Vorsicht, dass Adam schlechter generalisieren kann als SGD. Bei der Lernrate reagiert Adam deutlich: nach 5 Epochen 0,846 ($10^{-4}$), 0,920 ($10^{-3}$), 0,931 ($10^{-2}$).
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – eigenes Abschlussprojekt: Adam vs. AdamW
+> In der [[q-abschlussprojekt-abgabe|eigenen Fashion-MNIST-Abgabe]] (CNN, 12 Epochen, Early Stopping) liefern Adam und AdamW **ohne** Weight Decay exakt dieselben Ergebnisse, ein guter Test der Implementierung. Mit Weight Decay $10^{-4}$ erreicht AdamW 0,9247 Val-Accuracy, Adam nur 0,9207. AdamW hat dabei nicht gewonnen, denn ohne Weight Decay lag es ebenfalls bei 0,9247; die gekoppelte L2-Variante hat Adam verschlechtert. Wichtig für faire Vergleiche: AdamW hat in PyTorch den Default `weight_decay = 0.01`, ist also ohne explizite 0 versteckt regularisiert.
 
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – Adam glättet einen Vorzeichenwechsel
 > Defaults $\alpha = 0{,}001$, $\beta_1 = 0{,}9$, $\beta_2 = 0{,}999$; Gradienten $g_1 = 1$, $g_2 = -1$ (verrauschte Richtung):
@@ -120,8 +135,14 @@ Adam-Defaults?::$\alpha=0{,}001$, $\beta_1=0{,}9$, $\beta_2=0{,}999$, $\varepsil
 Wozu die Bias-Korrektur bei Adam?::Sie kompensiert die Initialisierung $m_0=v_0=0$ in den ersten Iterationen.
 Was verwendet LION statt zweiter Momente?::Das Vorzeichen eines momentumartigen Updates (sign-based).
 Welche Vorsicht nennt die VL bei Adam?::Kann in manchen Settings schlechter generalisieren als SGD.
+Was macht RMSprop?::Es passt die Lernrate pro Parameter über ein gleitendes Mittel der quadrierten Gradienten an (wie AdaGrad, aber mit Vergessen).
+Unterschied Adam mit `weight_decay` vs. AdamW?::Bei Adam landet der L2-Term im Gradienten und wird adaptiv skaliert (gekoppelt); AdamW zieht den Weight Decay separat ab (entkoppelt) und wird bei Weight-Decay-Regularisierung bevorzugt.
+Welcher Optimierer gewann in Lab 2 auf MNIST, und was folgt daraus?::SGD mit Momentum (Test-Acc 0,935) vor AdamW/Adam (0,923); ein fairer Vergleich braucht Lernraten-Tuning, kein Optimierer ist immer der beste.
 
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folien 89–90
 - [[q-vl04-map-resampling-optimierung|VL4]], Folien 44–52, 62–63
 - [[q-nb02-mnist-regularization|NB2]]
+- [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „The optimizers we compare", „A small LION optimizer implementation", „Test accuracy table", „Learning rate sensitivity"
+- [[q-lab-abschlussprojekt-aufgabe|Kaggle-Aufgabe]], S. 2
+- [[q-abschlussprojekt-abgabe|eigene Abgabe]], S. 2–3

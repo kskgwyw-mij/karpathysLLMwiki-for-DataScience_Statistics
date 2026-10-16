@@ -2,10 +2,10 @@
 typ: methode
 themen: [optimierung]
 aliases: [Stochastic Gradient Descent, SGD, Minibatch, Batch Size, Epoche]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-lab02-pytorch-optimizer-comparison]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Stochastischer Gradientenabstieg (SGD)
@@ -50,6 +50,8 @@ Eigenschaften (→ VL0, F. 86): Rauschen kann helfen, flachen lokalen Minima und
 - Zielfunktion ist eine Summe/ein Mittel über Beobachtungen; Minibatches annähernd repräsentativ (deshalb Shuffling).
 
 ## Beispiel
+**Lab 2** (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „Optimizer experiments", „Test accuracy table"): Plain SGD mit $\eta = 0{,}1$ startet langsam (Val-Acc 0,38 nach Epoche 1, erst ab Epoche 4 über 0,88) und erreicht nach 8 Epochen Test-Acc 0,908. Mit Momentum ($\eta = 0{,}05$) sind es 0,935, der beste Wert aller Optimierer ([[momentum-und-nesterov]]). Laut Notebook ist SGD einfach, braucht aber sorgfältiges Lernraten-Tuning. Die Minibatches liefert ein `DataLoader` mit Batch 128 und Shuffling der Trainingsdaten ([[trainingsschleife]]).
+
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – ein Minibatch-Schritt
 > Modell $\hat y = \theta x$, Loss $\ell = (\theta x - y)^2$ mit $\nabla\ell = 2x(\theta x - y)$, Daten $(1,2), (2,3), (3,7), (4,8)$, $\theta_0 = 1$, $\eta = 0{,}05$.
 > - Einzelgradienten bei $\theta = 1$: $-2;\ -4;\ -24;\ -32$
@@ -85,3 +87,4 @@ Was wird beim Early Stopping im SGD-Training überwacht?::Der Validierungs-Loss,
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folien 85–88
 - [[q-vl04-map-resampling-optimierung|VL4]], Folien 40–43
+- [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „The optimizers we compare", „Optimizer experiments", „Summary"

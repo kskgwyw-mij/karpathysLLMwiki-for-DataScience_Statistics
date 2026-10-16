@@ -33,6 +33,7 @@ Fortschritt und Countdown: [[dashboard]] · Alle Formeln: [[formelsammlung]] · 
 | **5 Probabilistische Modellierung** | [[probabilistische-sicht-map]] | mittel | – | – |
 | **6 XAI** | [[erklaerbarkeit-grundlagen]], [[transparente-modelle]], [[logistische-regression]], [[entscheidungsbaeume]], [[permutation-feature-importance]], [[pdp-ice-ale]], [[lime]], [[shap]], [[lime-vs-shap]], [[kontrafaktische-erklaerungen]], [[grad-cam]] | mittel | [[logistische-regression-odds-ratio]], [[shapley-von-hand]], [[zwei-erklaerungen-pruefen]] | `xai-fairness-handrechnungen` |
 | **6 Fairness** | [[fairness-grundlagen]], [[fairness-metriken]], [[fairness-mitigation]] | mittel | [[fairness-metriken-rechnen]] | `xai-fairness-handrechnungen` |
+| **Lab (PyTorch)** – vertieft Kap. 2–3 | [[trainingsschleife]], [[data-augmentation]], [[regularisierung-mnist-lab01-vs-nb02]]; Lab-Ergebnisse auf [[adaptive-optimierer]] (RMSprop, AdamW), [[newton-und-quasi-newton]] (L-BFGS), [[gradientenabstieg]] (Schedules), [[dropout]], [[label-smoothing]], [[early-stopping]] | mittel | eigenes Projekt: [[q-abschlussprojekt-abgabe]] | – |
 
 ## Lernplan (Vorschlag, ab 15.10.)
 | Zeitraum | Fokus | Wiki-Operationen |
@@ -48,4 +49,5 @@ Fortschritt und Countdown: [[dashboard]] · Alle Formeln: [[formelsammlung]] · 
 ## Offene Fragen an Jan
 - **Prüfungsrelevanz von Kapitel 5–6:** Probabilistische Sicht, XAI und Fairness fehlen in der Auswahl „essentiell". Kommen sie in der Klausur vor? Je nach Antwort stufe ich sie auf `hoch` hoch oder auf `niedrig` herunter.
 - **Dauer am 13.11.:** Die VL nannte für den alten Termin 03.07. zwei Stunden. Gilt das auch am 13.11.?
+- **Lab-Abschlussprojekt:** Zählt es zu den 25 % „Mitarbeit, Aufgaben" oder ist es eine eigene Lehrveranstaltung? ([[q-lab-abschlussprojekt-aufgabe]])
 - **Altklausuren/Probeklausur:** Gibt es welche? Dann kommen sie nach `raw/altklausuren/`, und die Quizfragen orientieren sich an ihrem Stil.

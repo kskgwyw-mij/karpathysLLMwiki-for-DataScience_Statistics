@@ -2,10 +2,10 @@
 typ: konzept
 themen: [regularisierung]
 aliases: [Regularization, Regularisierungsmethoden, Harte Regularisierung, Weiche Regularisierung, Variationelle Regularisierung, Regularisierung durch Design]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb02-mnist-regularization]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb02-mnist-regularization]]", "[[q-lab01-pytorch-introduction]]", "[[q-lab-abschlussprojekt-aufgabe]]", "[[q-abschlussprojekt-abgabe]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Regularisierung (Überblick)
@@ -32,6 +32,8 @@ $$\mathcal L(\theta; X, Y) = \frac{1}{N}\sum_{i=1}^N \mathcal D\big(f_\theta(x_i
 | Regularisierung **durch Design** | Modellklasse so wählen, dass sie nicht überanpassen kann | Deep Image Prior, Equivariant Networks, Input Convex Networks; Vorwissen steckt in der Modellklasse | – |
 | **Dropout** | Bestandteile zufällig weglassen (nur im Training) | Ensemble mit geteilten Parametern | [[dropout]] |
 | **Label Smoothing** | harte One-Hot-Labels durch weiche ersetzen | $y = (1-\varepsilon)y + \varepsilon(1-y)$ | [[label-smoothing]] |
+
+**Ergänzung aus dem Lab:** Die [[q-lab-abschlussprojekt-aufgabe|Kaggle-Aufgabe]] (S. 1) zählt außerdem **Data Augmentation** zu den Regularisierungsmethoden → [[data-augmentation]]. In den Folien kommt sie nur in der Diagnose-Tabelle unten vor („Datenaugmentation prüfen").
 
 $\lambda$ heißt **Regularisierungsparameter** und gibt an, wie stark die Bestrafung einfließt (→ VL0, F. 40). Mehrere Funktionale lassen sich kombinieren: $\ldots + \lambda_1\mathcal R_1(\theta) + \lambda_2\mathcal R_2(\theta)$, z. B. Elastic Net = L1 + L2 (→ [[q-vl03-regularisierung-cv|VL3]], F. 23).
 
@@ -70,6 +72,11 @@ Kein allgemeines Schema, nur Vorschläge.
 ## Beispiel
 [[q-nb02-mnist-regularization|NB2]] vergleicht acht Varianten auf MNIST. Alle Test-Accuracies liegen zwischen 0,898 (Nichtnegativität, zu starke Einschränkung) und 0,934 (Label Smoothing). L1 erzeugt siebenmal so viele Nullgewichte wie die Baseline.
 
+[[q-lab01-pytorch-introduction|Lab 1]] wiederholt den Vergleich mit 100-mal größeren $\lambda$ und 20 statt 8 Epochen. Dort verbessern **alle** Methoden die Baseline (0,928): L2 0,931, L1 0,935, Dropout 0,930, Label Smoothing 0,944. Gegenüberstellung: [[regularisierung-mnist-lab01-vs-nb02]].
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – eigenes Abschlussprojekt (Fashion-MNIST)
+> Fünf Regularisierungs-Setups × vier Optimierer, CNN, höchstens 12 Epochen mit Early Stopping ([[q-abschlussprojekt-abgabe|eigene Abgabe]]). Mittlere Val-Accuracy: Label Smoothing 0,930 > Dropout 0,928 > Weight Decay 0,923 > keine 0,921 > [[data-augmentation]] 0,920. Augmentation braucht mehr Epochen als das Budget hergab – Regularisierungsstärke und Trainingsbudget sind nicht unabhängig. Und: Gegen eine ungeeignete Architektur hilft Regularisierung wenig (MLP rund 3 Prozentpunkte hinter dem CNN, mit wie ohne Regularisierung).
+
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – wie $\lambda$ die Wahl verschiebt
 > Zwei Kandidaten mit Datenterm $\frac1N\sum\mathcal D$ und L2-Strafe $\lambda\|\theta\|^2$:
 >
@@ -98,6 +105,8 @@ Kein allgemeines Schema, nur Vorschläge.
 - [[probabilistische-sicht-map]] – Regularisierung als Prior
 - [[train-val-test-split]] – wie man $\lambda$ wählt
 - [[restringierte-optimierung]] – wie man harte Regularisierung umsetzt (Projektion, proximal)
+- [[data-augmentation]] – Regularisierung über die Trainingsdaten (Lab)
+- [[regularisierung-mnist-lab01-vs-nb02]] – dieselben Methoden, unterschiedliche $\lambda$ und Budgets
 
 ## Karteikarten
 Wie definiert die VL Regularisierung?::Methoden, um die Komplexität des Modells zu steuern, mit dem Ziel, die Generalisierbarkeit zu verbessern.
@@ -109,9 +118,13 @@ Empfehlung bei wenig Daten und vielen Features?::L2/L1, Early Stopping, einfache
 Symptome von Unter-Regularisierung?::Hohe Varianz, große Lücke Train vs. Val, instabile Grenzen.
 Symptome von Über-Regularisierung?::Hoher Bias, Train und Val schlecht, zu glatte Outputs.
 Richtwert für L2-$\lambda$ und Dropout-Rate?::L2: $10^{-6}$ bis $10^{-2}$; Dropout: 0,1 bis 0,5.
+Welche Regularisierungsmethoden nennt die Lab-Aufgabe?::L1, L2/Weight Decay, Dropout, Early Stopping, Data Augmentation, Label Smoothing, Output-Regularisierung.
 
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folien 35–57
 - [[q-vl03-regularisierung-cv|VL3]], Folien 2–44
 - [[q-vl04-map-resampling-optimierung|VL4]], Folien 5–11
 - [[q-nb02-mnist-regularization|NB2]]
+- [[q-lab01-pytorch-introduction|Lab 1]], Abschnitt „Comparing the results"
+- [[q-lab-abschlussprojekt-aufgabe|Kaggle-Aufgabe]], S. 1
+- [[q-abschlussprojekt-abgabe|eigene Abgabe]], S. 2–3

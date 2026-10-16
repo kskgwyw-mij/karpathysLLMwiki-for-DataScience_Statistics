@@ -2,10 +2,10 @@
 typ: methode
 themen: [optimierung]
 aliases: [Momentum, Nesterov, Nesterov Accelerated Gradient, NAG, Heavy Ball]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-lab02-pytorch-optimizer-comparison]]", "[[q-abschlussprojekt-abgabe]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Momentum und Nesterov-Beschleunigung
@@ -58,6 +58,11 @@ für t = 0, 1, 2, …:
 > Bei konstantem Gradienten $g$ wächst $v$ auf $g/(1-\beta)$; mit $\beta = 0{,}9$ ist die effektive Schrittweite also bis zu **10-mal** so groß wie ohne Momentum.
 
 ## Beispiel
+**Lab 2, MNIST, 8 Epochen** (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „The optimizers we compare", „Test accuracy table"): Momentum sammelt Gradienten mit konsistenter Richtung, das kann das Training beschleunigen und Zickzack reduzieren. SGD mit Momentum ($\eta = 0{,}05$; Momentum-Wert 0,9 laut Übungsfrage 2) erreicht Test-Acc **0,935** und ist damit der beste aller sieben Optimierer, vor AdamW (0,923) und plain SGD (0,908). Schon nach Epoche 1 liegt die Val-Acc bei 0,84 statt 0,38 ohne Momentum.
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – eigenes Abschlussprojekt
+> Im [[q-abschlussprojekt-abgabe|eigenen Fashion-MNIST-Projekt]] war SGD mit Momentum ($\eta = 0{,}05$, $\beta = 0{,}9$, ohne Tuning) dagegen der **schwächste** Optimierer (Spaltenmittel 0,9214 gegenüber 0,9264 für AdamW). Zwei Einzelläufe, zwei Rankings: Ohne Lernraten-Tuning sagt ein Optimierer-Vergleich wenig.
+
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – Momentum und Nesterov an $f(\theta) = \theta^2$
 > $\theta_0 = 2$, $\eta = 0{,}1$, $\beta = 0{,}9$, $v_0 = 0$:
 >
@@ -96,3 +101,4 @@ Wofür ist Momentum besonders nützlich?::Für schlecht konditionierte Zielfunkt
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folien 81–84
 - [[q-vl04-map-resampling-optimierung|VL4]], Folien 35–39
+- [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „The optimizers we compare", „Test accuracy table", „Try"

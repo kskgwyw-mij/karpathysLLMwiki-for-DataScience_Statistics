@@ -2,10 +2,10 @@
 typ: methode
 themen: [optimierung]
 aliases: [Gradient Descent, GD, Gradientenverfahren, Lernrate, Learning Rate, Schrittweite, Line Search]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-lab02-pytorch-optimizer-comparison]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Gradientenabstieg
@@ -41,6 +41,13 @@ return θₜ
 | Decay-Schedules: step, exponential, cosine | Armijo-/Wolfe-Bedingungen balancieren Abstieg und Krümmung |
 | Warm-up stabilisiert frühe Iterationen | oft in deterministischer Optimierung; in großen Modellen mit verrauschten Minibatches seltener |
 
+**Schedules im Lab** (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitt „Learning-rate schedules"): Große Lernraten helfen früh im Training, schnell voranzukommen; kleinere später, stabil zu werden. Manche Schedules senken die Lernrate erst, wenn der Fortschritt stockt. Umgesetzt mit `torch.optim.lr_scheduler`: **step** (alle paar Epochen mit einem Faktor multiplizieren), **exponential** (nach jeder Epoche mit einem Faktor multiplizieren), **cosine** (glatt per Cosine Annealing absenken).
+
+> [!ergaenzung] Ergänzung (nicht aus der VL) – Schedule-Formeln
+> Mit Start-Lernrate $\eta_0$ und Epochenindex $t$:
+> $$\text{step: } \eta_t = \eta_0\,\gamma^{\lfloor t/s\rfloor}, \qquad \text{exponential: } \eta_t = \eta_0\,\gamma^{t}, \qquad \text{cosine: } \eta_t = \eta_\min + \tfrac12(\eta_0 - \eta_\min)\Big(1 + \cos\frac{\pi t}{T}\Big)$$
+> Die Lab-Werte ($s = 3$, $\gamma = 0{,}5$; $\gamma = 0{,}85$; $T = 8$, $\eta_\min = 10^{-5}$) sind aus den ausgegebenen Lernraten zurückgerechnet ([[q-lab02-pytorch-optimizer-comparison|Lab 2]]).
+
 > [!beispiel] Ergänzung (nicht aus der VL) – Schrittweite am Beispiel
 > Für $f(\theta) = \theta^2$ ist $\nabla f = 2\theta$, also $\theta_{t+1} = (1 - 2\eta)\theta_t$. Konvergenz genau dann, wenn $\lvert 1 - 2\eta\rvert < 1$, also $0 < \eta < 1$. Allgemein für eine quadratische Funktion mit größtem Hesse-Eigenwert $L$: $0 < \eta < 2/L$. Schlechte Konditionierung (sehr unterschiedliche Eigenwerte) erzwingt ein kleines $\eta$, mit dem flache Richtungen nur langsam vorankommen → Zickzack, siehe [[momentum-und-nesterov]]. Rechenbeispiel: [[gradientenabstieg-von-hand]].
 
@@ -48,6 +55,11 @@ return θₜ
 - $f$ differenzierbar; bei konvexem $f$ und passender Schrittweite Konvergenz zum globalen Minimum ([[optimierung-grundlagen]]).
 
 ## Beispiel
+**Lernrate und Schedules im Lab** (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „Comparing learning-rate schedules", „Learning rate sensitivity"; MNIST, Adam):
+- Lernrate nach 5 Epochen: $10^{-4}$ → Test-Acc 0,846 (zu langsam), $10^{-3}$ → 0,920, $10^{-2}$ → 0,931.
+- Schedules mit $\eta_0 = 10^{-3}$ nach 8 Epochen: konstant 0,9226, step 0,9212, exponential 0,9197, cosine 0,9187. Bei so kurzem Training bringt das Absenken hier nichts.
+- Ein Gewicht von Hand per Gradientenabstieg lernen: [[trainingsschleife]] (Lab 1).
+
 > [!beispiel] Rechenbeispiel (nicht aus der VL) – Schrittweite an $f(\theta) = \theta^2$
 > $\theta_0 = 2$, Update $\theta_{t+1} = (1 - 2\eta)\,\theta_t$:
 >
@@ -91,7 +103,10 @@ Nenne vier Stoppkriterien für GD.::Kleine Gradientennorm, kleine Änderung des 
 Drei Decay-Schedules für die Lernrate?::Step Decay, Exponential Decay, Cosine Decay.
 Was ist Line Search?::Schrittweite durch Testen von Kandidaten wählen, z. B. mit Armijo-/Wolfe-Bedingungen.
 Für welche $\eta$ konvergiert GD auf $f(\theta)=\theta^2$?::Für $0<\eta<1$, da $\theta_{t+1}=(1-2\eta)\theta_t$.
+Warum Lernraten-Schedules (Lab 2)?::Große Lernraten bringen früh schnellen Fortschritt, kleinere machen das späte Training stabiler.
+Wie unterscheiden sich step, exponential und cosine decay?::Step: alle paar Epochen mit einem Faktor multiplizieren; exponential: nach jeder Epoche; cosine: glatt nach einer Kosinuskurve absenken.
 
 ## Quellen
 - [[q-vl00-essentiell|VL0]], Folien 77–80
 - [[q-vl04-map-resampling-optimierung|VL4]], Folien 31–34
+- [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitte „Learning-rate schedules", „Comparing learning-rate schedules", „Learning rate sensitivity"

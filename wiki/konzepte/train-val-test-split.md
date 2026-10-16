@@ -2,10 +2,10 @@
 typ: konzept
 themen: [resampling, modellwahl, hyperparameter]
 aliases: [Train/Val/Test, Hyperparameter-Auswahl, Hyperparameter Tuning, Data Leakage, Leakage]
-quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb05-tree-exam-grade]]"]
+quellen: ["[[q-vl00-essentiell]]", "[[q-vl03-regularisierung-cv]]", "[[q-vl04-map-resampling-optimierung]]", "[[q-nb05-tree-exam-grade]]", "[[q-lab02-pytorch-optimizer-comparison]]", "[[q-abschlussprojekt-abgabe]]"]
 relevanz: hoch
 beherrschung: neu
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Train/Val/Test-Split und Hyperparameter-Auswahl
@@ -52,6 +52,17 @@ Informationen aus dem Ziel oder aus Test-/Validierungsdaten gelangen ins Trainin
 >
 > Verfeinern um das Optimum, z. B. $\{3\cdot10^{-5},\ 10^{-4},\ 3\cdot10^{-4}\}$; dann mit dem besten $\lambda$ auf Train + Val (8 500) neu trainieren und den Testfehler **einmal** berichten.
 
+Auch das Lab betont: Hyperparameter mit dem Validierungsset wählen und das Testset nur für die finale Bewertung verwenden (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitt „Test accuracy table").
+
+> [!beispiel] Anwendungsfall (nicht aus der VL) – eigenes Abschlussprojekt nach dem Auswahlprozess
+> [[q-abschlussprojekt-abgabe|Eigene Fashion-MNIST-Abgabe]], Schritt für Schritt wie oben:
+> 1. **Split:** 6 000 von 60 000 Trainingsbildern mit festem Seed als Val-Set abzweigen; Testset (10 000) bleibt zu. Die Klassen sind perfekt balanciert, eine Stratifizierung ist also kaum nötig.
+> 2. **Sweep:** 20 Kombinationen aus Regularisierung und Optimierer, Auswahl nach Val-Macro-F1.
+> 3. **Final:** beste Variante (Label Smoothing + AdamW) mit der per Early Stopping gefundenen Epochenzahl (11) auf **allen** 60 000 Bildern neu trainieren.
+> 4. **Test einmal:** 92,90 % Accuracy gegenüber 93,15 % auf Val. Der kleine Abstand von etwa 0,3 Prozentpunkten spricht gegen eine Überanpassung an das Val-Set.
+>
+> Was fehlt gegenüber dem VL-Prozess: Mitteln über 3–5 Seeds. Deshalb sind die Unterschiede von unter 0,2 Prozentpunkten zwischen den besten Zellen nicht belastbar.
+
 > [!beispiel] Anwendungsfall (nicht aus der VL) – Leakage im Kreditmodell
 > Ein Ausfallmodell erreicht im Test eine AUC von 0,99. Ursache: Das Merkmal „Anzahl Mahnungen in den ersten 6 Monaten" entsteht **nach** der Kreditvergabe – zum Entscheidungszeitpunkt gibt es diese Information nicht. Im Einsatz bricht die Leistung ein. Prüffrage für jedes Merkmal: „Wäre es zum Zeitpunkt der Vorhersage bekannt?" Dazu kommt der subtile Fall: Mittelwert und Standardabweichung für die Standardisierung nur aus dem Training berechnen.
 
@@ -81,3 +92,4 @@ Warum Regularisierungsterm pro Batch mitteln statt summieren?::Damit $\lambda$ n
 - [[q-vl03-regularisierung-cv|VL3]], Folien 40–44
 - [[q-vl04-map-resampling-optimierung|VL4]], Folien 7–11
 - [[q-nb05-tree-exam-grade|NB5]]
+- [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitt „Test accuracy table"
