@@ -39,7 +39,7 @@ aktualisiert: 2026-10-16
 >
 > | Verfahren | Update | Seite |
 > |---|---|---|
-> | RMSprop | $v_t = \alpha v_{t-1} + (1-\alpha)g_t^2$; $\theta_t = \theta_{t-1} - \eta\,g_t/(\sqrt{v_t} + \varepsilon)$ | [[adaptive-optimierer]] |
+> | RMSprop | $v_t = \alpha v_{t-1} + (1-\alpha)g_t^2$; $\theta_t = \theta_{t-1} - \eta\,g_t/\sqrt{v_t + \varepsilon}$ | [[adaptive-optimierer]] |
 > | AdamW | wie Adam, zusätzlich $-\alpha\lambda\theta_{t-1}$ außerhalb der adaptiven Skalierung | [[adaptive-optimierer]] |
 
 ## Empirischer Vergleich im Lab (→ [[q-lab02-pytorch-optimizer-comparison|Lab 2]], Abschnitt „Test accuracy table")

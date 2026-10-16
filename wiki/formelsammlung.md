@@ -70,7 +70,7 @@ $$\text{AdaGrad: } G_t = G_{t-1} + g_t\odot g_t,\quad \theta_t = \theta_{t-1} - 
 $$\text{AdaDelta: } E[g^2]_t = \rho E[g^2]_{t-1} + (1-\rho)g_t^2,\quad \Delta\theta_t = -\frac{\mathrm{RMS}[\Delta\theta]_{t-1}}{\mathrm{RMS}[g]_t}g_t$$
 $$\text{Adam: } m_t = \beta_1m_{t-1} + (1-\beta_1)g_t,\ v_t = \beta_2v_{t-1} + (1-\beta_2)g_t^2,\ \hat m_t = \frac{m_t}{1-\beta_1^t},\ \hat v_t = \frac{v_t}{1-\beta_2^t},\ \theta_t = \theta_{t-1} - \alpha\frac{\hat m_t}{\sqrt{\hat v_t + \varepsilon}}$$
 Adam-Defaults $\alpha = 10^{-3}$, $\beta_1 = 0{,}9$, $\beta_2 = 0{,}999$, $\varepsilon = 10^{-8}$ · LION: $\theta_t = \theta_{t-1} - \eta\,\mathrm{sign}(u_t) - \eta\lambda\theta_{t-1}$
-**E** RMSprop (im Lab beschrieben): $v_t = \alpha v_{t-1} + (1-\alpha)g_t^2$, $\theta_t = \theta_{t-1} - \eta\,g_t/(\sqrt{v_t}+\varepsilon)$ · AdamW: Adam-Schritt $-\,\alpha\lambda\theta_{t-1}$ entkoppelt
+**E** RMSprop (im Lab beschrieben): $v_t = \alpha v_{t-1} + (1-\alpha)g_t^2$, $\theta_t = \theta_{t-1} - \eta\,g_t/\sqrt{v_t+\varepsilon}$ · AdamW: Adam-Schritt $-\,\alpha\lambda\theta_{t-1}$ entkoppelt
 **E** Lernraten-Schedules – [[gradientenabstieg]]: step $\eta_0\gamma^{\lfloor t/s\rfloor}$, exponential $\eta_0\gamma^t$, cosine $\eta_\min + \tfrac12(\eta_0-\eta_\min)(1+\cos(\pi t/T))$
 
 **H** Newton – [[newton-und-quasi-newton]]: $\theta_{t+1} = \theta_t - H(\theta_t)^{-1}\nabla f(\theta_t)$ (Folie ohne $\theta_t$ – Tippfehler)

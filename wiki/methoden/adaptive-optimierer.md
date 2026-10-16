@@ -46,8 +46,8 @@ $$\Delta\theta_t = -\frac{\mathrm{RMS}[\Delta\theta]_{t-1}}{\mathrm{RMS}[g]_t}\,
 RMSprop passt die Lernrate **pro Parameter** über ein **gleitendes Mittel der quadrierten Gradienten** an. Die [[q-lab-abschlussprojekt-aufgabe|Kaggle-Aufgabe]] zählt es zu den Optimierern aus der Vorlesung (S. 2). In den Folien steht es laut aktuellem Wiki-Stand nicht.
 
 > [!ergaenzung] Ergänzung (nicht aus der VL) – RMSprop-Update
-> $$v_t = \alpha\,v_{t-1} + (1-\alpha)\,g_t^2, \qquad \theta_t = \theta_{t-1} - \eta\,\frac{g_t}{\sqrt{v_t} + \varepsilon}$$
-> PyTorch-Default $\alpha = 0{,}99$. RMSprop ist AdaGrad mit gleitendem Mittel statt Summe (dieselbe Idee wie der Nenner von AdaDelta) und entspricht Adam **ohne** erstes Moment und ohne Bias-Korrektur. Damit fällt die effektive Lernrate nicht mehr monoton wie bei AdaGrad.
+> $$v_t = \alpha\,v_{t-1} + (1-\alpha)\,g_t^2, \qquad \theta_t = \theta_{t-1} - \eta\,\frac{g_t}{\sqrt{v_t + \varepsilon}}$$
+> $\varepsilon$ hier wie in der VL-Notation für AdaGrad und Adam unter der Wurzel (PyTorch rechnet $\sqrt{v_t} + \varepsilon$, siehe Fallstrick unten). PyTorch-Default $\alpha = 0{,}99$. RMSprop ist AdaGrad mit gleitendem Mittel statt Summe (dieselbe Idee wie der Nenner von AdaDelta) und entspricht Adam **ohne** erstes Moment und ohne Bias-Korrektur. Damit fällt die effektive Lernrate nicht mehr monoton wie bei AdaGrad.
 
 ### Adam (→ VL4, F. 50–51)
 $$m_t = \beta_1 m_{t-1} + (1-\beta_1)\,g_t \quad\text{(erstes Moment)}, \qquad v_t = \beta_2 v_{t-1} + (1-\beta_2)\,g_t^2 \quad\text{(zweites Moment)}$$

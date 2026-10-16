@@ -32,8 +32,11 @@ Regularisierungsmethode, die in der Lab-Aufgabe neben L1, L2/Weight Decay, Dropo
 > In der Praxis wird pro Minibatch eine zufällige Transformation gezogen. Es gibt keinen Strafterm und kein $\lambda$; die Stärke steckt in der Wahl und im Umfang der Transformationen.
 
 ## Annahmen & Voraussetzungen
-- Die Transformation muss **semantikerhaltend** sein, also das Label nicht ändern.
-- Nur auf den **Trainingssplit** anwenden; Val und Test bleiben unverändert, sonst misst man eine andere Verteilung.
+> [!ergaenzung] Ergänzung (nicht aus der VL)
+> - Die Transformation muss **semantikerhaltend** sein, also das Label nicht ändern.
+> - Nur auf den **Trainingssplit** anwenden; Val und Test bleiben unverändert, sonst misst man eine andere Verteilung.
+>
+> Beides ist in der [[q-abschlussprojekt-abgabe|eigenen Abgabe]] (S. 1) so umgesetzt und begründet.
 
 ## Beispiel
 > [!beispiel] Anwendungsfall (nicht aus der VL) – eigenes Abschlussprojekt (Fashion-MNIST)
