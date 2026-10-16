@@ -90,3 +90,8 @@
 - [[lineare-regression-normalgleichungen]]: Ridge-Variante und Schwerpunkt-Kontrolle waren eigene Ergänzungen ohne Markierung → grün; Rundungsfehler korrigiert (λ = 100: ‖a‖ = 0,122 statt 0,123).
 - Übrige Aufgabenseiten sind gelöste Kursübungen (VL1, VL2, Workshop) bzw. tragen schon eine grüne Kennzeichnung.
 - Kontrolle: alle 39 Konzept- und Methodenseiten haben mindestens ein grünes Rechenbeispiel und einen Anwendungsfall.
+
+## [2026-10-16] setup | Lektüreliste erfasst
+- Neue Seite [[q-literaturliste]]: ISLP, PSDS und HOML wie von Jan angegeben, Rolle als Vertiefung, Kapitelzuordnung zu den Wiki-Themen als grüne Ergänzung (aus den Inhaltsverzeichnissen, nicht gegen die Bücher geprüft).
+- [[overview]] um die Zeile „Lektüre“ ergänzt, [[index]] um eine Zeile in der Quellentabelle.
+- Offen: Herkunft der Liste (VL1, F. 11 nennt nur ESL), Bibliographie von ISLP (fünfter Autor, „in Python“), PDFs für `raw/literatur/`, Buchverweise auf den Themenseiten erst nach dem Ingest.

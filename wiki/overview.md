@@ -1,7 +1,7 @@
 ---
 typ: uebersicht
 themen: [klausur]
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # Klausurüberblick · Statistical Learning 2
@@ -14,6 +14,7 @@ aktualisiert: 2026-10-15
 | **Dauer** | für den alten Termin 03.07. laut Terminplan der VL 2 Stunden (12:00–14:00) – für den 13.11. unbestätigt |
 | **Gewichtung** | Prüfung **75 %** der Gesamtnote; **> 60 %** in der Prüfung nötig zum Bestehen; die übrigen 25 % (Mitarbeit, Aufgaben) können **nur verbessern** |
 | **Wichtigste Quelle** | [[q-vl00-essentiell\|Folienauswahl „essentiell"]] – „eine gute Note ist möglich, wenn diese Folien gut verstanden sind"; einzelne Teilaufgaben können zusätzliches VL-Wissen brauchen |
+| **Lektüre** | ISLP (James et al. 2023), PSDS (Bruce et al. 2020) und HOML (Géron 2022) laut Jan (16.10.), dazu ESL aus [[q-vl01-glm-basisfunktionen-splines\|VL1]], F. 11. Alles ist Vertiefung; die Kapitelzuordnung steht in [[q-literaturliste]] |
 
 Fortschritt und Countdown: [[dashboard]] · Alle Formeln: [[formelsammlung]] · Katalog: [[index]]
 

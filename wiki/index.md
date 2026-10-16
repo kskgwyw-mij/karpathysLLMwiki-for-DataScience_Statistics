@@ -94,6 +94,7 @@
 | [[q-vl05-xai-transparente-globale-modelle]] — XAI I · mittel | `vorlesung/vl05-xai-transparente-globale-modelle.pdf` | `3_Slides/5_Statistical_Learning_2_XAI_1.pdf` |
 | [[q-vl06-xai-lokal-fairness]] — XAI II, Fairness · mittel | `vorlesung/vl06-xai-lokal-fairness.pdf` | `3_Slides/6_slides_6.pdf` |
 | [[q-esl-elements-of-statistical-learning]] — Lehrbuch, Kapitelzuordnung · niedrig | `literatur/esl-elements-of-statistical-learning.pdf` | `3_Slides/7_elements.pdf` |
+| [[q-literaturliste]] — Lektüreliste ISLP, PSDS, HOML, Kapitelzuordnung (ungeprüft) · niedrig | – (nicht in `raw/`) | – |
 | [[q-nb01-linear-regression]] — Normalgleichung in NumPy · hoch | `uebungen/nb01-linear-regression.ipynb` | `4_Jupyter Notebooks/1_linear_regression.json` |
 | [[q-nb02-mnist-regularization]] — 8 Regularisierungen auf MNIST · mittel | `uebungen/nb02-mnist-regularization.ipynb` | `4_Jupyter Notebooks/2_mnist_regularization_pytorch.xxx` |
 | [[q-nb03-regularization-simple]] — vereinfachte Version (mit Bugs) · niedrig | `uebungen/nb03-regularization-simple.ipynb` | `4_Jupyter Notebooks/3_regularization_pytorch_simple.json` |
