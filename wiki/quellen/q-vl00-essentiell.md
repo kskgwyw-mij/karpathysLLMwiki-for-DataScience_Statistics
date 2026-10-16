@@ -5,7 +5,7 @@ aliases: [VL0, Folienauswahl essentiell, Gekürzte Version]
 datei: "raw/vorlesung/vl00-essentiell.pdf"
 original: "7_Folienauswahl/1_Statistisches_Lernen_2_bbm_essentiell.pdf"
 relevanz: hoch
-aktualisiert: 2026-10-15
+aktualisiert: 2026-10-16
 ---
 
 # VL0 · Folienauswahl „essentiell" (94 Folien)
@@ -37,6 +37,7 @@ Gekürzte Fassung der Kapitel 1–4 von Statistical Learning 2: allgemeine linea
 | 91–94 | Newton, Quasi-Newton, Vergleich 1. vs. 2. Ordnung | [[newton-und-quasi-newton]], [[optimierer-uebersicht]] |
 
 ## Prüfungsrelevante Aussagen
+- Die [[q-lernhilfe-sl2|Lernhilfe eines Studierenden]] folgt diesen Folien Abschnitt für Abschnitt; ihre „Exam focus"-Hinweise (laut Jan klausurnah) stehen dort unter „Klausurschwerpunkte".
 - Alles auf diesen Folien → `relevanz: hoch` im Wiki.
 - Fehlerzerlegung: Gesamtfehler = Bias² + Varianz + irreduzibler Fehler; gegen den irreduziblen Fehler kann man nichts tun (Folie 14).
 - Normalgleichung $\hat a = (X^TX)^{-1}X^Ty$ bzw. mit Basismatrix $B$ (Folien 10–11).
